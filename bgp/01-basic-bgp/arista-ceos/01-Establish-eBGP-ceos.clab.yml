@@ -1,0 +1,20 @@
+name: eBGP-ceos
+
+topology:
+  nodes:
+    inux01:
+      kind: linux
+      image: vpackets/alpine-tools:latest
+
+    ceos1:
+      kind: ceos
+      image: ceos:4.30.3M
+
+    ceos2: 
+      kind: ceos
+      image: ceos:4.30.3M
+
+  links:
+    - endpoints: ["linux01:eth1", "ceos1:eth1"]
+    - endpoints: ["ceos1:eth2", "ceos2:eth1"]
+

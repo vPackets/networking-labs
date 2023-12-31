@@ -1,0 +1,19 @@
+name: eBGP-vMX
+
+topology:
+  nodes:
+    linux01:
+      kind: linux
+      image: vpackets/alpine-tools:latest
+      
+    vmx01:
+      kind: juniper_vmx
+      image: vrnetlab/vr-vmx:21.2R1.10
+
+    vmx02: 
+      kind: juniper_vmx
+      image: vrnetlab/vr-vmx:21.2R1.10
+
+  links:
+    - endpoints: ["linux01:eth1", "vmx01:eth1"]   
+    - endpoints: ["vmx01:eth2", "vmx02:eth2"]
