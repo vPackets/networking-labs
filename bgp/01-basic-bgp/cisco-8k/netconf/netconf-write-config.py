@@ -22,7 +22,8 @@ router_configs = [
     
     # Configuration for the first router
     '''<config 
-	xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+	xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"
+    xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0">
 	<routing-policy
 		xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-policy-repository-cfg">
 		<route-policies>
@@ -102,6 +103,7 @@ end-policy
 			</ipv4-network>
 		</interface-configuration>
 		<interface-configuration>
+            <shutdown xc:operation="remove"/>
 			<active>act</active>
 			<interface-name>FourHundredGigE0/0/0/0</interface-name>
 			<ipv4-network
@@ -115,6 +117,7 @@ end-policy
 			</ipv4-network>
 		</interface-configuration>
 		<interface-configuration>
+            <shutdown xc:operation="remove"/>
 			<active>act</active>
 			<interface-name>FourHundredGigE0/0/0/1</interface-name>
 			<ipv4-network
@@ -129,9 +132,14 @@ end-policy
 		</interface-configuration>
 	</interface-configurations>
 </config>''', 
+
+
+
+
     # Configuration for the second router
     '''<config
-	xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+	xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"
+    xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0">
 	<routing-policy
 		xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-policy-repository-cfg">
 		<route-policies>
@@ -211,6 +219,7 @@ end-policy
 			</ipv4-network>
 		</interface-configuration>
 		<interface-configuration>
+            <shutdown xc:operation="remove"/>
 			<active>act</active>
 			<interface-name>FourHundredGigE0/0/0/0</interface-name>
 			<ipv4-network
@@ -224,6 +233,7 @@ end-policy
 			</ipv4-network>
 		</interface-configuration>
 		<interface-configuration>
+            <shutdown xc:operation="remove"/>
 			<active>act</active>
 			<interface-name>FourHundredGigE0/0/0/1</interface-name>
 			<ipv4-network
