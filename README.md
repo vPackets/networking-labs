@@ -1,37 +1,42 @@
-# Foobar
+# Networking Labs
 
-Foobar is a Python library for dealing with word pluralization.
+Welcome to **Networking Labs**, a comprehensive repository designed for networking enthusiasts, students, and professionals. Dive into a variety of hands-on labs that cover crucial networking concepts and technologies, specifically focused on BGP and service provider networks.
 
-## Installation
+## Table of Contents
+- [Networking Labs](#networking-labs)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Lab Categories](#lab-categories)
+    - [BGP Labs](#bgp-labs)
+    - [Service Provider Labs](#service-provider-labs)
+  - [Getting Started](#getting-started)
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+## Overview
 
-```bash
-pip install foobar
-```
+This repository aims to provide a practical learning experience through detailed lab exercises. Each lab focuses on real-world scenarios, aiding in understanding complex network setups and configurations. The labs are categorized into sections for easy navigation and a structured learning approach.
 
-## Usage
+## Lab Categories
 
-```python
-import foobar
+### BGP Labs
 
-# returns 'words'
-foobar.pluralize('word')
+In the `bgp` directory, you'll find labs related to Border Gateway Protocol (BGP), one of the core routing protocols of the Internet. These labs range from basic setups to more advanced configurations.
 
-# returns 'geese'
-foobar.pluralize('goose')
+- **01-basic-bgp**: An introductory series for BGP learners.
+  - **arista-ceos**: Explore BGP on Arista cEOS.
+  - **cisco-8k**: Advanced labs with Cisco 8000 Series, including automated Netconf scripts.
+  - **cisco-csr1000v**: Cisco CSR1000V Series configurations.
+  - **cumulus-frr**: BGP implementations on Cumulus Linux with FRRouting.
+  - **juniper-vmx**: Hands-on labs with Juniper vMX routers.
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+### Service Provider Labs
 
-## Contributing
+The `service-provider` directory offers labs designed to mimic service provider network environments, providing insights into large-scale network operations.
 
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
+## Getting Started
 
-Please make sure to update tests as appropriate.
+To dive into these labs:
 
-## License
+1. **Clone the Repository:**
 
-[MIT](https://choosealicense.com/licenses/mit/)
+   ```bash
+   git clone https://github.com/vPackets/networking-labs.git
