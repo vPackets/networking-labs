@@ -10,6 +10,9 @@ Welcome to **Networking Labs**, a comprehensive repository designed for networki
     - [BGP Labs](#bgp-labs)
     - [Service Provider Labs](#service-provider-labs)
   - [Getting Started](#getting-started)
+  - [Changelog](#changelog)
+  - [To Do (Commited)](#to-do-commited)
+  - [To Do (Draft and lab examples)](#to-do-draft-and-lab-examples)
 
 ## Overview
 
@@ -40,3 +43,24 @@ To dive into these labs:
 
    ```bash
    git clone https://github.com/vPackets/networking-labs.git
+
+
+## Changelog 
+
+2024-Jan-15: EBGP Basic lab with Cisco 8000 
+2024-Jan-17: Started EBGP Basic lab with CSR1000v
+
+## To Do (Commited)
+
+Basic eBGP :
+ - Cisco CSR1000v
+   - Finish netconf
+ - Arista EoS
+ - Cumulus/FRR
+ - Juniper vMX
+ - Nokia SRLinux
+
+
+## To Do (Draft and lab examples)
+
+
