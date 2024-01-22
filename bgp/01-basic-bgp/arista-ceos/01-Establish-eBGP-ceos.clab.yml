@@ -2,9 +2,17 @@ name: eBGP-ceos
 
 topology:
   nodes:
-    inux01:
+    linux01:
       kind: linux
-      image: vpackets/alpine-tools:latest
+      image: vpackets/alpine-tools-containerlab-isp-01:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    linux02:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-02:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
 
     ceos1:
       kind: ceos
@@ -16,5 +24,5 @@ topology:
 
   links:
     - endpoints: ["linux01:eth1", "ceos1:eth1"]
-    - endpoints: ["ceos1:eth2", "ceos2:eth1"]
-
+    - endpoints: ["ceos1:eth2", "ceos2:eth2"]
+    - endpoints: ["linux02:eth1", "ceos2:eth1"]

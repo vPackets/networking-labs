@@ -4,7 +4,15 @@ topology:
   nodes:
     linux01:
       kind: linux
-      image: vpackets/alpine-tools:latest
+      image: vpackets/alpine-tools-containerlab-isp-01:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    linux02:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-02:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
       
     vmx01:
       kind: juniper_vmx
@@ -17,3 +25,4 @@ topology:
   links:
     - endpoints: ["linux01:eth1", "vmx01:eth1"]   
     - endpoints: ["vmx01:eth2", "vmx02:eth2"]
+    - endpoints: ["linux02:eth1", "vmx02:eth1"] 
