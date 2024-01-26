@@ -49,12 +49,13 @@ To dive into these labs:
 
 2024-Jan-15: EBGP Basic lab with Cisco 8000 
 2024-Jan-17: Started EBGP Basic lab with CSR1000v
+2024-Jan-26: (Late at night) - Netconf for CSR1000v is complete (Attention, important to increase the timeout in the python script)
+2024-Jan-26: Started Arista EoS Configuration and Lab - Netconf
+
 
 ## To Do (Commited)
 
 Basic eBGP :
- - Cisco CSR1000v
-   - Finish netconf
  - Arista EoS
  - Cumulus/FRR
  - Juniper vMX
