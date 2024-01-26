@@ -56,3 +56,7 @@ This lab sets up a basic external BGP (eBGP) peering between two routers `Cisco8
 ## Lab Objective
 
 The primary objective of this lab is to establish eBGP peering between `Cisco8201-1` and `Cisco8201-2`, ensuring they can exchange routing information. This setup provides a basic understanding of inter-AS routing and BGP operations in a controlled lab environment.
+
+
+
+

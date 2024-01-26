@@ -1,0 +1,161 @@
+<config xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <system xmlns="http://openconfig.net/yang/system">
+        <config>
+            <hostname>CLAB-CEOS1</hostname>
+        </config>
+    </system>
+    <interfaces xmlns="http://openconfig.net/yang/interfaces">
+        <interface>
+            <name>Ethernet2</name>
+            <subinterfaces>
+                <subinterface>
+                    <index>0</index>
+                    <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+                        <addresses>
+                            <address>
+                                <ip>10.0.0.1</ip>
+                                <config>
+                                    <ip>10.0.0.1</ip>
+                                    <prefix-length>24</prefix-length>
+                                </config>
+                            </address>
+                        </addresses>
+                        <config>
+                            <enabled>true</enabled>
+                        </config>
+                    </ipv4>
+                </subinterface>
+            </subinterfaces>
+        </interface>
+		<interface>
+            <name>Ethernet1</name>
+            <subinterfaces>
+                <subinterface>
+                    <index>0</index>
+                    <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+                        <addresses>
+                            <address>
+                                <ip>192.0.2.1</ip>
+                                <config>
+                                    <ip>192.0.2.1</ip>
+                                    <prefix-length>24</prefix-length>
+                                </config>
+                            </address>
+                        </addresses>
+                        <config>
+                            <enabled>true</enabled>
+                        </config>
+                    </ipv4>
+                </subinterface>
+            </subinterfaces>
+        </interface>
+        <!-- Other interfaces and configurations... -->
+		<interface>
+				<name>Loopback0</name>
+				<config>
+					<loopback-mode>FACILITY</loopback-mode>
+					<name>Loopback0</name>
+					<type xmlns:ianaift="urn:ietf:params:xml:ns:yang:iana-if-type">ianaift:softwareLoopback</type>
+				</config>
+				<subinterfaces>
+					<subinterface>
+						<index>0</index>
+						<config/>
+						<ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
+							<addresses>
+								<address>
+									<ip>10.1.1.1</ip>
+									<config>
+										<ip>10.1.1.1</ip>
+										<prefix-length>32</prefix-length>
+									</config>
+								</address>
+							</addresses>
+							<config>
+								<enabled>true</enabled>
+							</config>
+						</ipv4>
+					</subinterface>
+				</subinterfaces>
+			</interface>
+    </interfaces>
+	<network-instances xmlns="http://openconfig.net/yang/network-instance">
+        <network-instance>
+            <name>default</name>
+            <config>
+				<ipv4-routing-enabled xmlns="http://arista.com/yang/openconfig/network-instances/augments">true</ipv4-routing-enabled>
+                <ipv6-routing-enabled xmlns="http://arista.com/yang/openconfig/network-instances/augments">true</ipv6-routing-enabled>
+                <name>default</name>
+                <type xmlns:oc-ni-types="http://openconfig.net/yang/network-instance-types">oc-ni-types:DEFAULT_INSTANCE</type>
+            </config>
+            <protocols>
+                <protocol>
+                    <identifier xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:BGP</identifier>
+                    <name>BGP</name>
+                    <bgp>
+                        <global>
+                            <afi-safis>
+                                <afi-safi>
+                                    <afi-safi-name xmlns:oc-bgp-types="http://openconfig.net/yang/bgp-types">oc-bgp-types:IPV4_UNICAST</afi-safi-name>
+                                    <config>
+                                        <afi-safi-name xmlns:oc-bgp-types="http://openconfig.net/yang/bgp-types">oc-bgp-types:IPV4_UNICAST</afi-safi-name>
+                                    </config>
+                                </afi-safi>
+                                <afi-safi>
+                                    <afi-safi-name xmlns:oc-bgp-types="http://openconfig.net/yang/bgp-types">oc-bgp-types:IPV6_UNICAST</afi-safi-name>
+                                    <config>
+                                        <afi-safi-name xmlns:oc-bgp-types="http://openconfig.net/yang/bgp-types">oc-bgp-types:IPV6_UNICAST</afi-safi-name>
+                                    </config>
+                                </afi-safi>
+                            </afi-safis>
+                            <config>
+                                <as>65000</as>
+                                <router-id>1.1.1.1</router-id>
+                            </config>
+                            <networks xmlns="http://arista.com/yang/openconfig/bgp/augments">
+                                <network>
+                                    <network>192.0.2.0/24</network>
+                                    <config>
+                                        <network>192.0.2.0/24</network>
+                                    </config>
+                                </network>
+                            </networks>
+                        </global>
+                        <neighbors>
+                            <neighbor>
+                                <neighbor-address>10.0.0.2</neighbor-address>
+                                <afi-safis>
+                                    <!-- Repeat for each AFI-SAFI as needed -->
+                                </afi-safis>
+                                <config>
+                                    <neighbor-address>10.0.0.2</neighbor-address>
+                                    <peer-as>65100</peer-as>
+                                </config>
+                                <ebgp-multihop>
+                                    <config>
+                                        <multihop-ttl>0</multihop-ttl>
+                                    </config>
+                                </ebgp-multihop>
+                                <graceful-restart/>
+                                <prefix-limit xmlns="http://arista.com/yang/openconfig/bgp/augments">
+                                    <config>
+                                        <max-prefixes>256000</max-prefixes>
+                                        <prevent-teardown>false</prevent-teardown>
+                                        <warning-threshold-pct>80</warning-threshold-pct>
+                                        <warning-threshold-type>PERCENTAGE</warning-threshold-type>
+                                    </config>
+                                </prefix-limit>
+                                <timers/>
+                                <transport/>
+                            </neighbor>
+                        </neighbors>
+                    </bgp>
+                    <config>
+                        <identifier xmlns:oc-pol-types="http://openconfig.net/yang/policy-types">oc-pol-types:BGP</identifier>
+                        <name>BGP</name>
+                    </config>
+                </protocol>
+            </protocols>
+        </network-instance>
+    </network-instances>
+</config>
