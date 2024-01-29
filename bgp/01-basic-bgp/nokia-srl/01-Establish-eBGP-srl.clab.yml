@@ -1,0 +1,28 @@
+name: eBGP-NokiaSRL
+
+topology:
+  nodes:
+    linux01:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-01:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    linux02:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-02:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+      
+    srl01:
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux
+
+    srl02: 
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux
+
+  links:
+    - endpoints: ["linux01:eth1", "srl01:e1-1"]   
+    - endpoints: ["srl01:e1-2", "srl02:e1-2"]
+    - endpoints: ["linux02:eth1", "srl02:e1-1"] 
