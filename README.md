@@ -53,13 +53,14 @@ To dive into these labs:
 2024-Jan-26: Arista EoS Lab : Started Configuration and Lab - Netconf
 2024-Jan-26: Arista EoS Lab : Final configs done and pushed. Netconf done as well
 2024-Jan-26: Juniper vMX: Started Configuration and Lab
+2024-Jan-29: Juniper vMX: Final configs done and pushed. Netconf done as well.
+2024-Jan-29: Nokia : Started configuration and Lab
 
 ## To Do (Commited)
 
 Basic eBGP :
 
  - Cumulus/FRR
- - Juniper vMX
  - Nokia SRLinux
 
 
