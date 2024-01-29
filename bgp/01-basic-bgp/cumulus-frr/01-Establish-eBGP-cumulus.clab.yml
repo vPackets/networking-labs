@@ -1,0 +1,28 @@
+name: eBGP-c8K
+
+topology:
+  nodes:
+    linux01:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-01:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    linux02:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-02:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    cumulus-01:
+      kind: cvx
+      image: networkop/cx:5.3.0
+
+    cumulus-02:
+      kind: cvx
+      image: networkop/cx:5.3.0
+
+  links:
+    - endpoints: ["linux01:eth1", "cumulus-01:swp1"]   
+    - endpoints: ["cumulus-01:swp2", "cumulus-02:swp2"]   
+    - endpoints: ["linux02:eth1", "cumulus-02:swp1"]  
