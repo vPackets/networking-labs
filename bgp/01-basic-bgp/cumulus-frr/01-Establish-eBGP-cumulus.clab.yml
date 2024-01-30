@@ -1,4 +1,4 @@
-name: eBGP-c8K
+name: eBGP-frr
 
 topology:
   nodes:
@@ -14,15 +14,15 @@ topology:
       exec:
         - sh /usr/local/bin/network-config.sh
 
-    cumulus-01:
-      kind: cvx
-      image: networkop/cx:5.3.0
+    frr-01:
+      kind: linux
+      image: vpackets/ubuntu-22.04-frr:latest
 
-    cumulus-02:
-      kind: cvx
-      image: networkop/cx:5.3.0
+    frr-02:
+      kind: linux
+      image: vpackets/ubuntu-22.04-frr:latest
 
   links:
-    - endpoints: ["linux01:eth1", "cumulus-01:swp1"]   
-    - endpoints: ["cumulus-01:swp2", "cumulus-02:swp2"]   
-    - endpoints: ["linux02:eth1", "cumulus-02:swp1"]  
+    - endpoints: ["linux01:eth1", "frr-01:eth1"]   
+    - endpoints: ["frr-01:eth2", "frr-02:eth2"]   
+    - endpoints: ["linux02:eth1", "frr-02:eth1"]  
