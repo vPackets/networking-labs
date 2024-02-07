@@ -14,15 +14,15 @@ topology:
       exec:
         - sh /usr/local/bin/network-config.sh
 
-    frr-01:
+    frr01:
       kind: linux
       image: vpackets/ubuntu-22.04-frr:latest
 
-    frr-02:
+    frr02:
       kind: linux
       image: vpackets/ubuntu-22.04-frr:latest
 
   links:
-    - endpoints: ["linux01:eth1", "frr-01:eth1"]   
-    - endpoints: ["frr-01:eth2", "frr-02:eth2"]   
-    - endpoints: ["linux02:eth1", "frr-02:eth1"]  
+    - endpoints: ["linux01:eth1", "frr01:eth1"]   
+    - endpoints: ["frr01:eth2", "frr02:eth2"]   
+    - endpoints: ["linux02:eth1", "frr02:eth1"]  

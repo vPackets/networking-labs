@@ -14,8 +14,8 @@ def write_config(device, config_filename):
 
 # Router connection details
 devices = [
-    {"host": "clab-ebgp-c8k-cisco8201-1", "port": 830, "username": "cisco", "password": "cisco123"},
-    {"host": "clab-ebgp-c8k-cisco8201-2", "port": 830, "username": "cisco", "password": "cisco123"}
+    {"host": "clab-eBGP-C8K-cisco8201-1", "port": 830, "username": "cisco", "password": "cisco123"},
+    {"host": "clab-eBGP-C8K-cisco8201-2", "port": 830, "username": "cisco", "password": "cisco123"}
 ]
 
 # Configuration file names

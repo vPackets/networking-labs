@@ -1,4 +1,6 @@
-name: eBGP-c8K
+name: eBGP-C8K
+# Lab Description:
+# This lab demonstrate a simple BGP topology between 2 routers
 
 topology:
   nodes:
