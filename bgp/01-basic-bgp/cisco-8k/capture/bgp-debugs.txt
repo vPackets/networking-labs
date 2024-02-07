@@ -1,0 +1,378 @@
+Tue Jan 16 21:32:35.857 UTC
+RP/0/RP0/CPU0:Jan 16 21:32:36.002 UTC: ifmgr[195]: %PKT_INFRA-LINK-3-UPDOWN : Interface FourHundredGigE0/0/0/1, changed state to Down
+RP/0/RP0/CPU0:Jan 16 21:32:36.003 UTC: ifmgr[195]: %PKT_INFRA-LINEPROTO-5-UPDOWN : Line protocol on Interface FourHundredGigE0/0/0/1, changed state to Down
+RP/0/RP0/CPU0:Jan 16 21:32:36.026 UTC: bgp[1089]: [default-crit]: IDB: Rx-ed IMC bulk notif, 1 events
+RP/0/RP0/CPU0:Jan 16 21:32:36.026 UTC: bgp[1089]: [default-crit]: IDB: IMC intf state event: ifh=0xf000208, proto=12, caps=26, state='down'
+RP/0/RP0/CPU0:Jan 16 21:32:36.026 UTC: bgp[1089]: [default-crit]: IDB: Processed IMC bulk notif: 1 state, 0 delete, 0 other
+RP/0/RP0/CPU0:Jan 16 21:32:36.136 UTC: config[67102]: %MGBL-CONFIG-6-DB_COMMIT : Configuration committed by user 'cisco'. Use 'show configuration commit changes 1000000011' to view the changes.
+RP/0/RP0/CPU0:Cisco8201-1(config-if)#RP/0/RP0/CPU0:Jan 16 21:32:37.235 UTC: ifmgr[195]: %PKT_INFRA-LINK-3-UPDOWN : Interface FourHundredGigE0/0/0/1, changed state to Up
+RP/0/RP0/CPU0:Jan 16 21:32:37.237 UTC: ifmgr[195]: %PKT_INFRA-LINEPROTO-5-UPDOWN : Line protocol on Interface FourHundredGigE0/0/0/1, changed state to Up
+RP/0/RP0/CPU0:Jan 16 21:32:37.239 UTC: bgp[1089]: [default-crit]: IDB: Rx-ed IMC bulk notif, 1 events
+RP/0/RP0/CPU0:Jan 16 21:32:37.239 UTC: bgp[1089]: [default-crit]: IDB: IMC intf state event: ifh=0xf000208, proto=12, caps=26, state='up'
+RP/0/RP0/CPU0:Jan 16 21:32:37.239 UTC: bgp[1089]: [default-crit]: IDB: Processed IMC bulk notif: 1 state, 0 delete, 0 other
+RP/0/RP0/CPU0:Jan 16 21:32:37.249 UTC: bgp[1089]: [default-crit]: Received notification for RIB - iid 0
+RP/0/RP0/CPU0:Jan 16 21:32:37.254 UTC: bgp[1089]: [default-crit]: Received RIB notification: tbl_id: 0xe0000000
+RP/0/RP0/CPU0:Jan 16 21:32:37.254 UTC: bgp[1089]: [default-crit] (ip4u): Received RIB notification: nexthop 10.0.0.2/32 table: -536870912, dest cnt: 1, tbl_id:e0000000 orr:0
+RP/0/RP0/CPU0:Jan 16 21:32:37.255 UTC: bgp[1089]: [default-crit]: bgp_gw_update: gateway (tableid 0xe0000000)for nexthop 10.0.0.2/32 has dest_path_count: 1
+RP/0/RP0/CPU0:Jan 16 21:32:37.262 UTC: bgp[1089]: [default-crit]: bgp_gw_update1: gateway for nexthop 10.0.0.2/32 has dest_path_count: 1,metric: 0, nhresxtable: No
+RP/0/RP0/CPU0:Jan 16 21:32:37.263 UTC: bgp[1089]: [default-crit]: bgp_gw_update2: gateway for nexthop 10.0.0.2/32 has dest_path_count: 1,metric: 0, tbl_id: e0000000
+RP/0/RP0/CPU0:Jan 16 21:32:37.263 UTC: bgp[1089]: [default-crit] (ip4u): Pre GW Policy run: NH=10.0.0.2/32 (vrf: default), gw=10.0.0.0/24 (proto: connected):: afi=0, tbl=TBL:default (1/1)
+RP/0/RP0/CPU0:Jan 16 21:32:37.264 UTC: bgp[1089]: [default-crit] (ip4u): GW Policy run: NH=10.0.0.2/32 (vrf: default), gw=10.0.0.0/24 (proto: connected):: afi=0, tbl=TBL:default (1/1), policypass=1, encap 0
+RP/0/RP0/CPU0:Jan 16 21:32:37.264 UTC: bgp[1089]: [default-crit] (ip4u): Received RIB notification: nexthop 10.0.0.2/32 is now connected, non-local, reachable, with metric 0 and ifhandle 0x0f000208 nh_id 0x0
+RP/0/RP0/CPU0:Jan 16 21:32:37.264 UTC: bgp[1089]: [default-crit] (ip4u): Received RIB notification: nexthop 10.0.0.2/32 is now connected, non-local, reachable, with metric 0 and ifhandle 0x0f000208 nh_id 0x0, changed 1
+RP/0/RP0/CPU0:Jan 16 21:32:37.265 UTC: bgp[1089]: [default-crit] (ip4u): Preparing for RD walk
+RP/0/RP0/CPU0:Jan 16 21:32:37.265 UTC: bgp[1089]: [default-crit] (ip4lu): Starting critical event timer for IPv4 Labeled-unicast with delay: 3000 msec
+RP/0/RP0/CPU0:Jan 16 21:32:40.266 UTC: bgp[1089]: [default-crit] (ip4u): Starting tree walk - triggered by critical events for IPv4 Unicast
+RP/0/RP0/CPU0:Jan 16 21:32:40.267 UTC: bgp[1089]: [default-crit] (ip4u): Trigger scoped nexthop walk
+RP/0/RP0/CPU0:Jan 16 21:32:40.267 UTC: bgp[1089]: [default-crit] (ip4u): Scoped rd walk for VRF: default
+RP/0/RP0/CPU0:Jan 16 21:32:40.267 UTC: bgp[1089]: [default-crit] (ip4u): Nexthop walk complete: deleted 0 paths with local nexthops, recalculated the bestpath for 0 nets, color nh triggered version bump in 0 nets0 msec
+RP/0/RP0/CPU0:Jan 16 21:32:40.267 UTC: bgp[1089]: [default-crit] (ip4u): Wake up sync/rib thread ( afi 0), label version 5, rib version 5, bgp table version 5, standby ver 0
+RP/0/RP0/CPU0:Jan 16 21:32:40.268 UTC: bgp[1089]: [default-dyn] (ip4u): RIB thread triggered for versioned walk: current version 5, acked version 5, target version 5
+RP/0/RP0/CPU0:Jan 16 21:32:40.268 UTC: bgp[1089]: [default-dyn] (ip4u): RNH rib opaque update for (IPv4 Unicast)
+RP/0/RP0/CPU0:Jan 16 21:32:40.268 UTC: bgp[1089]: [default-dyn] (ip4u): RIB thread triggered for RNH walk for nh table(IPv4 Unicast): current version 5, target version 5
+RP/0/RP0/CPU0:Jan 16 21:32:43.645 UTC: bgp[1089]: [default-iowt]: bgp_io_write_nbr_ver_timer_process: nbr_ver_timer handler: Empty ilist!! : Returning...
+RP/0/RP0/CPU0:Jan 16 21:32:50.194 UTC: bgp[1089]: [default-event] (ip4u): Scanning IPv4 unicast routing table
+RP/0/RP0/CPU0:Jan 16 21:32:50.195 UTC: bgp[1089]: [default-event]: Slow Peer: Detected FALSE, Nbr:10.0.0.2(0), Upd msg elem: (nil), Current time stamp:0 sec, Message time stamp: 720 sec, Threshold time 300 sec, Min Fwd Table ver:5 Nbr PeerAck Ver:0 Nbr Refresh PeerAck Ver:0, AF Refresh Subgroup Count 0
+RP/0/RP0/CPU0:Jan 16 21:32:50.195 UTC: bgp[1089]: [default-event] (ip4u): Garbage collection for table TBL:default (1/1) prefix tree - Target version 5
+RP/0/RP0/CPU0:Jan 16 21:32:50.195 UTC: bgp[1089]: [default-event] (ip4u): Prefix count 1, Segment count 1, Segment size 100000
+RP/0/RP0/CPU0:Jan 16 21:32:50.195 UTC: bgp[1089]: [default-event] (ip4u): Finished scanning IPv4 unicast routing table
+RP/0/RP0/CPU0:Jan 16 21:32:50.645 UTC: bgp[1089]: [default-ioct]: with no update-source config using local addr 10.0.0.1 for nbr 10.0.0.2 nbr addr len 4 nbr prefixlen 32
+RP/0/RP0/CPU0:Jan 16 21:32:50.645 UTC: bgp[1089]: [default-ioct]: Using local addr 10.0.0.1 for nbr 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:50.645 UTC: bgp[1089]: [default-ioct]: 10.0.0.2 went from Idle to Active
+RP/0/RP0/CPU0:Jan 16 21:32:50.646 UTC: bgp[1089]: [default-ioct]: Active open to 10.0.0.2, local address is 10.0.0.1
+RP/0/RP0/CPU0:Jan 16 21:32:50.652 UTC: bgp[1089]: [default-ioct]: Setting context (0x0x7fd144073c50) for FD 1000204
+RP/0/RP0/CPU0:Jan 16 21:32:50.653 UTC: bgp[1089]: [default-ioct]: Setting TTL Rx filter on fd 1000204: 10.0.0.2 min ttl 0
+RP/0/RP0/CPU0:Jan 16 21:32:50.653 UTC: bgp[1089]: [default-ioct]: Set precedence for 10.0.0.2 to internet (0xc0)
+RP/0/RP0/CPU0:Jan 16 21:32:50.653 UTC: bgp[1089]: [default-ioct]: Setting TTL socket option to 1 for 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:50.658 UTC: bgp[1089]: [default-ioct]: Connect attempt to 10.0.0.2 deferred
+RP/0/RP0/CPU0:Jan 16 21:32:50.734 UTC: bgp[1089]: [default-ioct]: bgp_io_process_nbr_sockets: for neighbor 10.0.0.2, prim_fd ffffffff sec_fd f430c
+RP/0/RP0/CPU0:Jan 16 21:32:50.735 UTC: bgp[1089]: [default-ioct]: Active open to 10.0.0.2 completed
+RP/0/RP0/CPU0:Jan 16 21:32:50.737 UTC: bgp[1089]: [default-ioct]: Active connection to 10.0.0.2 succeeded
+RP/0/RP0/CPU0:Jan 16 21:32:50.737 UTC: bgp[1089]: [default-ioct]: Setting context (0x0x7fd144073c50) for FD 1000204
+RP/0/RP0/CPU0:Jan 16 21:32:50.737 UTC: bgp[1089]: [default-ioct]: OPEN to 10.0.0.2 has EXTENDED_NEXTHOP_ENCODING capability for afi/safi/afi: 1/1/2
+RP/0/RP0/CPU0:Jan 16 21:32:50.738 UTC: bgp[1089]: [default-iowt]: bgp_io_process_write: calling bgp_write for neighbor 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:50.738 UTC: bgp[1089]: [default-iowt]: 10.0.0.2 send message type 1, length (incl. header) 75
+RP/0/RP0/CPU0:Jan 16 21:32:50.739 UTC: bgp[1089]: [default-iowt]: Send message dump for 10.0.0.2:
+RP/0/RP0/CPU0:Jan 16 21:32:50.739 UTC: bgp[1089]: [default-iowt]: ffff ffff ffff ffff ffff ffff ffff ffff
+RP/0/RP0/CPU0:Jan 16 21:32:50.739 UTC: bgp[1089]: [default-iowt]: 004b 0104 fde8 00b4 0101 0101 2e02 0601
+RP/0/RP0/CPU0:Jan 16 21:32:50.739 UTC: bgp[1089]: [default-iowt]: 0400 0100 0102 0280 0002 0202 0002 0641
+RP/0/RP0/CPU0:Jan 16 21:32:50.739 UTC: bgp[1089]: [default-iowt]: 0400 00fd e802 1405 1200 0100 0100 0200
+RP/0/RP0/CPU0:Jan 16 21:32:50.739 UTC: bgp[1089]: [default-iowt]: 0100 0200 0200 0100 8000 02
+RP/0/RP0/CPU0:Jan 16 21:32:50.740 UTC: bgp[1089]: [default-iowt]: bgp_write_queue_tonet: IO_SENDMSG: nbr=10.0.0.2, fd=1000204: total=1, send-attempt=1 (size 75), sent-successful=1: res=0
+RP/0/RP0/CPU0:Jan 16 21:32:50.740 UTC: bgp[1089]: [default-iowt]: bgp_io_nbr_derive_acked_version: nbr=10.0.0.2, io_wr_txsn=75, acksn=0, osver=0
+RP/0/RP0/CPU0:Jan 16 21:32:50.740 UTC: bgp[1089]: [default-ioct]: Keepalive timer started for 10.0.0.2(loc 11): last 1260 this 1504
+RP/0/RP0/CPU0:Jan 16 21:32:50.740 UTC: bgp[1089]: [default-ioct]: 10.0.0.2 went from Active to OpenSent
+RP/0/RP0/CPU0:Jan 16 21:32:50.740 UTC: bgp[1089]: [default-ioct]: Sending OPEN to 10.0.0.2, version 4, my as: 3908894720, holdtime 180 seconds
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: Received message from 10.0.0.2 with type 1, length (incl. header) 75
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: Receive message dump for 10.0.0.2:
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: ffff ffff ffff ffff ffff ffff ffff ffff
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: 004b 0104 fe4c 00b4 0202 0202 2e02 0601
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: 0400 0100 0102 0280 0002 0202 0002 0641
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: 0400 00fe 4c02 1405 1200 0100 0100 0200
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: 0100 0200 0200 0100 8000 02
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: Received OPEN from 10.0.0.2, version 4, holdtime 180 secs
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has optional parameter type: 2 (Capability) len: 6
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has MULTIPROTOCOL_EXTENSION capability for afi/safi: 1/1
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has optional parameter type: 2 (Capability) len: 2
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has ROUTE-REFRESH capability(old) for all address-families
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has optional parameter type: 2 (Capability) len: 2
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has ROUTE-REFRESH capability for all address-families
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has optional parameter type: 2 (Capability) len: 6
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has 4-byte AS capability with AS 65100
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has optional parameter type: 2 (Capability) len: 20
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has EXTENDED_NEXTHOP_ENCODING capability for afi/safi/afi: 1/1/2
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has EXTENDED_NEXTHOP_ENCODING capability for afi/safi/afi: 1/2/2
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: OPEN from 10.0.0.2 has EXTENDED_NEXTHOP_ENCODING capability for afi/safi/afi: 1/128/2
+RP/0/RP0/CPU0:Jan 16 21:32:52.765 UTC: bgp[1089]: [default-iord]: bgp_io_read_schedule_updgrp: NO updgrp scheduled after Open processing: nbr=10.0.0.2, nbrfl=0x08310000
+RP/0/RP0/CPU0:Jan 16 21:32:52.766 UTC: bgp[1089]: [default-iord]: IDB: FF add API, ifh=0xf000208, afi=2
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-iord]: 10.0.0.2 went from OpenSent to OpenConfirm
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-crit]: IDB: Processing evq
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-crit]: IDB: add MH, ifh=0xf000208, afi=2, op: 0,
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-crit]: IDB: Processed 1 events in evq
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-iord]: Keepalive timer started for 10.0.0.2(loc 1): last 1504 this 1506
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-iowt]: bgp_io_process_write: calling bgp_write for neighbor 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-iowt]: 10.0.0.2 send message type 4, length (incl. header) 19
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-iowt]: Send message dump for 10.0.0.2:
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-iowt]: ffff ffff ffff ffff ffff ffff ffff ffff
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-iowt]: 0013 04
+RP/0/RP0/CPU0:Jan 16 21:32:52.767 UTC: bgp[1089]: [default-iord]: Sending KEEPALIVE to 10.0.0.2 (open rcv)
+RP/0/RP0/CPU0:Jan 16 21:32:52.768 UTC: bgp[1089]: [default-iord]: Keepalive timer started for 10.0.0.2(loc 3): last 1506 this 1506
+RP/0/RP0/CPU0:Jan 16 21:32:52.768 UTC: bgp[1089]: [default-iowt]: bgp_write_queue_tonet: IO_SENDMSG: nbr=10.0.0.2, fd=1000204: total=1, send-attempt=1 (size 19), sent-successful=1: res=0
+RP/0/RP0/CPU0:Jan 16 21:32:52.768 UTC: bgp[1089]: [default-iowt]: bgp_io_nbr_derive_acked_version: nbr=10.0.0.2, io_wr_txsn=94, acksn=75, osver=0
+RP/0/RP0/CPU0:Jan 16 21:32:52.774 UTC: bgp[1089]: [default-iord]: Received message from 10.0.0.2 with type 4, length (incl. header) 19
+RP/0/RP0/CPU0:Jan 16 21:32:52.774 UTC: bgp[1089]: [default-iord]: Receive message dump for 10.0.0.2:
+RP/0/RP0/CPU0:Jan 16 21:32:52.774 UTC: bgp[1089]: [default-iord]: ffff ffff ffff ffff ffff ffff ffff ffff
+RP/0/RP0/CPU0:Jan 16 21:32:52.774 UTC: bgp[1089]: [default-iord]: 0013 04
+RP/0/RP0/CPU0:Jan 16 21:32:52.774 UTC: bgp[1089]: [default-iord]: KEEPALIVE received from 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:52.774 UTC: bgp[1089]: [default-iord]: 10.0.0.2 went from OpenConfirm to Established
+RP/0/RP0/CPU0:Jan 16 21:32:52.774 UTC: bgp[1089]: [default-iord]: Trigger sync thread to send nsr not  ready notification to Rmf
+RP/0/RP0/CPU0:Jan 16 21:32:52.775 UTC: bgp[1089]: [default-sync]: In bgp_sync_nsr_not_ready_handler.
+RP/0/RP0/CPU0:Jan 16 21:32:52.775 UTC: bgp[1089]: %ROUTING-BGP-5-ADJCHANGE : neighbor 10.0.0.2 Up (VRF: default) (AS: 65100)
+RP/0/RP0/CPU0:Jan 16 21:32:52.776 UTC: bgp[1089]: [default-upd] (ip4u): Added reference to table TBL:default (1/1) refcount 5
+RP/0/RP0/CPU0:Jan 16 21:32:52.776 UTC: bgp[1089]: [default-upd]: Allocating filter-group 0.1in TBL:default (1/1)
+RP/0/RP0/CPU0:Jan 16 21:32:52.776 UTC: bgp[1089]: [default-upd] (ip4u): Added reference to table TBL:default (1/1) refcount 6
+RP/0/RP0/CPU0:Jan 16 21:32:52.776 UTC: bgp[1089]: [default-upd] (ip4u): Adding vrf default neighbor 10.0.0.2 to new filter-group 0.1 in IPv4 Unicast sub-group 0.1 rtset size 0 in updgrp 0.2
+RP/0/RP0/CPU0:Jan 16 21:32:52.776 UTC: bgp[1089]: [default-upd] (ip4u): Added vrf default neighbor 10.0.0.2 to update filter-group 0.1 in IPv4 Unicast sub-group 0.1
+RP/0/RP0/CPU0:Jan 16 21:32:52.776 UTC: bgp[1089]: [default-upd] (ip4u): Added neighbor 10.0.0.2 to update sub-group 0.1 in IPv4 Unicast update-group 0.2
+RP/0/RP0/CPU0:Jan 16 21:32:52.776 UTC: bgp[1089]: [default-upd] (ip4u): Started updgrp timer for updgrp 0.2:: delay=0.010, delaytype=0
+RP/0/RP0/CPU0:Jan 16 21:32:52.794 UTC: bgp[1089]: [default-sync]: Sent NSR-Not-Ready notif to Rmf
+RP/0/RP0/CPU0:Jan 16 21:32:52.794 UTC: bgp[1089]: %ROUTING-BGP-5-NSR_STATE_CHANGE : Changed state to Not NSR-Ready
+RP/0/RP0/CPU0:Jan 16 21:32:52.980 UTC: bgp[1089]: [default-iowt]: bgp write for afi 0 for neighbor 10.0.0.2 (fd 1000204)
+RP/0/RP0/CPU0:Jan 16 21:32:57.776 UTC: bgp[1089]: [default-upd] (ip4u): Starting updgen walk for updgrp 0.2:: targetver=5:  tblver=5, labelver=5, minfwdver=5, ackdfwdver=5, standbyver=0
+RP/0/RP0/CPU0:Jan 16 21:32:57.776 UTC: bgp[1089]: [default-upd] (ip4u): Computing updates for update sub-group 0.1 (Regular)
+RP/0/RP0/CPU0:Jan 16 21:32:57.776 UTC: bgp[1089]: [default-upd]: table-attr walk for table TBL:default (1/1), resume version 0, subgrp version 0, target version 5
+RP/0/RP0/CPU0:Jan 16 21:32:57.777 UTC: bgp[1089]: [default-upd] (ip4u): process UPDATE for: tbl=TBL:default (1/1), afi=0: ug=0.2, (Regular), pelem (Regular), sg=0.1, ugfl=0x00004000: bgpctxfl=0x00, tblctxfl=0x00000021, ltblctxfl=0x00000021, sendlab=0: net=192.0.2.0/24, nver=3: PELEM=0x7fd136472f78 (lpathid=1, ver=3, fl=0x00000001): PATH=0x7fd13657af80 (0.0.0.0/32,0.0.0.0,0, 0x2000000041040123)::: allowbe=0, isbe=0, allowspurwdr=0, pelem-send=1, pelem-wdr=0, netExtflag=20000000
+RP/0/RP0/CPU0:Jan 16 21:32:57.778 UTC: bgp[1089]: [default-upd]--Running policy 'ALLOW':---
+RP/0/RP0/CPU0:Jan 16 21:32:57.778 UTC: bgp[1089]: [default-upd]  Attach pt='neighbor-out-dflt'
+RP/0/RP0/CPU0:Jan 16 21:32:57.778 UTC: bgp[1089]: [default-upd]  Attach pt inst='default-IPv4-Uni-UpdGrp-0.2-Out'
+RP/0/RP0/CPU0:Jan 16 21:32:57.779 UTC: bgp[1089]: [default-upd]Input route attributes:
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  aggregate-contributor: Non-Aggregate Contributor
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  as-path: <<No aspath present>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  as-path-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  as-path-unique-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  as-path-length-all: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  community: No Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  large-community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  large-community: No Large Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  rt: No Extended Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  ext-community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  bandwidth: No Extended Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  soo: No Extended Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  color: No Extended Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  seg-nh: No Extended Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  redirect-to-rt: No Extended Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.785 UTC: bgp[1089]: [default-upd]  evpn-link-bandwidth: No Extended Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.786 UTC: bgp[1089]: [default-upd]  esi: <<Internal error (no esi)>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.786 UTC: bgp[1089]: [default-upd]  etag: <<Internal error (no etag)>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  evpn-gateway: <<no prefix>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  mac: <<Internal error (no mac address)>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  evpn-originator: <<no prefix>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  evpn-route-type: <<no origin>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  destination: 192.0.2.0/24
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  destination-prefix: <<no prefix>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  rib-has-route: <<rib-has-route>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  local-preference: <<no local preference>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  med: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  nexthop: 0.0.0.0/32
+RP/0/RP0/CPU0:Jan 16 21:32:57.787 UTC: bgp[1089]: [default-upd]  next-hop: 0.0.0.0
+RP/0/RP0/CPU0:Jan 16 21:32:57.788 UTC: bgp[1089]: [default-upd]  origin: i
+RP/0/RP0/CPU0:Jan 16 21:32:57.788 UTC: bgp[1089]: [default-upd]  source: 0.0.0.0/32
+RP/0/RP0/CPU0:Jan 16 21:32:57.788 UTC: bgp[1089]: [default-upd]  source-prefix: <<no prefix>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.789 UTC: bgp[1089]: [default-iowt]: bgp write for afi 0 for neighbor 10.0.0.2 (fd 1000204)
+RP/0/RP0/CPU0:Jan 16 21:32:57.789 UTC: bgp[1089]: [default-upd]  weight: 32768
+RP/0/RP0/CPU0:Jan 16 21:32:57.789 UTC: bgp[1089]: [default-rtr]: UPDATE from 10.0.0.2 contains nh 10.0.0.2/32, gw_afi 0, flags 0x20000, nlri_afi 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.789 UTC: bgp[1089]: [default-upd]  rd: 0:0:0
+RP/0/RP0/CPU0:Jan 16 21:32:57.789 UTC: bgp[1089]: [default-rtr]: NH-Validate-Create: addr=10.0.0.2/32, len=4, nlriafi=0, nbr=10.0.0.2, gwafi=0, gwlen=4, gwaddrlen=32::: nhout=0x0x7fd144186c50, validity=1, attrwdrflags=0x00000000
+RP/0/RP0/CPU0:Jan 16 21:32:57.789 UTC: bgp[1089]: [default-rtr]: --bgp4_rcv_attributes--: END: nbr=10.0.0.2:: msg=0x0x7fd14478ebd0/60, updlen=41, attrbl=0x0x7fd14478ebe7/37, ipv4reachlen=0, msginpath=0x0x7fd1349b1850, asloopcheck=1, attrwdrfl=0x00000000:: samecluster=0, local_as_prepended=0, attr_wdr_flags 0x00000000, myascount=0:: rcvdata=0x0x7fd14478ec0c/0, errptr=0x0x7fd14478ec05/7
+RP/0/RP0/CPU0:Jan 16 21:32:57.789 UTC: bgp[1089]: [default-upd]  route-aggregate: Non-Aggregated Route
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  label-index: <<no label index>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  path-type: sourced
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  aigp-metric: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  validation-state: not-found
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  label-mode: <<no label mode type>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  srv6-alloc-mode: <<no label mode type>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  track: <<track-id>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]Policy execution trace:
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-rtr]: Comm-lib: Assigned ID (0x1000002) for elem-type ASPath
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  End policy: result=PASS
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-rtr]: Comm-lib: Assigned ID (0x9000003) for elem-type Attribute
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]Output route attributes:
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  as-path:
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  as-path-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  as-path-unique-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  as-path-length-all: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  community: No Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  large-community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-upd]  large-community: No Large Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-rtr]--Running policy 'ALLOW':---
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-rtr]  Attach pt='neighbor-in-dflt'
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-rtr]  Attach pt inst='default-IPv4-Uni-10.0.0.2'
+RP/0/RP0/CPU0:Jan 16 21:32:57.790 UTC: bgp[1089]: [default-rtr]Input route attributes:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  rt:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  ext-community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  bandwidth:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  soo:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  color:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  cost:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  seg-nh:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  redirect-to-rt:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  evpn-link-bandwidth:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  local-preference: <<no local preference>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  med: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  next-hop: 0.0.0.0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  origin: i
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  unsuppress-route: <no print function on this ORA, address is 0xe8003e40>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  weight: 32768
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  rd: 0:0:0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  label: <<no label>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  label-index: <<no label index>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  vpn-distinguisher: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  aigp-metric: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  label-mode: <<no label mode type>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  srv6-alloc-mode: <<no label mode type>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  aggregate-contributor: Non-Aggregate Contributor
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  sfi:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]  entropy-label:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd]--- End of policy run ---
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  as-path: 65100
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  as-path-length: 1
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  as-path-unique-length: 1
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  as-path-length-all: 1
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  community: No Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd] (ip4u): Ran 'internal' policy 'ALLOW', result 'TRUE', ptr 0x7fd0e8003a50, use 0x7fd0e8004b20
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  large-community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  large-community: No Large Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  rt:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  ext-community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  bandwidth:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  soo:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  color:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  seg-nh:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  redirect-to-rt:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  evpn-link-bandwidth:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  esi: <<Internal error (no esi)>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  etag: <<Internal error (no etag)>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  evpn-gateway: <<no prefix>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  mac: <<Internal error (no mac address)>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  evpn-originator: <<no prefix>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  evpn-route-type: <<no origin>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  destination: 203.0.113.0/24
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  destination-prefix: <<no prefix>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  local-preference: <<no local preference>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  med: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  nexthop: 10.0.0.2/32
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  next-hop: 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  origin: i
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  source: 10.0.0.2/32
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  source-prefix: <<no prefix>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  weight: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  rd: No route-distinguisher Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  route-aggregate: Non-Aggregated Route
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  label-index: <<no label index>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  path-type: ebgp
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  vpn-distinguisher: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  aigp-metric: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  validation-state: <<empty>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  label-mode: <<no label mode type>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  srv6-alloc-mode: <<no label mode type>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]Policy execution trace:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  End policy: result=PASS
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]Output route attributes:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  as-path: 65100
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  as-path-length: 1
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  as-path-unique-length: 1
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  as-path-length-all: 1
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  community: No Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  large-community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd] (ip4u):     <UPDLABEL>: tbl=TBL:default (1/1), afi=0: ug=0.2, sg=0.1, ugfl=0x00004000: net=192.0.2.0/24, PELEM=0x7fd136472f78(lpathid=1, fl=0x00000001), PATH=0x7fd13657af80(0.0.0.0/32,0.0.0.0,0, 0x2000000041040123), reflected=0, bmsgfl=0x00000000, wdr=0::: netlab=0/0, pathlab=1048577, updlab=
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  large-community: No Large Community Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  rt:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  ext-community-length: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  bandwidth:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  soo:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  color:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  cost:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  seg-nh:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  redirect-to-rt:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  evpn-link-bandwidth:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd] (ip4u):     <NH&LABEL-SEL>: tbl=TBL:default (1/1), afi=0: ug=0.2, sg=0.1, ugfl=0x00004000+0x00005000: net=192.0.2.0/24, netlab=0/0, PELEM=0x7fd136472f78(lpathid=1, fl=0x00000001), PATH=0x7fd13657af80(0.0.0.0/32,0.0.0.0,0, 0x2000000041040123), pathlab=1048577, reflected=0, bmsgfl=0x00000000::: pelemwdr=0, isnhself=1, enforcenhself=0, nhselectdone=0, nhcfgeval=1, updnh=0x00000000, nhlen=4, nhif=0x00000000, nh3rdp=0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  local-preference: <<no local preference>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  med: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  next-hop: 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  origin: i
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  weight: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd] (ip4u):     <nh&label-sel>::: labselectdo=1, labselectdone=0, updlab=1048577(0x00100001)
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  rd: No route-distinguisher Information
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  label-index: <<no label index>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  aigp-metric: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  label-mode: <<no label mode type>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  srv6-alloc-mode: <<no label mode type>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  rt-set: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  attributeset:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]  no-label-allocation: <<No no-label-allocation>>
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr]--- End of policy run ---
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr] (ip4u): Ran 'internal' policy 'ALLOW', result 'TRUE', ptr 0x7fd13c291fb0, use 0x7fd13c2a5130
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr] (ip4u): Received UPDATE from 10.0.0.2 with attributes:
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr] (ip4u): nexthop 10.0.0.2/32, origin i, metric 0, path 65100
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-rtr] (ip4u): Received prefix 203.0.113.0/24 (path ID: none) from 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:57.791 UTC: bgp[1089]: [default-upd] (ip4u): Permit UPDATE to filter-group 0.1 (Regular, pelem Regular) for 192.0.2.0/24 (changedfl=0x0/0x0), path
+RP/0/RP0/CPU0:Jan 16 21:32:57.792 UTC: bgp[1089]: [default-upd] (ip4u): Sending UPDATE message(0x0x7fd14477dc08) to sub-group 0.1 (Regular, pelem Regular) for 192.0.2.0/24 (changedfl=0x0/0x0) -  creating new message with bmsgflags=0x00000000, attributes: nexthop 0.0.0.0, originator 0.0.0.0
+RP/0/RP0/CPU0:Jan 16 21:32:57.792 UTC: bgp[1089]: [default-rtr]: bgp_bmp_table_path_update_cb: Operation: 0x0, Inbound Post-Policy Route Mon is not enabled (0) (or) not primary active - return
+RP/0/RP0/CPU0:Jan 16 21:32:57.792 UTC: bgp[1089]: [default-rtr] (ip4u): Done adding path for net=203.0.113.0/24, nver=0, nfl=0x00000001+0x20000000: newpath=0x0x7fd13657af20(10.0.0.2/32,10.0.0.2,0,0x3000000000020001+ 0x00): link=1, pcount=1
+RP/0/RP0/CPU0:Jan 16 21:32:57.792 UTC: bgp[1089]: [default-upd] (ip4u): origin i, path 65000, metric 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.792 UTC: bgp[1089]: [default-upd] (ip4u): Created msg elem 0x0x7fd1445c7fd8 (pointing to message 0x0x7fd14477dc08), for filtergroup 0.1
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-upd] (ip4u): Generated 1 updates for update sub-group 0.1 (average size = 60 bytes, maximum size = 60 bytes)
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: 10.0.0.2 send UPDATE length (incl. header) 60
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: Send message dump for 10.0.0.2:
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: ffff ffff ffff ffff ffff ffff ffff ffff
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: 003c 0200 0000 2590 0e00 0d00 0101 040a
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: 0000 0100 18c0 0002 4001 0100 4002 0602
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: 0100 00fd e880 0404 0000 0000
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-upd] (ip4u): Updates replicated to neighbor 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-upd] (ip4u): Created msg elem 0x0x7fd1445c7fa8 (pointing to message 0x0x7fd14478ec30), for filtergroup 0.1
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: bgp_io_nbr_add_version: New ver: nbr=10.0.0.2, io_wr_txsn=154, acksn=94: ver=5 <154>, osver=1
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: bgp_io_nbr_derive_acked_version: nbr=10.0.0.2, io_wr_txsn=154, acksn=94, osver=1
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: bgp_write_list_tonet: IO_SENDMSG: nbr=10.0.0.2, fd=1000204: total=1, send-attempt=1 (size 60), sent-successful=1: res=0  allmsg_adv_count = 1 msg 0x7fd14477dc08 bmsg_nbr_count  0
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr] (ip4u): bestpath: (full bp 0) start for net=203.0.113.0/24, nver=0, nfl=0x00000001+0x20000000: lastpath=0x0x7fd13657af20(10.0.0.2/32,10.0.0.2,0,0x3000000000020001): PELEM=0x(nil)(lpathid=0, ver=0, fl=0x00000000, path=0x(nil))
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-upd] (ip4u): Sending EoR to update group 0.2
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr] (ip4u): bestpath: (full 0) calculated for net=203.0.113.0/24, nver=0, nfl=0x00000001+0x20000000, pelemver=0, pelemfl=0x00000001: oldbest=0x(nil)(NULL,0.0.0.0,0,0x0), newbest=0x0x7fd13657af20(10.0.0.2/32,10.0.0.2,0,0x3000000001020001), lastpath=0x0x7fd13657af20(10.0.0.2/32,10.0.0.2,0,0x3000000001020001), bumpv=0
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr] (ip4u): bestpath: change for net=203.0.113.0/24, nver=0, nfl=0x00000001+0x20000000: oldbest=0x(nil): PELEM=0x0x7fd136472f08(lpathid=1, ver=0, fl=0x00000101, path=0x0x7fd13657af20)
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr]: LU path 0 rcv labl 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr] (ip4u): bestpath: update flags for net=203.0.113.0/24, nver=0, nfl=0x00000001+0x20000000: oldtblattr=0x(nil), oldnh=0x(nil): PELEM=0x0x7fd136472f08(lpathid=1, ver=0, fl=0x00000101, path=0x0x7fd13657af20)
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt] (ip4u): Deleting msg elem 0x0x7fd1445c7fd8 (message 0x0x7fd14477dc08), for filtergroup 0.1
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt] (ip4u): Deleting message 0x0x7fd14477dc08, from subgroup 0.1
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr] (ip4u): bestpath: complete for net=203.0.113.0/24, nver=0, nfl=0x00004001+0x20000000: pselect=0x0, bumpv=1(1:1,0,0,0)
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr]: Received UPDATE from 10.0.0.2 (length incl. header = 60)
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr]: Receive message dump for 10.0.0.2:
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr]: ffff ffff ffff ffff ffff ffff ffff ffff
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr]: 003c 0200 0000 2590 0e00 0d00 0101 040a
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr]: 0000 0200 18cb 0071 4001 0100 4002 0602
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr]: 0100 00fe 4c80 0404 0000 0000
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr]: Enabling read from: 10.0.0.2 readset: 1 msgcount: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: bgp_io_nbr_derive_acked_version: nbr=10.0.0.2, io_wr_txsn=177, acksn=94, osver=1
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: bgp_write_list_tonet: IO_SENDMSG: nbr=10.0.0.2, fd=1000204: total=1, send-attempt=1 (size 23), sent-successful=1: res=0  allmsg_adv_count = 1 msg 0x7fd14478ec30 bmsg_nbr_count  0
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt] (ip4u): Deleting msg elem 0x0x7fd1445c7fa8 (message 0x0x7fd14478ec30), for filtergroup 0.1
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt] (ip4u): Deleting message 0x0x7fd14478ec30, from subgroup 0.1
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-iowt]: Keepalive timer started for 10.0.0.2(loc 10): last 0 this 1511
+RP/0/RP0/CPU0:Jan 16 21:32:57.793 UTC: bgp[1089]: [default-rtr] (ip4u): Wake up sync/rib thread ( afi 0), label version 6, rib version 5, bgp table version 6, standby ver 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.794 UTC: bgp[1089]: [default-dyn] (ip4u): RIB thread triggered for versioned walk: current version 5, acked version 5, target version 6
+RP/0/RP0/CPU0:Jan 16 21:32:57.795 UTC: bgp[1089]: [default-dyn] (ip4u): RNH rib opaque update for (IPv4 Unicast)
+RP/0/RP0/CPU0:Jan 16 21:32:57.795 UTC: bgp[1089]: [default-dyn] (ip4u): RIB thread triggered for RNH walk for nh table(IPv4 Unicast): current version 5, target version 6
+RP/0/RP0/CPU0:Jan 16 21:32:57.796 UTC: bgp[1089]: [default-upd] (ip4u): Started updgrp timer for updgrp 0.2:: delay=29.996, delaytype=0
+RP/0/RP0/CPU0:Jan 16 21:32:57.797 UTC: bgp[1089]: [default-impt] (ip4u): START import walk from 5 to 6 skip_walk 1
+RP/0/RP0/CPU0:Jan 16 21:32:57.797 UTC: bgp[1089]: [default-dyn] (ip4u): RIB thread triggered for versioned walk: current version 5, acked version 5, target version 6
+RP/0/RP0/CPU0:Jan 16 21:32:57.797 UTC: bgp[1089]: [default-dyn] (ip4u): RNH rib opaque update for (IPv4 Unicast)
+RP/0/RP0/CPU0:Jan 16 21:32:57.797 UTC: bgp[1089]: [default-dyn] (ip4u): RIB thread triggered for RNH walk for nh table(IPv4 Unicast): current version 5, target version 6
+RP/0/RP0/CPU0:Jan 16 21:32:57.798 UTC: bgp[1089]: [default-dyn] (ip4u): Rib Batch-buf Route ADD: table=TBL:default (1/1), tableid=0xe0000000, net=203.0.113.0/24, netfl=0x00000001: label=1048577, dist=20, attrkey=0x00000000, pathcount=1: batchres=1, succ=1, send=0 locator prefix No, 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.798 UTC: bgp[1089]: [default-dyn] (ip4u): Revise route batch: installing 203.0.113.0/24 with next hop 10.0.0.2(tbl-id=0xe0000000, ifh=0x0), pathribflags: 0x9800000200, #ext-comms=0, to IP-RIB table[0xe0000000]
+RP/0/RP0/CPU0:Jan 16 21:32:57.798 UTC: bgp[1089]: [default-dyn] (ip4u): [0]: Rib Batch-buf Path ADD: table=TBL:default (1/1), net=203.0.113.0/24: nh=10.0.0.2, nhifh=0x00000000, nhtableid=0xe0000000: rlabel=1048577, metric=0, bsid=0, numecomms=0: pelemfl=0x00001001, pathfl=0x3000000001060001,pathribfl=0x9800000200, nhresplenmin=0 (constraint=1):: batchres=1, succ=1, sendbatch=0
+RP/0/RP0/CPU0:Jan 16 21:32:57.798 UTC: bgp[1089]: [default-dyn] (ip4u): Sending convergence info for IPv4 Unicast - converged, version: 0, last received version 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.805 UTC: bgp[1089]: [default-rtr]: EoR received from 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:57.805 UTC: bgp[1089]: [default-iowt]: bgp write for afi 0 for neighbor 10.0.0.2 (fd 1000204)
+RP/0/RP0/CPU0:Jan 16 21:32:57.805 UTC: bgp[1089]: [default-rtr] (ip4u): IPv4 Unicast EoR received for neighbor 10.0.0.2
+RP/0/RP0/CPU0:Jan 16 21:32:57.805 UTC: bgp[1089]: [default-rtr]: Enabling read from: 10.0.0.2 readset: 1 msgcount: 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.806 UTC: bgp[1089]: [default-rtr] (ip4u): Wake up sync/rib thread ( afi 0), label version 6, rib version 5, bgp table version 6, standby ver 0
+RP/0/RP0/CPU0:Jan 16 21:32:57.807 UTC: bgp[1089]: [default-dyn] (ip4u): vrf default: RIB update run to 6: installed 1, modified 0, skipped 0, removed 0 IPv4 Unicast prefixes, installed 0 attributes, removed 0 attributes.
+RP/0/RP0/CPU0:Jan 16 21:32:57.807 UTC: bgp[1089]: [default-dyn] (ip4u): RIB thread finished versioned walk: table version 6, acked table version 6
+RP/0/RP0/CPU0:Jan 16 21:32:57.807 UTC: bgp[1089]: [default-dyn] (ip4u): RIB thread triggered for versioned walk: current version 6, acked version 6, target version 6
+RP/0/RP0/CPU0:Jan 16 21:32:57.807 UTC: bgp[1089]: [default-dyn] (ip4u): RNH rib opaque update for (IPv4 Unicast)
+RP/0/RP0/CPU0:Jan 16 21:32:57.807 UTC: bgp[1089]: [default-dyn] (ip4u): RIB thread triggered for RNH walk for nh table(IPv4 Unicast): current version 6, target version 6
+RP/0/RP0/CPU0:Jan 16 21:32:58.011 UTC: bgp[1089]: [default-iowt]: bgp write for afi 0 for neighbor 10.0.0.2 (fd 1000204)
+RP/0/RP0/CPU0:Jan 16 21:32:58.645 UTC: bgp[1089]: [default-iowt]: bgp_io_nbr_derive_acked_version: nbr=10.0.0.2, io_wr_txsn=177, acksn=94, osver=1
+RP/0/RP0/CPU0:Jan 16 21:32:58.645 UTC: bgp[1089]: [default-iowt]: 10.0.0.2 (afi:0) advancedpeer_acked_version to 0refresh peer acked version to 0
+RP/0/RP0/CPU0:Jan 16 21:32:58.645 UTC: bgp[1089]: [default-iowt]: bgp_io_write_nbr_ver_timer_process: nbr_ver_timer handler: Walk complete: nbrcount=1, synctrigger=0
+
+RP/0/RP0/CPU0:Cisco8201-1(config-if)#end
+RP/0/RP0/CPU0:Jan 16 21:33:12.952 UTC: config[67102]: %MGBL-SYS-5-CONFIG_I : Configured from console by cisco on vty0 (172.20.20.1)
+RP/0/RP0/CPU0:Cisco8201-1#RP/0/RP0/CPU0:Jan 16 21:33:13.645 UTC: bgp[1089]: [default-iowt]: bgp_io_nbr_derive_acked_version: nbr=10.0.0.2, io_wr_txsn=177, acksn=94, osver=1
+RP/0/RP0/CPU0:Jan 16 21:33:13.645 UTC: bgp[1089]: [default-iowt]: 10.0.0.2 (afi:0) advancedpeer_acked_version to 0refresh peer acked version to 0
+RP/0/RP0/CPU0:Jan 16 21:33:13.645 UTC: bgp[1089]: [default-iowt]: bgp_io_write_nbr_ver_timer_process: nbr_ver_timer handler: Walk complete: nbrcount=1, synctrigger=0
+u all
+% Ambiguous command:  "u all"
+RP/0/RP0/CPU0:Cisco8201-1#undebug all
+Tue Jan 16 21:33:17.073 UTC
+All possible debugging has been turned off
