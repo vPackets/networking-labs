@@ -48,12 +48,19 @@ To dive into these labs:
 ## Changelog 
 
 2024-Jan-15: EBGP Basic lab with Cisco 8000 
+
 2024-Jan-17: Started EBGP Basic lab with CSR1000v
+
 2024-Jan-26: (Late at night) - Netconf for CSR1000v is complete (Attention, important to increase the timeout in the python script)
+
 2024-Jan-26: Arista EoS Lab : Started Configuration and Lab - Netconf
+
 2024-Jan-26: Arista EoS Lab : Final configs done and pushed. Netconf done as well
+
 2024-Jan-26: Juniper vMX: Started Configuration and Lab
+
 2024-Jan-29: Juniper vMX: Final configs done and pushed. Netconf done as well.
+
 2024-Jan-29: Nokia : Started configuration and Lab
 
 ## To Do (Commited)
