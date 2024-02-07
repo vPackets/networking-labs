@@ -61,13 +61,17 @@ To dive into these labs:
 
 2024-Jan-29: Juniper vMX: Final configs done and pushed. Netconf done as well.
 
-2024-Jan-29: Nokia : Started configuration and Lab
+2024-Jan-29: Cumulus: Started configuration and Lab
+
+2024-Feb-04: Cumulus: Configuration Done.
+
+2024-Feb-07: Scripts: Added scripts to connect to the routers.
+
 
 ## To Do (Commited)
 
 Basic eBGP :
 
- - Cumulus/FRR
  - Nokia SRLinux
 
 
