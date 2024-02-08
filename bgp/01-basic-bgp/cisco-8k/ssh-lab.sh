@@ -8,8 +8,8 @@ while true; do
     echo "Enter the number (e.g., 1):"
     read router_choice
 
-    USERNAME="admin"
-    PASSWORD="admin"
+    USERNAME="cisco"
+    PASSWORD="cisco123"
 
     case $router_choice in
         1|01)
