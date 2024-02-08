@@ -18,7 +18,7 @@ while true; do
         2|02)
             SERVER_IP="clab-eBGP-ceos-ceos2"
             ;;
-        0)
+        0|exit)
             echo "Exiting."
             exit 0
             ;;
