@@ -10,10 +10,10 @@ read container_choice
 
 case $container_choice in
     1|01)
-        CONTAINER_NAME="clab-eBGP-frr-frr01"
+        CONTAINER_NAME="clab-eBGP-NokiaSRL-srl01"
         ;;
     2|02)
-        CONTAINER_NAME="clab-eBGP-frr-frr02"
+        CONTAINER_NAME="clab-eBGP-NokiaSRL-srl02"
         ;;
     0|exit)
             echo "Exiting."
@@ -26,7 +26,7 @@ case $container_choice in
 esac
 
 # Use docker exec to start a bash shell in the selected container
-docker exec -it $CONTAINER_NAME bash
+docker exec -it $CONTAINER_NAME sr_cli
 
     echo "session has ended. You can choose another router or exit."
 done

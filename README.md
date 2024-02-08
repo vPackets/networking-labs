@@ -67,13 +67,14 @@ To dive into these labs:
 
 2024-Feb-07: Scripts: Added scripts to connect to the routers.
 
+2024-Feb-07: Nokia: Configuration Complete.
 
 ## To Do (Commited)
 
 Basic eBGP :
 
- - Nokia SRLinux
-
+ - Nokia SRLinux: Netconf Configuration
+ - Cumulus: Netconf Configuration
 
 ## To Do (Draft and lab examples)
 
