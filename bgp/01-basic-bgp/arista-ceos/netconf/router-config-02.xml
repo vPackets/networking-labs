@@ -35,9 +35,9 @@
                     <ipv4 xmlns="http://openconfig.net/yang/interfaces/ip">
                         <addresses>
                             <address>
-                                <ip>203.0.113.100</ip>
+                                <ip>203.0.113.1</ip>
                                 <config>
-                                    <ip>203.0.113.100</ip>
+                                    <ip>203.0.113.1</ip>
                                     <prefix-length>24</prefix-length>
                                 </config>
                             </address>
