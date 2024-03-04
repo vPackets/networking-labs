@@ -1,4 +1,4 @@
-name: test-C8K
+name: test-macvlan
 # Lab Description:
 # This lab demonstrate a simple BGP topology between 2 routers
 # It will connect the arista router to the physical hosts on ens192
