@@ -1,0 +1,17 @@
+name: test-C8K
+# Lab Description:
+# This lab demonstrate a simple BGP topology between 2 routers
+
+## Haven't tested if this works.
+
+topology:
+  nodes:
+    Cisco8201-1:
+      kind: cisco_c8000
+      image: 8201-32fh_214:7.10.1
+    Cisco8201-2:
+      kind: cisco_c8000
+      image: 8201-32fh_214:7.10.1
+  links:
+    - endpoints: ["Cisco8201-1:FH0_0_0_1", "Cisco8201-2:FH0_0_0_1"]
+    - endpoints: ["Cisco8201-1:FH0_0_0_0", "host:Cisco8201_FH0_0_0_1"]
