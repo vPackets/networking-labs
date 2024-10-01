@@ -1,0 +1,42 @@
+ip routing
+
+!
+interface lo0
+ ip address 10.100.100.100/32
+ exit
+!
+interface eth1
+ no switchport
+ description *** To VC-EDGE ***
+ ip address 192.168.100.6/30
+ no shut
+exit
+!
+interface eth2
+ no switchport
+ no shut
+ description *** To EC2-VPC01-01 ***
+ ip address 172.31.10.1/24
+!
+
+interface eth3
+ no switchport
+ no shut
+ description *** To EC2-VPC02-01 ***
+ ip address 172.31.20.1/24
+
+interface eth4
+ no switchport
+ no shut
+ description *** To EC2-VPC03-01 ***
+ ip address 172.31.30.1/24
+
+router bgp 65300
+ router-id 10.100.100.100
+ neighbor 192.168.100.5 remote-as 65200
+ !
+
+  network 10.100.100.100/32
+  network 172.31.10.0/24
+  network 172.31.20.0/24
+  network 172.31.30.0/24

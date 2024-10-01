@@ -1,0 +1,105 @@
+hostname AWS-DX-VC-EDGE
+
+vrf CUSTOMER_A
+ rd 65000:100
+ address-family ipv4 unicast
+  import route-target
+   65000:100
+  !
+  export route-target
+   65000:100
+  !
+ !
+
+
+
+ object-group network ipv4 MPLSoUDP-DECAP
+ 10.10.10.10/32
+
+ interface Loopback0
+ ipv4 address 10.11.11.11 255.255.255.255
+
+ interface nve1
+ overlay-encapsulation mpls-udp
+ source-interface Loopback0
+ logging events link-status
+!
+interface FourHundredGigE0/0/0/0
+ description *** To VPC Router ***
+ vrf CUSTOMER_A
+ ipv4 address 192.168.100.5 255.255.255.252
+ no shut
+
+
+ interface FourHundredGigE0/0/0/2
+ description *** To R4 ***
+ ipv4 address 10.0.0.22 255.255.255.252
+ no shut
+
+ prefix-set BGP-NEXT-HOP-PREFIX
+  10.10.10.10/32 le 32
+  end-set
+
+
+  route-policy AWS_DX_CUSTOMER
+  pass
+end-policy
+!
+route-policy MPLSoUDP-TUNNEL-POLICY
+  if next-hop in BGP-NEXT-HOP-PREFIX then
+    set encapsulation-type mpls-udp
+  else
+    pass
+  endif
+end-policy
+
+router bgp 65200
+ bgp router-id 10.11.11.11
+ bgp log neighbor changes detail
+ address-family ipv4 unicast
+  network 10.11.11.11/32
+ !
+ address-family vpnv4 unicast
+  nexthop route-policy MPLSoUDP-TUNNEL-POLICY
+ !
+ neighbor 10.0.0.21
+  remote-as 64515
+  address-family ipv4 unicast
+   route-policy AWS_DX_CUSTOMER in
+   route-policy AWS_DX_CUSTOMER out
+   soft-reconfiguration inbound always
+  !
+ !
+ neighbor 10.10.10.10
+  remote-as 65000
+  ebgp-multihop 255
+  update-source Loopback0
+  address-family vpnv4 unicast
+   route-policy AWS_DX_CUSTOMER in
+   route-policy AWS_DX_CUSTOMER out
+  !
+ !
+ neighbor 192.168.100.6
+ !
+ vrf CUSTOMER_A
+  rd 65000:100
+  address-family ipv4 unicast
+  !
+  neighbor 192.168.100.6
+   remote-as 65300
+   address-family ipv4 unicast
+    send-community-ebgp
+    route-policy AWS_DX_CUSTOMER in
+    route-policy AWS_DX_CUSTOMER out
+    soft-reconfiguration inbound always
+   !
+  !
+
+
+  nve
+  decap-prefix source ipv4 MPLSoUDP-DECAP
+   object-group MPLSoUDP-DECAP
+
+   
+
+

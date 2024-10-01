@@ -1,0 +1,25 @@
+ip routing
+
+!
+interface Ethernet1
+   description *** To R4 ***
+   no switchport
+   no shut
+   ip address 10.0.0.17/30
+!
+interface Ethernet3
+   description *** To R1 ***
+   no switchport
+   no shut
+   ip address 10.0.0.10/30
+!
+interface Loopback0
+   ip address 10.3.3.3/32
+
+
+
+router bgp 64514
+   router-id 10.3.3.3
+   neighbor 10.0.0.9 remote-as 64512
+   neighbor 10.0.0.18 remote-as 64515
+   network 10.3.3.3/32

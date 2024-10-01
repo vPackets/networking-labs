@@ -1,0 +1,8 @@
+router bgp 65001
+bgp_id 1.63.51.21
+neighbor 2001:db8:10:0:1:63:51:19 remote-as 65538
+neighbor 2001:db8:10:0:1:63:51:19 update-source 2001:db8:10:0:f018:1375:ba82:46ff
+capability ipv6 unicast
+capability refresh
+capability 4bytes-as
+network 1 2001:e000::/64 2000000

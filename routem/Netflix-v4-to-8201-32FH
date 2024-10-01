@@ -1,0 +1,8 @@
+router bgp 65001
+bgp_id 1.63.51.21
+neighbor 1.63.51.70 remote-as 65537
+neighbor 1.63.51.70 update-source 1.63.51.21
+capability ipv4 unicast
+capability refresh
+capability 4bytes-as
+replay file nflx-bgpv4.bin binary

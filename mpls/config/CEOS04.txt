@@ -1,0 +1,35 @@
+ip routing
+
+!
+interface lo0
+  ip address 10.4.4.4/32
+exit
+!
+interface eth1
+ no switchport
+ description *** To R2 ***
+ ip address 10.0.0.14/30
+ no shut
+exit
+!
+interface eth2
+ no switchport
+ no shut
+ description *** To R3 ***
+ ip address 10.0.0.18/30
+!
+
+interface eth3
+ no switchport
+ no shut
+ description *** To VC-EDGE ***
+ ip address 10.0.0.21/30
+
+router bgp 64515
+ router-id 10.4.4.4
+ neighbor 10.0.0.13 remote-as 64513
+ neighbor 10.0.0.17 remote-as 64514
+ neighbor 10.0.0.22 remote-as 65200
+ !
+
+  network 10.4.4.4/32

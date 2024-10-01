@@ -1,0 +1,23 @@
+interface Ethernet1
+   description *** To PE ***
+   no switchport
+   ip address 192.168.100.2/30
+   no shut
+!
+interface Ethernet2
+   description *** To DC Workloads ***
+   no switchport
+   ip address 10.0.0.1/24
+   no shut
+
+!
+ip routing
+!
+
+!
+router bgp 65100
+   router-id 10.0.0.0
+   neighbor 192.168.100.1 remote-as 65000
+   network 10.0.0.0/24
+!
+end

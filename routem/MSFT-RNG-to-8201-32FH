@@ -1,0 +1,10 @@
+router bgp 65001
+bgp_id 1.63.51.21
+neighbor 1.63.51.70 remote-as 65537
+neighbor 1.63.51.70 update-source 1.63.51.21
+capability ipv4 vpn
+capability ipv6 vpn
+capability refresh
+capability 4bytes-as
+replay replay-VPN.txt 
+sendall
