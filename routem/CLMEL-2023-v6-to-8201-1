@@ -1,9 +1,0 @@
-router bgp 65001
-bgp_id 1.63.51.21
-neighbor 2001:db8:1337:0:1:63:51:67 remote-as 65533
-neighbor 2001:db8:1337:0:1:63:51:67 update-source 2001:db8:1337:0:1:63:51:21 
-capability ipv6 unicast
-capability refresh
-capability 4bytes-as
-replay file IPv6-2023.2406:840:feed:2::1_AS3.12698_4byte ascii
-replay flap 1000 60 init_wait 180
