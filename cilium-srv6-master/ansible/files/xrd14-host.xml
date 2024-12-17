@@ -1,0 +1,5 @@
+<network>
+  <name>xrd14-host</name>
+  <forward mode="bridge"/>
+  <bridge name="xrd14-host"/>
+</network>
