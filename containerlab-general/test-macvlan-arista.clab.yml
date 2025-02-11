@@ -1,0 +1,23 @@
+name: test-macvlan
+# Lab Description:
+# This lab demonstrate a simple BGP topology between 2 routers
+# It will connect the arista router to the physical hosts on ens192
+# If the hosts is ESXi, make sure that the DPG is configured with Promiscuous, MAC Address Changes and Forged Transmits.
+
+
+
+topology:
+  nodes:
+    ceos1:
+      kind: ceos
+      image: ceos:4.30.3M
+
+    ceos2: 
+      kind: ceos
+      image: ceos:4.30.3M
+
+  links:
+    - endpoints: ["ceos1:eth1", "macvlan:ens192"]
+    - endpoints: ["ceos1:eth2", "ceos2:eth2"]
+
+

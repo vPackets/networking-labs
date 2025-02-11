@@ -1,0 +1,28 @@
+name: eBGP-CSR
+
+topology:
+  nodes:
+    linux01:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-01:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    linux02:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-02:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    csr1:
+      kind: cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.08
+
+    csr2: 
+      kind: cisco_csr1000v
+      image: vrnetlab/vr-csr:17.03.08
+
+  links:
+    - endpoints: ["linux01:eth1", "csr1:eth1"]   
+    - endpoints: ["csr1:eth2", "csr2:eth2"]
+    - endpoints: ["linux02:eth1", "csr2:eth1"]

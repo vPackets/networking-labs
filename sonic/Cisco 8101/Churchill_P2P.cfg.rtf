@@ -1,0 +1,242 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww23460\viewh11920\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+sudo config vrf add Vrf0\
+sudo config vrf add Vrf8\
+sudo config vrf add Vrf16\
+sudo config vrf add Vrf24\
+sudo config vrf add Vrf32\
+sudo config vrf add Vrf40\
+sudo config vrf add Vrf48\
+sudo config vrf add Vrf56\
+sudo config vrf add Vrf64\
+sudo config vrf add Vrf72\
+sudo config vrf add Vrf80\
+sudo config vrf add Vrf88\
+sudo config vrf add Vrf96\
+sudo config vrf add Vrf104\
+sudo config vrf add Vrf112\
+sudo config vrf add Vrf120\
+sudo config vrf add Vrf128\
+sudo config vrf add Vrf136\
+sudo config vrf add Vrf144\
+sudo config vrf add Vrf152\
+sudo config vrf add Vrf160\
+sudo config vrf add Vrf168\
+sudo config vrf add Vrf176\
+sudo config vrf add Vrf184\
+sudo config vrf add Vrf192\
+sudo config vrf add Vrf200\
+sudo config vrf add Vrf208\
+sudo config vrf add Vrf216\
+sudo config vrf add Vrf224\
+sudo config vrf add Vrf232\
+sudo config vrf add Vrf240\
+sudo config vrf add Vrf248\
+\
+\
+sudo config interface vrf bind Ethernet240 Vrf240\
+sudo config interface ip add Ethernet240 100.0.80.1/24\
+sudo config interface vrf bind Ethernet232 Vrf232\
+sudo config interface ip add Ethernet232 100.0.29.1/24\
+sudo config interface vrf bind Ethernet224 Vrf224\
+sudo config interface ip add Ethernet224 100.0.29.2/24\
+sudo config interface vrf bind Ethernet216 Vrf216\
+sudo config interface ip add Ethernet216 100.0.28.1/24\
+sudo config interface vrf bind Ethernet208 Vrf208\
+sudo config interface ip add Ethernet208 100.0.28.2/24\
+sudo config interface vrf bind Ethernet200 Vrf200\
+sudo config interface ip add Ethernet200 100.0.27.1/24\
+sudo config interface vrf bind Ethernet192 Vrf192\
+sudo config interface ip add Ethernet192 100.0.27.2/24\
+sudo config interface vrf bind Ethernet184 Vrf184\
+sudo config interface ip add Ethernet184 100.0.26.1/24\
+sudo config interface vrf bind Ethernet176 Vrf176\
+sudo config interface ip add Ethernet176 100.0.26.2/24\
+sudo config interface vrf bind Ethernet168 Vrf168\
+sudo config interface ip add Ethernet168 100.0.25.1/24\
+sudo config interface vrf bind Ethernet160 Vrf160\
+sudo config interface ip add Ethernet160 100.0.25.2/24\
+sudo config interface vrf bind Ethernet152 Vrf152\
+sudo config interface ip add Ethernet152 100.0.24.1/24\
+sudo config interface vrf bind Ethernet144 Vrf144\
+sudo config interface ip add Ethernet144 100.0.24.2/24\
+sudo config interface vrf bind Ethernet136 Vrf136\
+sudo config interface ip add Ethernet136 100.0.23.1/24\
+sudo config interface vrf bind Ethernet128 Vrf128\
+sudo config interface ip add Ethernet128 100.0.23.2/24\
+sudo config interface vrf bind Ethernet120 Vrf120\
+sudo config interface ip add Ethernet120 100.0.22.1/24\
+sudo config interface vrf bind Ethernet112 Vrf112\
+sudo config interface ip add Ethernet112 100.0.22.2/24\
+sudo config interface vrf bind Ethernet104 Vrf104\
+sudo config interface ip add Ethernet104 100.0.21.1/24\
+sudo config interface vrf bind Ethernet96 Vrf96\
+sudo config interface ip add Ethernet96 100.0.21.2/24\
+sudo config interface vrf bind Ethernet88 Vrf88\
+sudo config interface ip add Ethernet88 100.0.20.1/24\
+sudo config interface vrf bind Ethernet80 Vrf80\
+sudo config interface ip add Ethernet80 100.0.20.2/24\
+sudo config interface vrf bind Ethernet72 Vrf72\
+sudo config interface ip add Ethernet72 100.0.19.1/24\
+sudo config interface vrf bind Ethernet64 Vrf64\
+sudo config interface ip add Ethernet64 100.0.19.2/24\
+sudo config interface vrf bind Ethernet56 Vrf56\
+sudo config interface ip add Ethernet56 100.0.18.1/24\
+sudo config interface vrf bind Ethernet48 Vrf48\
+sudo config interface ip add Ethernet48 100.0.18.2/24\
+sudo config interface vrf bind Ethernet40 Vrf40\
+sudo config interface ip add Ethernet40 100.0.17.1/24\
+sudo config interface vrf bind Ethernet32 Vrf32\
+sudo config interface ip add Ethernet32 100.0.17.2/24\
+sudo config interface vrf bind Ethernet24 Vrf24\
+sudo config interface ip add Ethernet24 100.0.16.1/24\
+sudo config interface vrf bind Ethernet16 Vrf16\
+sudo config interface ip add Ethernet16 100.0.16.2/24\
+sudo config interface vrf bind Ethernet8 Vrf8\
+sudo config interface ip add Ethernet8 100.0.15.1/24\
+sudo config interface vrf bind Ethernet0 Vrf0\
+sudo config interface ip add Ethernet0 100.0.15.2/24\
+sudo config interface vrf bind Ethernet248 Vrf248\
+sudo config interface ip add Ethernet248 100.0.70.1/24\
+\
+sudo config route add prefix vrf Vrf240 3.3.3.3/32 nexthop vrf Vrf232 100.0.29.2\
+sudo config route add prefix vrf Vrf224 3.3.3.3/32 nexthop vrf Vrf216 100.0.28.2\
+sudo config route add prefix vrf Vrf208 3.3.3.3/32 nexthop vrf Vrf200 100.0.27.2\
+sudo config route add prefix vrf Vrf192 3.3.3.3/32 nexthop vrf Vrf184 100.0.26.2\
+sudo config route add prefix vrf Vrf176 3.3.3.3/32 nexthop vrf Vrf168 100.0.25.2\
+sudo config route add prefix vrf Vrf160 3.3.3.3/32 nexthop vrf Vrf152 100.0.24.2\
+sudo config route add prefix vrf Vrf144 3.3.3.3/32 nexthop vrf Vrf136 100.0.23.2\
+sudo config route add prefix vrf Vrf128 3.3.3.3/32 nexthop vrf Vrf120 100.0.22.2\
+sudo config route add prefix vrf Vrf112 3.3.3.3/32 nexthop vrf Vrf104 100.0.21.2\
+sudo config route add prefix vrf Vrf96 3.3.3.3/32 nexthop vrf Vrf88 100.0.20.2\
+sudo config route add prefix vrf Vrf80 3.3.3.3/32 nexthop vrf Vrf72 100.0.19.2\
+sudo config route add prefix vrf Vrf64 3.3.3.3/32 nexthop vrf Vrf56 100.0.18.2\
+sudo config route add prefix vrf Vrf48 3.3.3.3/32 nexthop vrf Vrf40 100.0.17.2\
+sudo config route add prefix vrf Vrf32 3.3.3.3/32 nexthop vrf Vrf24 100.0.16.2\
+sudo config route add prefix vrf Vrf16 3.3.3.3/32 nexthop vrf Vrf8 100.0.15.2\
+sudo config route add prefix vrf Vrf0 3.3.3.3/32 nexthop vrf Vrf248 100.0.70.2\
+\
+sudo config route add prefix vrf Vrf248 2.2.2.2/32 nexthop vrf Vrf0 100.0.15.1\
+sudo config route add prefix vrf Vrf8 2.2.2.2/32  nexthop vrf Vrf16 100.0.16.1\
+sudo config route add prefix vrf Vrf24 2.2.2.2/32  nexthop vrf Vrf32 100.0.17.1\
+sudo config route add prefix vrf Vrf40 2.2.2.2/32  nexthop vrf Vrf48 100.0.18.1\
+sudo config route add prefix vrf Vrf56  2.2.2.2/32  nexthop vrf Vrf64 100.0.19.1\
+sudo config route add prefix vrf Vrf72 2.2.2.2/32  nexthop vrf Vrf80 100.0.20.1\
+sudo config route add prefix vrf Vrf88 2.2.2.2/32 nexthop vrf Vrf96 100.0.21.1\
+sudo config route add prefix vrf Vrf104 2.2.2.2/32 nexthop vrf Vrf112 100.0.22.1\
+sudo config route add prefix vrf Vrf120 2.2.2.2/32 nexthop vrf Vrf128 100.0.23.1\
+sudo config route add prefix vrf Vrf136 2.2.2.2/32 nexthop vrf Vrf144 100.0.24.1\
+sudo config route add prefix vrf Vrf152 2.2.2.2/32 nexthop vrf Vrf160 100.0.25.1\
+sudo config route add prefix vrf Vrf168 2.2.2.2/32 nexthop vrf Vrf176 100.0.26.1\
+sudo config route add prefix vrf Vrf184 2.2.2.2/32 nexthop vrf Vrf192 100.0.27.1\
+sudo config route add prefix vrf Vrf200 2.2.2.2/32 nexthop vrf Vrf208 100.0.28.1\
+sudo config route add prefix vrf Vrf216 2.2.2.2/32 nexthop vrf Vrf224 100.0.29.1\
+sudo config route add prefix vrf Vrf232 2.2.2.2/32 nexthop vrf Vrf240 100.0.80.2\
+\
+\{\
+    "INTERFACE": \{\
+        "Ethernet0": \{\
+            "mac_addr": "e8:eb:34:e7:d4:00"\
+        \},\
+        "Ethernet8": \{\
+            "mac_addr": "e8:eb:34:e7:d3:ff"\
+        \},\
+        "Ethernet16": \{\
+            "mac_addr": "e8:eb:34:e7:d3:fe"\
+        \},\
+        "Ethernet24": \{\
+            "mac_addr": "e8:eb:34:e7:d3:fd"\
+        \},\
+        "Ethernet32": \{\
+            "mac_addr": "e8:eb:34:e7:d3:fc"\
+        \},\
+        "Ethernet40": \{\
+            "mac_addr": "e8:eb:34:e7:d3:fb"\
+        \},\
+        "Ethernet48": \{\
+            "mac_addr": "e8:eb:34:e7:d3:fa"\
+        \},\
+        "Ethernet56": \{\
+            "mac_addr": "e8:eb:34:e7:d3:f9"\
+        \},\
+        "Ethernet64": \{\
+            "mac_addr": "e8:eb:34:e7:d3:f8"\
+        \},\
+        "Ethernet72": \{\
+            "mac_addr": "e8:eb:34:e7:d3:f7"\
+        \},\
+        "Ethernet80": \{\
+            "mac_addr": "e8:eb:34:e7:d3:f6"\
+        \},\
+        "Ethernet88": \{\
+            "mac_addr": "e8:eb:34:e7:d3:f5"\
+        \},\
+        "Ethernet96": \{\
+            "mac_addr": "e8:eb:34:e7:d3:f4"\
+        \},\
+        "Ethernet104": \{\
+            "mac_addr": "e8:eb:34:e7:d3:f3"\
+        \},\
+        "Ethernet112": \{\
+            "mac_addr": "e8:eb:34:e7:d3:f2"\
+        \},\
+        "Ethernet120": \{\
+            "mac_addr": "e8:eb:34:e7:d3:f1"\
+        \},\
+        "Ethernet128": \{\
+            "mac_addr": "e8:eb:34:e7:d3:f0"\
+        \},\
+        "Ethernet136": \{\
+            "mac_addr": "e8:eb:34:e7:d3:ef"\
+        \},\
+        "Ethernet144": \{\
+            "mac_addr": "e8:eb:34:e7:d3:ee"\
+        \},\
+        "Ethernet152": \{\
+            "mac_addr": "e8:eb:34:e7:d3:ed"\
+        \},\
+        "Ethernet160": \{\
+            "mac_addr": "e8:eb:34:e7:d3:eb"\
+        \},\
+        "Ethernet168": \{\
+            "mac_addr": "e8:eb:34:e7:d3:ea"\
+        \},\
+        "Ethernet176": \{\
+            "mac_addr": "e8:eb:34:e7:d3:e9"\
+        \},\
+        "Ethernet184": \{\
+            "mac_addr": "e8:eb:34:e7:d3:e8"\
+        \},\
+        "Ethernet192": \{\
+            "mac_addr": "e8:eb:34:e7:d3:e7"\
+        \},\
+        "Ethernet200": \{\
+            "mac_addr": "e8:eb:34:e7:d3:e6"\
+        \},\
+        "Ethernet208": \{\
+            "mac_addr": "e8:eb:34:e7:d3:e5"\
+        \},\
+        "Ethernet216": \{\
+            "mac_addr": "e8:eb:34:e7:d3:e4"\
+        \},\
+        "Ethernet224": \{\
+            "mac_addr": "e8:eb:34:e7:d3:e3"\
+        \},\
+        "Ethernet232": \{\
+            "mac_addr": "e8:eb:34:e7:d3:e2"\
+        \},\
+        "Ethernet240": \{\
+            "mac_addr": "e8:eb:34:e7:d3:e1"\
+        \},\
+        "Ethernet248": \{\
+            "mac_addr": "e8:eb:34:e7:d3:ec"\
+        \}\
+     \}\
+  \}\
+}

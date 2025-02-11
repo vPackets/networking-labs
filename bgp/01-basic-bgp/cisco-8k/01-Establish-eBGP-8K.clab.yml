@@ -1,0 +1,30 @@
+name: eBGP-C8K
+# Lab Description:
+# This lab demonstrate a simple BGP topology between 2 routers
+
+topology:
+  nodes:
+    linux01:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-01:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    linux02:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-02:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    Cisco8201-1:
+      kind: cisco_c8000
+      image: 8201-32fh_214:7.10.1
+
+    Cisco8201-2: 
+      kind: cisco_c8000
+      image: 8201-32fh_214:7.10.1
+
+  links:
+    - endpoints: ["linux01:eth1", "Cisco8201-1:FH0_0_0_0"]   
+    - endpoints: ["Cisco8201-1:FH0_0_0_1", "Cisco8201-2:FH0_0_0_1"]
+    - endpoints: ["linux02:eth1", "Cisco8201-2:FH0_0_0_0"]

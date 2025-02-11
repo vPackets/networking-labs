@@ -1,0 +1,132 @@
+
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $ sudo containerlab deploy
+INFO[0000] Containerlab v0.48.1 started
+INFO[0000] Parsing & checking topology file: 01-Establish-eBGP-8K.clab.yml
+INFO[0000] Creating docker network: Name="clab", IPv4Subnet="172.20.20.0/24", IPv6Subnet="2001:172:20:20::/64", MTU='ל'
+INFO[0000] Creating lab directory: /home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k/clab-eBGP-c8K
+INFO[0000] Creating container: "linux02"
+INFO[0000] Creating container: "linux01"
+INFO[0000] Creating container: "Cisco8201-2"
+INFO[0000] Creating container: "Cisco8201-1"
+INFO[0001] Creating link: Cisco8201-1:FH0_0_0_1 <--> Cisco8201-2:FH0_0_0_1
+INFO[0001] Creating link: linux01:eth1 <--> Cisco8201-1:FH0_0_0_0
+INFO[0001] Creating link: linux02:eth1 <--> Cisco8201-2:FH0_0_0_0
+INFO[0001] Adding containerlab host entries to /etc/hosts file
+INFO[0001] Adding ssh config for containerlab nodes
+INFO[0001] Executed command "sh /usr/local/bin/network-config.sh" on the node "linux01". stdout:
+INFO[0001] Executed command "sh /usr/local/bin/network-config.sh" on the node "linux02". stdout:
++---+---------------------------+--------------+--------------------------------------------------+-------------+---------+----------------+----------------------+
+| # |           Name            | Container ID |                      Image                       |    Kind     |  State  |  IPv4 Address  |     IPv6 Address     |
++---+---------------------------+--------------+--------------------------------------------------+-------------+---------+----------------+----------------------+
+| 1 | clab-eBGP-c8K-Cisco8201-1 | f3eaf38d506d | 8201-32fh_214:7.10.1                             | cisco_c8000 | running | 172.20.20.3/24 | 2001:172:20:20::3/64 |
+| 2 | clab-eBGP-c8K-Cisco8201-2 | e8c9f1f5b262 | 8201-32fh_214:7.10.1                             | cisco_c8000 | running | 172.20.20.5/24 | 2001:172:20:20::5/64 |
+| 3 | clab-eBGP-c8K-linux01     | f3de42813bda | vpackets/alpine-tools-containerlab-isp-01:latest | linux       | running | 172.20.20.4/24 | 2001:172:20:20::4/64 |
+| 4 | clab-eBGP-c8K-linux02     | 7ece5088d431 | vpackets/alpine-tools-containerlab-isp-02:latest | linux       | running | 172.20.20.2/24 | 2001:172:20:20::2/64 |
++---+---------------------------+--------------+--------------------------------------------------+-------------+---------+----------------+----------------------+
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $ ll
+total 32K
+-rw-r--r--  1 netadmin netadmin  693 Jan 10 20:59 01-Establish-eBGP-8K.clab.yml
+drwxrwxr-x+ 5 root     root     4.0K Jan 16 21:07 clab-eBGP-c8K
+-rw-rw-r--  1 netadmin netadmin 1.1K Jan 16 21:18 netconf-write-config-files.py
+-rw-rw-r--  1 netadmin netadmin 7.3K Jan 12 18:18 netconf-write-config.py
+-rw-rw-r--  1 netadmin netadmin 3.1K Jan 16 16:21 router-config-01.xml
+-rw-rw-r--  1 netadmin netadmin 3.1K Jan 16 16:21 router-config-02.xml
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $ python3 netconf-write-config-files.py
+<?xml version="1.0" ?>
+<rpc-reply xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:169668cf-09a1-4469-b618-6047328b5ae3">
+
+
+	<ok/>
+
+
+</rpc-reply>
+
+<?xml version="1.0" ?>
+<rpc-reply xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:510b7f39-72bb-4eb3-9997-75805ea21fb9">
+
+
+	<ok/>
+
+
+</rpc-reply>
+
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $ ip netns list
+clab-eBGP-c8K-linux01
+clab-eBGP-c8K-Cisco8201-2
+clab-eBGP-c8K-linux02
+clab-eBGP-c8K-Cisco8201-1
+
+
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $ sudo ip netns exec clab-eBGP-c8K-linux01 ip link
+[sudo] password for netadmin:
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+55: eth0@if56: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default
+    link/ether 02:42:ac:14:14:04 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+62: eth1@if61: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500 qdisc noqueue state UP mode DEFAULT group default
+    link/ether aa:c1:ab:43:64:45 brd ff:ff:ff:ff:ff:ff link-netns clab-eBGP-c8K-Cisco8201-1
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $
+
+
+
+
+
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $ sudo ip netns exec clab-eBGP-c8K-linux01 tcpdump -i eth1 -w ~/test.pcap
+tcpdump: listening on eth1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+^C14 packets captured
+14 packets received by filter
+0 packets dropped by kernel
+
+
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $  sudo ip netns exec clab-eBGP-c8K-Cisco8201-1 ip link                                                                                                                                                                                                                     netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $ sudo ip netns exec clab-eBGP-c8K-Cisco8201-1 ip link
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default qlen 1000
+    link/ether a6:64:a9:ec:36:77 brd ff:ff:ff:ff:ff:ff
+3: virbr1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc noqueue state UP mode DEFAULT group default qlen 1000
+    link/ether c6:e4:10:46:28:60 brd ff:ff:ff:ff:ff:ff
+4: ovs-system: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether d6:84:3d:3c:fa:16 brd ff:ff:ff:ff:ff:ff
+5: mgmt_br: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/ether da:49:0d:f0:af:40 brd ff:ff:ff:ff:ff:ff
+6: br-Port0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/ether de:66:61:be:6e:45 brd ff:ff:ff:ff:ff:ff
+7: br-Port1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/ether 86:c1:0a:c9:06:4d brd ff:ff:ff:ff:ff:ff
+8: T00CFS000000000: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc fq_codel master ovs-system state UP mode DEFAULT group default qlen 10000
+    link/ether 6a:23:d8:24:04:09 brd ff:ff:ff:ff:ff:ff
+9: H00CFS00JLVW2C1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc fq_codel master ovs-system state UP mode DEFAULT group default qlen 10000
+    link/ether 0e:b3:df:4f:1b:6b brd ff:ff:ff:ff:ff:ff
+10: H00CFS00JLVW2C2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc fq_codel master ovs-system state UP mode DEFAULT group default qlen 10000
+    link/ether ea:ad:6c:0a:f2:68 brd ff:ff:ff:ff:ff:ff
+11: T00CFS000000004: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc fq_codel master virbr1 state UP mode DEFAULT group default qlen 10000
+    link/ether c6:e4:10:46:28:60 brd ff:ff:ff:ff:ff:ff
+12: B00CFS00JLVW2C7: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc noqueue state UP mode DEFAULT group default qlen 10000
+    link/ether 1e:4c:6a:92:46:5e brd ff:ff:ff:ff:ff:ff
+13: T00CFS000000001: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc fq_codel master B00CFS00JLVW2C7 state UP mode DEFAULT group default qlen 10000
+    link/ether 3e:59:01:f8:62:81 brd ff:ff:ff:ff:ff:ff
+14: H00CFS00JLVW2C3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc fq_codel master B00CFS00JLVW2C7 state UP mode DEFAULT group default qlen 10000
+    link/ether 1e:4c:6a:92:46:5e brd ff:ff:ff:ff:ff:ff
+15: B00CFS00JLVW2CA: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc noqueue state UP mode DEFAULT group default qlen 10000
+    link/ether 96:81:3b:32:0b:6c brd ff:ff:ff:ff:ff:ff
+16: T00CFS000000005: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc fq_codel master B00CFS00JLVW2CA state UP mode DEFAULT group default qlen 10000
+    link/ether ea:f0:e5:87:c1:0b brd ff:ff:ff:ff:ff:ff
+17: H00CFS00JLVW2C4: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 11000 qdisc fq_codel master B00CFS00JLVW2CA state UP mode DEFAULT group default qlen 10000
+    link/ether 96:81:3b:32:0b:6c brd ff:ff:ff:ff:ff:ff
+53: eth0@if54: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master ovs-system state UP mode DEFAULT group default
+    link/ether 02:42:ac:14:14:03 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+60: FH0_0_0_1@if59: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500 qdisc noqueue master ovs-system state UP mode DEFAULT group default
+    link/ether aa:c1:ab:3f:52:10 brd ff:ff:ff:ff:ff:ff link-netns clab-eBGP-c8K-Cisco8201-2
+61: FH0_0_0_0@if62: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9500 qdisc noqueue master ovs-system state UP mode DEFAULT group default
+    link/ether aa:c1:ab:3c:ad:62 brd ff:ff:ff:ff:ff:ff link-netns clab-eBGP-c8K-linux01
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $ sudo ip netns exec clab-eBGP-c8K-Cisco8201-1 -i FH0_0_0_1 -w ~/bgp.pcap
+exec of "-i" failed: No such file or directory
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $ sudo ip netns exec clab-eBGP-c8K-Cisco8201-1 tcpdump -i FH0_0_0_1 -w ~/bgp.pcap
+tcpdump: listening on FH0_0_0_1, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+^C40 packets captured
+42 packets received by filter
+0 packets dropped by kernel
+netadmin@srv-aws-ubuntu-01:/home/netadmin/networking-labs/bgp/01-basic-bgp/cisco-8k $
+
+

@@ -1,0 +1,28 @@
+name: eBGP-vMX
+
+topology:
+  nodes:
+    linux01:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-01:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    linux02:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-02:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+      
+    vmx01:
+      kind: juniper_vmx
+      image: vrnetlab/vr-vmx:21.2R1.10
+
+    vmx02: 
+      kind: juniper_vmx
+      image: vrnetlab/vr-vmx:21.2R1.10
+
+  links:
+    - endpoints: ["linux01:eth1", "vmx01:eth1"]   
+    - endpoints: ["vmx01:eth2", "vmx02:eth2"]
+    - endpoints: ["linux02:eth1", "vmx02:eth1"] 

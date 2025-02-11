@@ -1,0 +1,898 @@
+cat /etc/sonic/config_db.json 
+
+show runningconfiguration all
+sudo config save -y
+sudo config reload
+
+show interfaces transceiver eeprom Ethernet0
+show interfaces transceiver status Ethernet0
+
+sudo config interface startup Ethernet8
+
+
+admin@sonic:~$ show ip interfaces
+Interface    Master    IPv4 address/mask    Admin/Oper    BGP Neighbor    Neighbor IP
+-----------  --------  -------------------  ------------  --------------  -------------
+Ethernet0    Vrf0      100.0.14.2/24        up/down       N/A             N/A
+Ethernet8    Vrf8      100.0.14.1/24        up/down       N/A             N/A
+Ethernet16   Vrf16     100.0.15.2/24        up/down       N/A             N/A
+Ethernet24   Vrf24     100.0.15.1/24        up/down       N/A             N/A
+Ethernet32   Vrf32     100.0.16.2/24        up/down       N/A             N/A
+Ethernet40   Vrf40     100.0.16.1/24        up/down       N/A             N/A
+Ethernet48   Vrf48     100.0.17.2/24        up/down       N/A             N/A
+Ethernet56   Vrf56     100.0.17.1/24        up/down       N/A             N/A
+Ethernet64   Vrf64     100.0.18.2/24        up/down       N/A             N/A
+Ethernet72   Vrf72     100.0.18.1/24        up/down       N/A             N/A
+Ethernet80   Vrf80     100.0.19.2/24        up/down       N/A             N/A
+Ethernet88   Vrf88     100.0.19.1/24        up/down       N/A             N/A
+Ethernet96   Vrf96     100.0.20.2/24        up/down       N/A             N/A
+Ethernet104  Vrf104    100.0.20.1/24        up/down       N/A             N/A
+Ethernet112  Vrf112    100.0.21.2/24        up/down       N/A             N/A
+Ethernet120  Vrf120    100.0.21.1/24        up/down       N/A             N/A
+Ethernet128  Vrf128    100.0.22.2/24        up/down       N/A             N/A
+Ethernet136  Vrf136    100.0.22.1/24        up/down       N/A             N/A
+Ethernet144  Vrf144    100.0.23.2/24        up/down       N/A             N/A
+Ethernet152  Vrf152    100.0.23.1/24        up/down       N/A             N/A
+Ethernet160  Vrf160    100.0.24.2/24        up/down       N/A             N/A
+Ethernet168  Vrf168    100.0.24.1/24        up/down       N/A             N/A
+Ethernet176  Vrf176    100.0.25.2/24        up/down       N/A             N/A
+Ethernet184  Vrf184    100.0.25.1/24        up/down       N/A             N/A
+Ethernet192  Vrf192    100.0.26.2/24        up/down       N/A             N/A
+Ethernet200  Vrf200    100.0.26.1/24        up/down       N/A             N/A
+Ethernet208  Vrf208    100.0.27.2/24        up/down       N/A             N/A
+Ethernet216  Vrf216    100.0.27.1/24        up/down       N/A             N/A
+Ethernet224  Vrf224    100.0.28.2/24        up/down       N/A             N/A
+Ethernet232  Vrf232    100.0.28.1/24        up/down       N/A             N/A
+Ethernet240  Vrf240    100.0.80.1/24        up/down       N/A             N/A
+Ethernet248  Vrf248    100.0.70.1/24        up/down       N/A             N/A
+docker0                240.127.1.1/24       up/down       N/A             N/A
+eth0                   109.105.92.102/19    up/up         N/A             N/A
+lo                     127.0.0.1/16         up/up         N/A             N/A
+
+show interfaces status Ethernet8
+
+admin@sonic:~$ show interfaces status
+  Interface                                    Lanes    Speed    MTU    FEC    Alias    Vlan    Oper    Admin                                             Type    Asym PFC
+-----------  ---------------------------------------  -------  -----  -----  -------  ------  ------  -------  -----------------------------------------------  ----------
+  Ethernet0  2304,2305,2306,2307,2308,2309,2310,2311     400G   9100    N/A     etp0  routed      up       up  QSFP-DD Double Density 8X Pluggable Transceiver         N/A
+  Ethernet8  2320,2321,2322,2323,2324,2325,2326,2327     400G   9100    N/A     etp1  routed      up       up  QSFP-DD Double Density 8X Pluggable Transceiver         N/A
+ Ethernet16  2312,2313,2314,2315,2316,2317,2318,2319     400G   9100    N/A     etp2  routed      up       up  QSFP-DD Double Density 8X Pluggable Transceiver         N/A
+ Ethernet24  2056,2057,2058,2059,2060,2061,2062,2063     400G   9100    N/A     etp3  routed      up       up  QSFP-DD Double Density 8X Pluggable Transceiver         N/A
+ Ethernet32  1792,1793,1794,1795,1796,1797,1798,1799     400G   9100    N/A     etp4  routed    down       up                                              N/A         N/A
+ Ethernet40  2048,2049,2050,2051,2052,2053,2054,2055     400G   9100    N/A     etp5  routed    down       up                                              N/A         N/A
+ Ethernet48  2560,2561,2562,2563,2564,2565,2566,2567     400G   9100    N/A     etp6  routed    down       up                                              N/A         N/A
+ Ethernet56  2824,2825,2826,2827,2828,2829,2830,2831     400G   9100    N/A     etp7  routed    down       up                                              N/A         N/A
+ Ethernet64  2832,2833,2834,2835,2836,2837,2838,2839     400G   9100    N/A     etp8  routed    down       up                                              N/A         N/A
+ Ethernet72  2816,2817,2818,2819,2820,2821,2822,2823     400G   9100    N/A     etp9  routed    down       up                                              N/A         N/A
+ Ethernet80  2568,2569,2570,2571,2572,2573,2574,2575     400G   9100    N/A    etp10  routed    down       up                                              N/A         N/A
+ Ethernet88  2576,2577,2578,2579,2580,2581,2582,2583     400G   9100    N/A    etp11  routed    down       up                                              N/A         N/A
+ Ethernet96  1536,1537,1538,1539,1540,1541,1542,1543     400G   9100    N/A    etp12  routed    down       up                                              N/A         N/A
+Ethernet104  1800,1801,1802,1803,1804,1805,1806,1807     400G   9100    N/A    etp13  routed    down       up                                              N/A         N/A
+Ethernet112  1552,1553,1554,1555,1556,1557,1558,1559     400G   9100    N/A    etp14  routed    down       up                                              N/A         N/A
+Ethernet120  1544,1545,1546,1547,1548,1549,1550,1551     400G   9100    N/A    etp15  routed    down       up                                              N/A         N/A
+Ethernet128  1296,1297,1298,1299,1300,1301,1302,1303     400G   9100    N/A    etp16  routed    down       up                                              N/A         N/A
+Ethernet136  1288,1289,1290,1291,1292,1293,1294,1295     400G   9100    N/A    etp17  routed    down       up                                              N/A         N/A
+Ethernet144  1280,1281,1282,1283,1284,1285,1286,1287     400G   9100    N/A    etp18  routed    down       up                                              N/A         N/A
+Ethernet152  1032,1033,1034,1035,1036,1037,1038,1039     400G   9100    N/A    etp19  routed    down       up                                              N/A         N/A
+Ethernet160          264,265,266,267,268,269,270,271     400G   9100    N/A    etp20  routed    down       up                                              N/A         N/A
+Ethernet168          272,273,274,275,276,277,278,279     400G   9100    N/A    etp21  routed    down       up                                              N/A         N/A
+Ethernet176                  16,17,18,19,20,21,22,23     400G   9100    N/A    etp22  routed    down       up                                              N/A         N/A
+Ethernet184                          0,1,2,3,4,5,6,7     400G   9100    N/A    etp23  routed    down       up                                              N/A         N/A
+Ethernet192          256,257,258,259,260,261,262,263     400G   9100    N/A    etp24  routed    down       up                                              N/A         N/A
+Ethernet200                    8,9,10,11,12,13,14,15     400G   9100    N/A    etp25  routed    down       up                                              N/A         N/A
+Ethernet208  1024,1025,1026,1027,1028,1029,1030,1031     400G   9100    N/A    etp26  routed    down       up                                              N/A         N/A
+Ethernet216          768,769,770,771,772,773,774,775     400G   9100    N/A    etp27  routed    down       up                                              N/A         N/A
+Ethernet224          520,521,522,523,524,525,526,527     400G   9100    N/A    etp28  routed    down       up                                              N/A         N/A
+Ethernet232          776,777,778,779,780,781,782,783     400G   9100    N/A    etp29  routed    down       up                                              N/A         N/A
+Ethernet240          512,513,514,515,516,517,518,519     400G   9100    N/A    etp30  routed    down       up                                              N/A         N/A
+Ethernet248          528,529,530,531,532,533,534,535     400G   9100    N/A    etp31  routed    down       up                                              N/A         N/A
+
+
+
+show vrf
+VRF     Interfaces
+------  ------------
+Vrf0    Ethernet0
+Vrf104  Ethernet104
+Vrf112  Ethernet112
+Vrf120  Ethernet120
+Vrf128  Ethernet128
+Vrf136  Ethernet136
+Vrf144  Ethernet144
+Vrf152  Ethernet152
+Vrf16   Ethernet16
+Vrf160  Ethernet160
+Vrf168  Ethernet168
+Vrf176  Ethernet176
+Vrf184  Ethernet184
+Vrf192  Ethernet192
+Vrf200  Ethernet200
+Vrf208  Ethernet208
+Vrf216  Ethernet216
+Vrf224  Ethernet224
+Vrf232  Ethernet232
+Vrf24   Ethernet24
+Vrf240  Ethernet240
+Vrf248  Ethernet248
+Vrf32   Ethernet32
+Vrf40   Ethernet40
+Vrf48   Ethernet48
+Vrf56   Ethernet56
+Vrf64   Ethernet64
+Vrf72   Ethernet72
+Vrf8    Ethernet8
+Vrf80   Ethernet80
+Vrf88   Ethernet88
+Vrf96   Ethernet96
+
+
+
+
+ sudo config interface ip remove Ethernet8 100.0.14.22/24
+ sudo config interface ip add Ethernet8 100.0.15.1/24
+
+
+
+
+
+
+
+ ip route show vrf Vrf0
+
+
+ admin@sonic:~$ show ip interfaces
+Interface    Master    IPv4 address/mask    Admin/Oper    BGP Neighbor    Neighbor IP
+-----------  --------  -------------------  ------------  --------------  -------------
+Ethernet0    Vrf0      100.0.14.2/24        up/up         N/A             N/A
+Ethernet8    Vrf0      100.0.15.1/24        up/up         N/A             N/A
+Ethernet16   Vrf16     100.0.15.2/24        up/up         N/A             N/A
+Ethernet24   Vrf24     100.0.15.1/24        up/up         N/A             N/A
+Ethernet32   Vrf32     100.0.16.2/24        up/down       N/A             N/A
+Ethernet40   Vrf40     100.0.16.1/24        up/down       N/A             N/A
+Ethernet48   Vrf48     100.0.17.2/24        up/down       N/A             N/A
+Ethernet56   Vrf56     100.0.17.1/24        up/down       N/A             N/A
+Ethernet64   Vrf64     100.0.18.2/24        up/down       N/A             N/A
+Ethernet72   Vrf72     100.0.18.1/24        up/down       N/A             N/A
+Ethernet80   Vrf80     100.0.19.2/24        up/down       N/A             N/A
+Ethernet88   Vrf88     100.0.19.1/24        up/down       N/A             N/A
+Ethernet96   Vrf96     100.0.20.2/24        up/down       N/A             N/A
+Ethernet104  Vrf104    100.0.20.1/24        up/down       N/A             N/A
+Ethernet112  Vrf112    100.0.21.2/24        up/down       N/A             N/A
+Ethernet120  Vrf120    100.0.21.1/24        up/down       N/A             N/A
+Ethernet128  Vrf128    100.0.22.2/24        up/down       N/A             N/A
+Ethernet136  Vrf136    100.0.22.1/24        up/down       N/A             N/A
+Ethernet144  Vrf144    100.0.23.2/24        up/down       N/A             N/A
+Ethernet152  Vrf152    100.0.23.1/24        up/down       N/A             N/A
+Ethernet160  Vrf160    100.0.24.2/24        up/down       N/A             N/A
+Ethernet168  Vrf168    100.0.24.1/24        up/down       N/A             N/A
+Ethernet176  Vrf176    100.0.25.2/24        up/down       N/A             N/A
+Ethernet184  Vrf184    100.0.25.1/24        up/down       N/A             N/A
+Ethernet192  Vrf192    100.0.26.2/24        up/down       N/A             N/A
+Ethernet200  Vrf200    100.0.26.1/24        up/down       N/A             N/A
+Ethernet208  Vrf208    100.0.27.2/24        up/down       N/A             N/A
+Ethernet216  Vrf216    100.0.27.1/24        up/down       N/A             N/A
+Ethernet224  Vrf224    100.0.28.2/24        up/down       N/A             N/A
+Ethernet232  Vrf232    100.0.28.1/24        up/down       N/A             N/A
+Ethernet240  Vrf240    100.0.80.1/24        up/down       N/A             N/A
+Ethernet248  Vrf248    100.0.70.1/24        up/down       N/A             N/A
+docker0                240.127.1.1/24       up/down       N/A             N/A
+eth0                   109.105.92.102/19    up/up         N/A             N/A
+lo                     127.0.0.1/16         up/up         N/A             N/A
+admin@sonic:~$
+
+
+
+
+
+
+
+
+
+
+sudo config interface vrf bind Ethernet24 Vrf16
+
+
+
+
+admin@sonic:~$ sudo config interface vrf bind Ethernet24 Vrf16
+Interface Ethernet24 IP disabled and address(es) removed due to binding VRF Vrf16.
+admin@sonic:~$ sudo config interface ip add Ethernet24 100.0.16.1/24
+admin@sonic:~$ show ip interfaces
+Interface    Master    IPv4 address/mask    Admin/Oper    BGP Neighbor    Neighbor IP
+-----------  --------  -------------------  ------------  --------------  -------------
+Ethernet0    Vrf0      100.0.14.2/24        up/up         N/A             N/A
+Ethernet8    Vrf0      100.0.15.1/24        up/up         N/A             N/A
+Ethernet16   Vrf16     100.0.15.2/24        up/up         N/A             N/A
+Ethernet24   Vrf16     100.0.16.1/24        up/up         N/A             N/A
+Ethernet32   Vrf32     100.0.16.2/24        up/down       N/A             N/A
+Ethernet40   Vrf40     100.0.16.1/24        up/down       N/A             N/A
+Ethernet48   Vrf48     100.0.17.2/24        up/down       N/A             N/A
+Ethernet56   Vrf56     100.0.17.1/24        up/down       N/A             N/A
+Ethernet64   Vrf64     100.0.18.2/24        up/down       N/A             N/A
+Ethernet72   Vrf72     100.0.18.1/24        up/down       N/A             N/A
+Ethernet80   Vrf80     100.0.19.2/24        up/down       N/A             N/A
+Ethernet88   Vrf88     100.0.19.1/24        up/down       N/A             N/A
+Ethernet96   Vrf96     100.0.20.2/24        up/down       N/A             N/A
+Ethernet104  Vrf104    100.0.20.1/24        up/down       N/A             N/A
+Ethernet112  Vrf112    100.0.21.2/24        up/down       N/A             N/A
+Ethernet120  Vrf120    100.0.21.1/24        up/down       N/A             N/A
+Ethernet128  Vrf128    100.0.22.2/24        up/down       N/A             N/A
+Ethernet136  Vrf136    100.0.22.1/24        up/down       N/A             N/A
+Ethernet144  Vrf144    100.0.23.2/24        up/down       N/A             N/A
+Ethernet152  Vrf152    100.0.23.1/24        up/down       N/A             N/A
+Ethernet160  Vrf160    100.0.24.2/24        up/down       N/A             N/A
+Ethernet168  Vrf168    100.0.24.1/24        up/down       N/A             N/A
+Ethernet176  Vrf176    100.0.25.2/24        up/down       N/A             N/A
+Ethernet184  Vrf184    100.0.25.1/24        up/down       N/A             N/A
+Ethernet192  Vrf192    100.0.26.2/24        up/down       N/A             N/A
+Ethernet200  Vrf200    100.0.26.1/24        up/down       N/A             N/A
+Ethernet208  Vrf208    100.0.27.2/24        up/down       N/A             N/A
+Ethernet216  Vrf216    100.0.27.1/24        up/down       N/A             N/A
+Ethernet224  Vrf224    100.0.28.2/24        up/down       N/A             N/A
+Ethernet232  Vrf232    100.0.28.1/24        up/down       N/A             N/A
+Ethernet240  Vrf240    100.0.80.1/24        up/down       N/A             N/A
+
+
+
+admin@sonic:~$ show ip route Vrf0
+% Unknown command: show ip route Vrf0
+admin@sonic:~$ ip route show Vrf0
+Error: any valid prefix is expected rather than "Vrf0".
+admin@sonic:~$ ip route show vrf Vrf0
+100.0.14.0/24 dev Ethernet0 proto kernel scope link src 100.0.14.2
+100.0.15.0/24 dev Ethernet8 proto kernel scope link src 100.0.15.1
+admin@sonic:~$ ip route show vrf Vrf8
+2.2.2.2 via 100.0.15.1 dev Ethernet16 proto 196 metric 20
+admin@sonic:~$ ip route show vrf Vrf16
+100.0.15.0/24 dev Ethernet16 proto kernel scope link src 100.0.15.2
+100.0.16.0/24 dev Ethernet24 proto kernel scope link src 100.0.16.1
+admin@sonic:~$ show ip interfaces
+Interface    Master    IPv4 address/mask    Admin/Oper    BGP Neighbor    Neighbor IP
+-----------  --------  -------------------  ------------  --------------  -------------
+Ethernet0    Vrf0      100.0.14.2/24        up/up         N/A             N/A
+Ethernet8    Vrf0      100.0.15.1/24        up/up         N/A             N/A
+Ethernet16   Vrf16     100.0.15.2/24        up/up         N/A             N/A
+Ethernet24   Vrf16     100.0.16.1/24        up/up         N/A             N/A
+Ethernet32   Vrf32     100.0.16.2/24        up/down       N/A             N/A
+Ethernet40   Vrf40     100.0.16.1/24        up/down       N/A             N/A
+Ethernet48   Vrf48     100.0.17.2/24        up/down       N/A             N/A
+Ethernet56   Vrf56     100.0.17.1/24        up/down       N/A             N/A
+Ethernet64   Vrf64     100.0.18.2/24        up/down       N/A             N/A
+Ethernet72   Vrf72     100.0.18.1/24        up/down       N/A             N/A
+Ethernet80   Vrf80     100.0.19.2/24        up/down       N/A             N/A
+Ethernet88   Vrf88     100.0.19.1/24        up/down       N/A             N/A
+Ethernet96   Vrf96     100.0.20.2/24        up/down       N/A             N/A
+Ethernet104  Vrf104    100.0.20.1/24        up/down       N/A             N/A
+Ethernet112  Vrf112    100.0.21.2/24        up/down       N/A             N/A
+Ethernet120  Vrf120    100.0.21.1/24        up/down       N/A             N/A
+Ethernet128  Vrf128    100.0.22.2/24        up/down       N/A             N/A
+Ethernet136  Vrf136    100.0.22.1/24        up/down       N/A             N/A
+Ethernet144  Vrf144    100.0.23.2/24        up/down       N/A             N/A
+Ethernet152  Vrf152    100.0.23.1/24        up/down       N/A             N/A
+Ethernet160  Vrf160    100.0.24.2/24        up/down       N/A             N/A
+Ethernet168  Vrf168    100.0.24.1/24        up/down       N/A             N/A
+Ethernet176  Vrf176    100.0.25.2/24        up/down       N/A             N/A
+Ethernet184  Vrf184    100.0.25.1/24        up/down       N/A             N/A
+Ethernet192  Vrf192    100.0.26.2/24        up/down       N/A             N/A
+Ethernet200  Vrf200    100.0.26.1/24        up/down       N/A             N/A
+Ethernet208  Vrf208    100.0.27.2/24        up/down       N/A             N/A
+Ethernet216  Vrf216    100.0.27.1/24        up/down       N/A             N/A
+Ethernet224  Vrf224    100.0.28.2/24        up/down       N/A             N/A
+Ethernet232  Vrf232    100.0.28.1/24        up/down       N/A             N/A
+Ethernet240  Vrf240    100.0.80.1/24        up/down       N/A             N/A
+Ethernet248  Vrf248    100.0.70.1/24        up/down       N/A             N/A
+docker0                240.127.1.1/24       up/down       N/A             N/A
+eth0                   109.105.92.102/19    up/up         N/A             N/A
+lo                     127.0.0.1/16         up/up         N/A             N/A
+admin@sonic:~$ ip route show vrf Vrf16
+100.0.15.0/24 dev Ethernet16 proto kernel scope link src 100.0.15.2
+100.0.16.0/24 dev Ethernet24 proto kernel scope link src 100.0.16.1
+admin@sonic:~$ ip route show vrf Vrf32
+100.0.16.0/24 dev Ethernet32 proto kernel scope link src 100.0.16.2 linkdown
+admin@sonic:~$
+
+
+sudo config route add prefix 192.168.20.0/24 Vrf0 nexthop 100.0.15.2
+
+
+
+
+
+
+
+admin@sonic:~$ vtysh
+
+Hello, this is FRRouting (version 8.5.1).
+Copyright 1996-2005 Kunihiro Ishiguro, et al.
+
+sonic# show run
+Building configuration...
+
+Current configuration:
+!
+frr version 8.5.1
+frr defaults traditional
+hostname sonic
+log syslog informational
+log facility local4
+no zebra nexthop kernel enable
+no service integrated-vtysh-config
+!
+password zebra
+enable password zebra
+!
+ip route 192.168.20.0/24 100.0.15.2 tag 1
+!
+vrf Vrf248
+ ip route 2.2.2.2/32 100.0.14.1 tag 1 nexthop-vrf Vrf0
+exit-vrf
+!
+vrf Vrf16
+ ip route 3.3.3.3/32 100.0.14.2 tag 1 nexthop-vrf Vrf8
+exit-vrf
+!
+vrf Vrf80
+ ip route 3.3.3.3/32 100.0.18.2 tag 1 nexthop-vrf Vrf72
+exit-vrf
+!
+vrf Vrf176
+ ip route 3.3.3.3/32 100.0.24.2 tag 1 nexthop-vrf Vrf168
+exit-vrf
+!
+vrf Vrf208
+ ip route 3.3.3.3/32 100.0.26.2 tag 1 nexthop-vrf Vrf200
+exit-vrf
+!
+vrf Vrf24
+ ip route 2.2.2.2/32 100.0.16.1 tag 1 nexthop-vrf Vrf32
+exit-vrf
+!
+vrf Vrf240
+ ip route 3.3.3.3/32 100.0.28.2 tag 1 nexthop-vrf Vrf232
+exit-vrf
+!
+vrf Vrf96
+ ip route 3.3.3.3/32 100.0.19.2 tag 1 nexthop-vrf Vrf88
+exit-vrf
+!
+vrf Vrf144
+ ip route 3.3.3.3/32 100.0.22.2 tag 1 nexthop-vrf Vrf136
+exit-vrf
+!
+vrf Vrf40
+ ip route 2.2.2.2/32 100.0.17.1 tag 1 nexthop-vrf Vrf48
+exit-vrf
+!
+vrf Vrf168
+ ip route 2.2.2.2/32 100.0.25.1 tag 1 nexthop-vrf Vrf176
+exit-vrf
+!
+vrf Vrf32
+ ip route 3.3.3.3/32 100.0.15.2 tag 1 nexthop-vrf Vrf24
+exit-vrf
+!
+vrf Vrf120
+ ip route 2.2.2.2/32 100.0.22.1 tag 1 nexthop-vrf Vrf128
+exit-vrf
+!
+vrf Vrf72
+ ip route 2.2.2.2/32 100.0.19.1 tag 1 nexthop-vrf Vrf80
+exit-vrf
+!
+vrf Vrf232
+ ip route 2.2.2.2/32 100.0.80.2 tag 1 nexthop-vrf Vrf240
+exit-vrf
+!
+vrf Vrf184
+ ip route 2.2.2.2/32 100.0.26.1 tag 1 nexthop-vrf Vrf192
+exit-vrf
+!
+vrf Vrf64
+ ip route 3.3.3.3/32 100.0.17.2 tag 1 nexthop-vrf Vrf56
+exit-vrf
+!
+vrf Vrf8
+ ip route 2.2.2.2/32 100.0.15.1 tag 1 nexthop-vrf Vrf16
+exit-vrf
+!
+vrf Vrf112
+ ip route 3.3.3.3/32 100.0.20.2 tag 1 nexthop-vrf Vrf104
+exit-vrf
+!
+vrf Vrf200
+ ip route 2.2.2.2/32 100.0.27.1 tag 1 nexthop-vrf Vrf208
+exit-vrf
+!
+vrf Vrf192
+ ip route 3.3.3.3/32 100.0.25.2 tag 1 nexthop-vrf Vrf184
+exit-vrf
+!
+vrf Vrf128
+ ip route 3.3.3.3/32 100.0.21.2 tag 1 nexthop-vrf Vrf120
+exit-vrf
+!
+vrf Vrf88
+ ip route 2.2.2.2/32 100.0.20.1 tag 1 nexthop-vrf Vrf96
+exit-vrf
+!
+vrf Vrf136
+ ip route 2.2.2.2/32 100.0.23.1 tag 1 nexthop-vrf Vrf144
+exit-vrf
+!
+vrf Vrf216
+ ip route 2.2.2.2/32 100.0.28.1 tag 1 nexthop-vrf Vrf224
+exit-vrf
+!
+vrf Vrf104
+ ip route 2.2.2.2/32 100.0.21.1 tag 1 nexthop-vrf Vrf112
+exit-vrf
+!
+vrf Vrf56
+ ip route 2.2.2.2/32 100.0.18.1 tag 1 nexthop-vrf Vrf64
+exit-vrf
+!
+vrf Vrf160
+ ip route 3.3.3.3/32 100.0.23.2 tag 1 nexthop-vrf Vrf152
+exit-vrf
+!
+vrf Vrf0
+ ip route 3.3.3.3/32 100.0.70.2 tag 1 nexthop-vrf Vrf248
+exit-vrf
+!
+vrf Vrf48
+ ip route 3.3.3.3/32 100.0.16.2 tag 1 nexthop-vrf Vrf40
+exit-vrf
+!
+vrf Vrf224
+ ip route 3.3.3.3/32 100.0.27.2 tag 1 nexthop-vrf Vrf216
+exit-vrf
+!
+vrf Vrf152
+ ip route 2.2.2.2/32 100.0.24.1 tag 1 nexthop-vrf Vrf160
+exit-vrf
+!
+ip nht resolve-via-default
+!
+ipv6 nht resolve-via-default
+!
+end
+sonic#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+luxapps@luxapps6:~$ ssh admin@109.105.92.102
+admin@109.105.92.102's password:
+Linux sonic 5.10.0-23-2-amd64 #1 SMP Debian 5.10.179-3 (2023-07-27) x86_64
+You are on
+  ____   ___  _   _ _  ____
+ / ___| / _ \| \ | (_)/ ___|
+ \___ \| | | |  \| | | |
+  ___) | |_| | |\  | | |___
+ |____/ \___/|_| \_|_|\____|
+
+-- Software for Open Networking in the Cloud --
+
+Unauthorized access and/or use are prohibited.
+All access and/or use are subject to monitoring.
+
+Help:      https://sonic-net.github.io/SONiC/
+Wiki:      https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/SONiC.aspx
+On-Call:   https://portal.microsofticm.com/imp/v3/oncall/current?serviceId=10045&teamIds=26162
+Dashboard: https://aka.ms/sonic-dri
+Contact:   sonicdev@microsoft.com
+
+Last login: Wed Oct  9 13:44:29 2024 from 109.105.92.60
+admin@sonic:~$
+admin@sonic:~$
+admin@sonic:~$ vtysh
+
+Hello, this is FRRouting (version 8.5.1).
+Copyright 1996-2005 Kunihiro Ishiguro, et al.
+
+sonic#
+sonic#
+sonic#
+sonic# show running-config
+Building configuration...
+
+Current configuration:
+!
+frr version 8.5.1
+frr defaults traditional
+hostname sonic
+log syslog informational
+log facility local4
+no zebra nexthop kernel enable
+no service integrated-vtysh-config
+!
+password zebra
+enable password zebra
+!
+vrf Vrf248
+ ip route 2.2.2.2/32 100.0.14.1 tag 1 nexthop-vrf Vrf0
+exit-vrf
+!
+vrf Vrf16
+ ip route 3.3.3.3/32 100.0.14.2 tag 1 nexthop-vrf Vrf8
+exit-vrf
+!
+vrf Vrf80
+ ip route 3.3.3.3/32 100.0.18.2 tag 1 nexthop-vrf Vrf72
+exit-vrf
+!
+vrf Vrf176
+ ip route 3.3.3.3/32 100.0.24.2 tag 1 nexthop-vrf Vrf168
+exit-vrf
+!
+vrf Vrf208
+ ip route 3.3.3.3/32 100.0.26.2 tag 1 nexthop-vrf Vrf200
+exit-vrf
+!
+vrf Vrf24
+ ip route 2.2.2.2/32 100.0.16.1 tag 1 nexthop-vrf Vrf32
+exit-vrf
+!
+vrf Vrf240
+ ip route 3.3.3.3/32 100.0.28.2 tag 1 nexthop-vrf Vrf232
+exit-vrf
+!
+vrf Vrf96
+ ip route 3.3.3.3/32 100.0.19.2 tag 1 nexthop-vrf Vrf88
+exit-vrf
+!
+vrf Vrf144
+ ip route 3.3.3.3/32 100.0.22.2 tag 1 nexthop-vrf Vrf136
+exit-vrf
+!
+vrf Vrf40
+ ip route 2.2.2.2/32 100.0.17.1 tag 1 nexthop-vrf Vrf48
+exit-vrf
+!
+vrf Vrf168
+ ip route 2.2.2.2/32 100.0.25.1 tag 1 nexthop-vrf Vrf176
+exit-vrf
+!
+vrf Vrf32
+ ip route 3.3.3.3/32 100.0.15.2 tag 1 nexthop-vrf Vrf24
+exit-vrf
+!
+vrf Vrf120
+ ip route 2.2.2.2/32 100.0.22.1 tag 1 nexthop-vrf Vrf128
+exit-vrf
+!
+vrf Vrf72
+ ip route 2.2.2.2/32 100.0.19.1 tag 1 nexthop-vrf Vrf80
+exit-vrf
+!
+vrf Vrf232
+ ip route 2.2.2.2/32 100.0.80.2 tag 1 nexthop-vrf Vrf240
+exit-vrf
+!
+vrf Vrf184
+ ip route 2.2.2.2/32 100.0.26.1 tag 1 nexthop-vrf Vrf192
+exit-vrf
+!
+vrf Vrf64
+ ip route 3.3.3.3/32 100.0.17.2 tag 1 nexthop-vrf Vrf56
+exit-vrf
+!
+vrf Vrf8
+ ip route 2.2.2.2/32 100.0.15.1 tag 1 nexthop-vrf Vrf16
+exit-vrf
+!
+vrf Vrf112
+ ip route 3.3.3.3/32 100.0.20.2 tag 1 nexthop-vrf Vrf104
+exit-vrf
+!
+vrf Vrf200
+ ip route 2.2.2.2/32 100.0.27.1 tag 1 nexthop-vrf Vrf208
+exit-vrf
+!
+vrf Vrf192
+ ip route 3.3.3.3/32 100.0.25.2 tag 1 nexthop-vrf Vrf184
+exit-vrf
+!
+vrf Vrf128
+ ip route 3.3.3.3/32 100.0.21.2 tag 1 nexthop-vrf Vrf120
+exit-vrf
+!
+vrf Vrf88
+ ip route 2.2.2.2/32 100.0.20.1 tag 1 nexthop-vrf Vrf96
+exit-vrf
+!
+vrf Vrf136
+ ip route 2.2.2.2/32 100.0.23.1 tag 1 nexthop-vrf Vrf144
+exit-vrf
+!
+vrf Vrf216
+ ip route 2.2.2.2/32 100.0.28.1 tag 1 nexthop-vrf Vrf224
+exit-vrf
+!
+vrf Vrf104
+ ip route 2.2.2.2/32 100.0.21.1 tag 1 nexthop-vrf Vrf112
+exit-vrf
+!
+vrf Vrf56
+ ip route 2.2.2.2/32 100.0.18.1 tag 1 nexthop-vrf Vrf64
+exit-vrf
+!
+vrf Vrf160
+ ip route 3.3.3.3/32 100.0.23.2 tag 1 nexthop-vrf Vrf152
+exit-vrf
+!
+vrf Vrf0
+ ip route 3.3.3.3/32 100.0.70.2 tag 1 nexthop-vrf Vrf248
+exit-vrf
+!
+vrf Vrf48
+ ip route 3.3.3.3/32 100.0.16.2 tag 1 nexthop-vrf Vrf40
+exit-vrf
+!
+vrf Vrf224
+ ip route 3.3.3.3/32 100.0.27.2 tag 1 nexthop-vrf Vrf216
+exit-vrf
+!
+vrf Vrf152
+ ip route 2.2.2.2/32 100.0.24.1 tag 1 nexthop-vrf Vrf160
+exit-vrf
+!
+ip nht resolve-via-default
+!
+ipv6 nht resolve-via-default
+!
+end
+sonic#
+sonic#
+sonic#
+sonic#
+sonic# show ip interfaces
+% Unknown command: show ip interfaces
+sonic#
+sonic#
+sonic#
+sonic#
+sonic#
+sonic# show ip int brief
+% Unknown command: show ip int brief
+sonic# show interfaces brief
+% Unknown command: show interfaces brief
+sonic# show int brief
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet0       up      Vrf0            100.0.14.2/24
+Ethernet8       up      Vrf0            100.0.15.1/24
+Vrf0            up      Vrf0
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet104     up      Vrf104          100.0.20.1/24
+Vrf104          up      Vrf104
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet112     up      Vrf112          100.0.21.2/24
+Vrf112          up      Vrf112
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet120     up      Vrf120          100.0.21.1/24
+Vrf120          up      Vrf120
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet128     up      Vrf128          100.0.22.2/24
+Vrf128          up      Vrf128
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet136     up      Vrf136          100.0.22.1/24
+Vrf136          up      Vrf136
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet144     up      Vrf144          100.0.23.2/24
+Vrf144          up      Vrf144
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet152     up      Vrf152          100.0.23.1/24
+Vrf152          up      Vrf152
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet16      up      Vrf16           100.0.15.2/24
+Vrf16           up      Vrf16
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet160     up      Vrf160          100.0.24.2/24
+Vrf160          up      Vrf160
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet168     up      Vrf168          100.0.24.1/24
+Vrf168          up      Vrf168
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet176     up      Vrf176          100.0.25.2/24
+Vrf176          up      Vrf176
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet184     up      Vrf184          100.0.25.1/24
+Vrf184          up      Vrf184
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet192     up      Vrf192          100.0.26.2/24
+Vrf192          up      Vrf192
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet200     up      Vrf200          100.0.26.1/24
+Vrf200          up      Vrf200
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet208     up      Vrf208          100.0.27.2/24
+Vrf208          up      Vrf208
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet216     up      Vrf216          100.0.27.1/24
+Vrf216          up      Vrf216
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet224     up      Vrf224          100.0.28.2/24
+Vrf224          up      Vrf224
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet232     up      Vrf232          100.0.28.1/24
+Vrf232          up      Vrf232
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet24      up      Vrf24           100.0.15.1/24
+Vrf24           up      Vrf24
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet240     up      Vrf240          100.0.80.1/24
+Vrf240          up      Vrf240
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet248     up      Vrf248          100.0.70.1/24
+Vrf248          up      Vrf248
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet32      up      Vrf32           100.0.16.2/24
+Vrf32           up      Vrf32
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet40      up      Vrf40           100.0.16.1/24
+Vrf40           up      Vrf40
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet48      up      Vrf48           100.0.17.2/24
+Vrf48           up      Vrf48
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet56      up      Vrf56           100.0.17.1/24
+Vrf56           up      Vrf56
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet64      up      Vrf64           100.0.18.2/24
+Vrf64           up      Vrf64
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet72      up      Vrf72           100.0.18.1/24
+Vrf72           up      Vrf72
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Vrf8            up      Vrf8
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet80      up      Vrf80           100.0.19.2/24
+Vrf80           up      Vrf80
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet88      up      Vrf88           100.0.19.1/24
+Vrf88           up      Vrf88
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Ethernet96      up      Vrf96           100.0.20.2/24
+Vrf96           up      Vrf96
+
+Interface       Status  VRF             Addresses
+---------       ------  ---             ---------
+Bridge          up      default
+docker0         up      default         + fd00::1/80
+dummy           down    default
+eth0            up      default         109.105.92.102/19
+eth1            down    default
+leaba12_0       up      default
+leaba12_2       up      default
+leaba12_3       up      default
+leaba12_4       up      default
+lo              up      default
+
+sonic# Connection to 109.105.92.102 closed by remote host.
+Connection to 109.105.92.102 closed.
+luxapps@luxapps6:~$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
