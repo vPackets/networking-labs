@@ -1,0 +1,23 @@
+name: Sonic-8000
+# Lab Description:
+# This lab demonstrate a simple topology using 2 routers based on SONIC.
+
+topology:
+  kinds:
+    linux:
+        image: vpackets/cisco-8000-sonic:12
+        binds: 
+            - /home/netadmin/images/sonic/:/images
+        env:
+            IMAGE: /images/sonic-cisco-8000-202405.signed.bin
+            PID: '8201-32FH'
+
+  nodes:
+    r1:
+      kind: linux
+    r2:
+      kind: linux
+
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]
+    - endpoints: ["r1:eth2", "r2:eth2"]
