@@ -1,0 +1,28 @@
+name: eBGP-c8kv-c9kv
+
+topology:
+  nodes:
+    linux01:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-01:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    linux02:
+      kind: linux
+      image: vpackets/alpine-tools-containerlab-isp-02:latest
+      exec:
+        - sh /usr/local/bin/network-config.sh
+
+    c9kv1:
+      kind: cisco_cat9kv
+      image: vpackets/cisco_cat9kv:17.12.01p
+
+    c8kv1: 
+      kind: cisco_c8000v
+      image: vpackets/cisco_cat8kv:17.11.01a
+
+  links:
+    - endpoints: ["linux01:eth1", "c9kv1:Gi1/0/1"]   
+    - endpoints: ["c9kv1:Gi1/0/2", "c8kv1:Gi2"]
+    - endpoints: ["linux02:eth1", "c8kv1:Gi3"]
