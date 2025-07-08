@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWS Direct Connect - Console</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #1c2735; /* darker blue */
+      color: white;
+      padding: 15px;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+
+    .section {
+      margin-bottom: 30px; /* space between sections */
+    }
+
+    .button {
+      background-color: #f59e0b; /* orange */
+      color: black;
+      padding: 12px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 10px; /* more rounded */
+      transition: background-color 0.3s;
+      display: inline-block;
+    }
+
+    .button:hover {
+      background-color: #d97706;
+    }
+
+    .status {
+      padding: 10px;
+      margin-top: 40px; /* bigger space before Status */
+      border: 1px solid #ddd;
+      background: #eef;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+  </style>
+  <script>
+    async function updateField(field) {
+      const value = document.getElementById(field + "Input").value.trim();
+      const statusElement = document.getElementById("status");
+
+      if (value === "") {
+        alert(`Please enter a value for ${field.toUpperCase()}`);
+        return;
+      }
+
+      let data = {};
+      data[field === "bgp" ? "bgp_config" : "macsec_key"] = value;
+
+      try {
+        const response = await fetch("http://127.0.0.1:5000/update_config", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        statusElement.innerText = "Status: " + result.message;
+      } catch (err) {
+        statusElement.innerText = "Status: Error contacting server.";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="header">AWS Direct Connect Console</div>
+  <div class="container">
+    <h2>Existing Customer - Network Configuration</h2>
+
+    <div class="section">
+      <label for="vlanInput">Vlan Creation:</label>
+      <input type="text" id="vlanInput" class="input-field" placeholder="Create Vlan:" />
+      <button class="button" onclick="updateField('vlan')">Create VLAN</button>
+    </div>
+
+    <div class="section">
+      <label for="macsecInput">MACsec Key:</label>
+      <input type="text" id="macsecInput" class="input-field" placeholder="Enter MACsec key" />
+      <button class="button" onclick="updateField('macsec')">Update MACsec Key</button>
+    </div>
+
+    <div id="status" class="status">Status: Waiting for action...</div>
+  </div>
+</body>
+</html>

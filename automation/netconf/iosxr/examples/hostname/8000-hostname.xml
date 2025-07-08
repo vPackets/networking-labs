@@ -1,0 +1,7 @@
+<config
+	xmlns="urn:ietf:params:xml:ns:netconf:base:1.0"
+	xmlns:xc="urn:ietf:params:xml:ns:netconf:base:1.0">
+	<host-names xmlns="http://cisco.com/ns/yang/Cisco-IOS-XR-shellutil-cfg">
+		<host-name>rtp-cpoc-AWS-SELAB-8201-32FH-1</host-name>
+	</host-names>
+</config>

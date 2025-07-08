@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<rpc-reply xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns:if="http://www.cisco.com/nxos:1.0:if_manager" xmlns:nfcli="http://www.cisco.com/nxos:1.0:nfcli" xmlns:vlan_mgr_cli="http://www.cisco.com/nxos:1.0:vlan_mgr_cli" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0" message-id="urn:uuid:02522d77-9820-4c2b-87b8-4b18beae6cec">
+	
+    
+	<ok/>
+	
+
+</rpc-reply>

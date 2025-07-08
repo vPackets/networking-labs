@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Direct Connect - Netconf Configurator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #ff9900;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #e88b00;
+    }
+    .output {
+      margin-top: 20px;
+      background: #eef;
+      padding: 10px;
+      border-radius: 4px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Netconf Configurator</h2>
+
+  <label for="interface">Interface Name</label>
+  <input type="text" id="interface" placeholder="e.g., Ethernet1/1">
+
+  <label for="vlan">VLAN ID</label>
+  <input type="number" id="vlan" placeholder="e.g., 100">
+
+  <label for="macsec">MACsec Key</label>
+  <input type="text" id="macsec" placeholder="e.g., 1234567890abcdef">
+
+  <button onclick="pushConfig()">Push Config</button>
+
+  <div class="output" id="output"></div>
+</div>
+
+<script>
+  async function pushConfig() {
+    const iface = document.getElementById('interface').value;
+    const vlan = document.getElementById('vlan').value;
+    const macsec = document.getElementById('macsec').value;
+
+    const config = {
+      interface: iface,
+      vlanId: vlan,
+      macsecKey: macsec
+    };
+
+    try {
+      const response = await fetch('http://localhost:8000/push', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(config)
+      });
+      const data = await response.json();
+      document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+    } catch (error) {
+      document.getElementById('output').innerText = 'Error: ' + error;
+    }
+  }
+</script>
+</body>
+</html>

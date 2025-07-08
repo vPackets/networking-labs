@@ -1,0 +1,62 @@
+=== NETCONF Capabilities ===
+urn:ietf:params:netconf:base:1.0
+urn:ietf:params:netconf:base:1.1
+urn:ietf:params:netconf:capability:writable-running:1.0
+urn:ietf:params:netconf:capability:rollback-on-error:1.0
+urn:ietf:params:netconf:capability:candidate:1.0
+urn:ietf:params:netconf:capability:validate:1.1
+urn:ietf:params:netconf:capability:confirmed-commit:1.1
+urn:ietf:params:netconf:capability:notification:1.0
+urn:ietf:params:netconf:capability:interleave:1.0
+urn:ietf:params:netconf:capability:with-defaults:1.0?basic-mode=report-all
+http://cisco.com/ns/yang/cisco-nx-os-device?revision=2024-03-26&module=Cisco-NX-OS-device
+
+
+
+
+
+After enabling telemetry:
+
+nmichel@NICMCL-M-NX99:/Users/nmichel/code/customer-labs/aws/direct-connect/n9k-automation/netconf git:(main) $ python3 get-capabilities.py
+=== NETCONF Capabilities ===
+urn:ietf:params:netconf:base:1.0
+urn:ietf:params:netconf:base:1.1
+urn:ietf:params:netconf:capability:writable-running:1.0
+urn:ietf:params:netconf:capability:rollback-on-error:1.0
+urn:ietf:params:netconf:capability:candidate:1.0
+urn:ietf:params:netconf:capability:validate:1.1
+urn:ietf:params:netconf:capability:confirmed-commit:1.1
+urn:ietf:params:netconf:capability:notification:1.0
+urn:ietf:params:netconf:capability:interleave:1.0
+urn:ietf:params:netconf:capability:with-defaults:1.0?basic-mode=report-all
+http://cisco.com/ns/yang/cisco-nx-os-device?revision=2024-03-26&module=Cisco-NX-OS-device
+http://openconfig.net/yang/acl?revision=2023-01-29&module=openconfig-acl&deviations=cisco-nx-openconfig-acl-deviations
+http://openconfig.net/yang/bfd?revision=2022-06-28&module=openconfig-bfd&deviations=cisco-nx-openconfig-bfd-deviations
+http://openconfig.net/yang/bgp-policy?revision=2022-05-24&module=openconfig-bgp-policy&deviations=cisco-nx-openconfig-bgp-policy-deviations
+http://openconfig.net/yang/interfaces?revision=2021-04-06&module=openconfig-interfaces&deviations=cisco-nx-openconfig-interfaces-deviations
+http://openconfig.net/yang/interfaces/aggregate?revision=2022-06-28&module=openconfig-if-aggregate&deviations=cisco-nx-openconfig-if-aggregate-deviations
+http://openconfig.net/yang/interfaces/ethernet?revision=2022-04-20&module=openconfig-if-ethernet&deviations=cisco-nx-openconfig-if-ethernet-deviations
+http://openconfig.net/yang/interfaces/ip?revision=2022-11-09&module=openconfig-if-ip&deviations=cisco-nx-openconfig-if-ip-deviations
+http://openconfig.net/yang/interfaces/ip-ext?revision=2018-11-21&module=openconfig-if-ip-ext&deviations=cisco-nx-openconfig-if-ip-ext-deviations
+http://openconfig.net/yang/lacp?revision=2021-07-20&module=openconfig-lacp&deviations=cisco-nx-openconfig-lacp-deviations
+http://openconfig.net/yang/lldp?revision=2018-11-21&module=openconfig-lldp&deviations=cisco-nx-openconfig-lldp-deviations
+http://openconfig.net/yang/macsec?revision=2022-04-28&module=openconfig-macsec&deviations=cisco-nx-openconfig-macsec-deviations
+http://openconfig.net/yang/network-instance?revision=2022-12-21&module=openconfig-network-instance&deviations=cisco-nx-openconfig-network-instance-deviations
+http://openconfig.net/yang/network-instance/policy?revision=2018-11-21&module=openconfig-network-instance-policy&deviations=cisco-nx-openconfig-network-instance-policy-deviations
+http://openconfig.net/yang/ospf-policy?revision=2018-11-21&module=openconfig-ospf-policy&deviations=cisco-nx-openconfig-ospf-policy-deviations
+http://openconfig.net/yang/platform?revision=2022-12-20&module=openconfig-platform&deviations=cisco-nx-openconfig-platform-deviations
+http://openconfig.net/yang/platform/cpu?revision=2018-11-21&module=openconfig-platform-cpu&deviations=cisco-nx-openconfig-platform-cpu-deviations
+http://openconfig.net/yang/platform/fan?revision=2018-11-21&module=openconfig-platform-fan&deviations=cisco-nx-openconfig-platform-fan-deviations
+http://openconfig.net/yang/platform/linecard?revision=2022-07-28&module=openconfig-platform-linecard&deviations=cisco-nx-openconfig-platform-linecard-deviations
+http://openconfig.net/yang/platform/port?revision=2021-10-01&module=openconfig-platform-port&deviations=cisco-nx-openconfig-platform-port-deviations
+http://openconfig.net/yang/platform/psu?revision=2018-11-21&module=openconfig-platform-psu&deviations=cisco-nx-openconfig-platform-psu-deviations
+http://openconfig.net/yang/platform/transceiver?revision=2023-01-12&module=openconfig-platform-transceiver&deviations=cisco-nx-openconfig-platform-transceiver-deviations
+http://openconfig.net/yang/qos?revision=2023-01-28&module=openconfig-qos&deviations=cisco-nx-openconfig-qos-deviations
+http://openconfig.net/yang/relay-agent?revision=2018-11-21&module=openconfig-relay-agent&deviations=cisco-nx-openconfig-relay-agent-deviations
+http://openconfig.net/yang/routing-policy?revision=2022-05-24&module=openconfig-routing-policy&deviations=cisco-nx-openconfig-routing-policy-deviations
+http://openconfig.net/yang/spanning-tree?revision=2019-11-28&module=openconfig-spanning-tree&deviations=cisco-nx-openconfig-spanning-tree-deviations
+http://openconfig.net/yang/system?revision=2022-12-20&module=openconfig-system&deviations=cisco-nx-openconfig-system-deviations
+http://openconfig.net/yang/telemetry?revision=2018-11-21&module=openconfig-telemetry&deviations=cisco-nx-openconfig-telemetry-deviations
+http://openconfig.net/yang/terminal-device?revision=2021-07-29&module=openconfig-terminal-device&deviations=cisco-nx-openconfig-terminal-device-deviations
+http://openconfig.net/yang/vlan?revision=2021-07-28&module=openconfig-vlan&deviations=cisco-nx-openconfig-vlan-deviations
+nmichel@NICMCL-M-NX99:/Users/nmichel/code/customer-labs/aws/direct-connect/n9k-automation/netconf git:(main) $ 

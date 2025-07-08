@@ -1,0 +1,11 @@
+/oc-platform:components/oc-platform:component/oc-transceiver:transceiver/oc-transceiver:physical-channels/oc-transceiver:channel/oc-transceiver:state/oc-transceiver:index
+/oc-platform:components/oc-platform:component/oc-transceiver:transceiver/oc-transceiver:physical-channels/oc-transceiver:channel/oc-transceiver:state/oc-transceiver:input-power
+/oc-platform:components/oc-platform:component/oc-transceiver:transceiver/oc-transceiver:physical-channels/oc-transceiver:channel/oc-transceiver:state/oc-transceiver:input-power/oc-transceiver:instant
+/oc-platform:components/oc-platform:component/oc-transceiver:transceiver/oc-transceiver:physical-channels/oc-transceiver:channel/oc-transceiver:state/oc-transceiver:laser-bias-current
+/oc-platform:components/oc-platform:component/oc-transceiver:transceiver/oc-transceiver:physical-channels/oc-transceiver:channel/oc-transceiver:state/oc-transceiver:laser-bias-current/oc-transceiver:instant
+/oc-platform:components/oc-platform:component/oc-transceiver:transceiver/oc-transceiver:physical-channels/oc-transceiver:channel/oc-transceiver:state/oc-transceiver:output-power
+/oc-platform:components/oc-platform:component/oc-transceiver:transceiver/oc-transceiver:physical-channels/oc-transceiver:channel/oc-transceiver:state/oc-transceiver:output-power/oc-transceiver:instant 
+
+/oc-platform:components/oc-platform:component/oc-platform:config/oc-platform:name
+
+Cisco-NX-OS-device:System/cpu-items

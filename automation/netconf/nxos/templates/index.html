@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AWS Direct Connect - VLAN Provisioning</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      background-color: #161d26;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-container svg {
+      height: 40px;
+      margin-right: 10px;
+    }
+    .container {
+      width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 5px;
+    }
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .button {
+      background-color: orange;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .button:hover {
+      background-color: darkorange;
+    }
+    .status {
+      margin-top: 40px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      background: #eef;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .status pre {
+      text-align: left;
+      background: #f7f7f7;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    details {
+      margin-top: 15px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo-container">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 17" width="90" height="50" style="vertical-align:middle;">
+        <path d="M8.38 6.17..." fill="white"></path>
+        <path d="M25.82 13.43..." fill="white"></path>
+        <path d="M27.1 12..." fill="white"></path>
+      </svg>
+      <span>AWS Direct Connect Console</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Provision a VLAN</h2>
+    <label for="vlanIdInput">VLAN ID:</label>
+    <input type="text" id="vlanIdInput" class="input-field" placeholder="Enter VLAN ID">
+
+    <label for="vlanNameInput">VLAN Name:</label>
+    <input type="text" id="vlanNameInput" class="input-field" placeholder="Enter VLAN Name">
+
+    <button class="button" onclick="provisionVLAN()">Provision VLAN</button>
+
+    <div id="status" class="status">Status: Waiting for action...</div>
+  </div>
+
+  <script>
+    async function provisionVLAN() {
+      const vlanId = document.getElementById("vlanIdInput").value.trim();
+      const vlanName = document.getElementById("vlanNameInput").value.trim();
+      const statusElement = document.getElementById("status");
+
+      if (!vlanId || !vlanName) {
+        alert("Please fill in both VLAN ID and VLAN Name.");
+        return;
+      }
+
+      try {
+        const response = await fetch("http://127.0.0.1:5100/provision_vlan", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ vlan_id: vlanId, vlan_name: vlanName })
+        });
+
+        const result = await response.json();
+
+        statusElement.innerHTML = `
+          <strong>Status:</strong> ${result.message}<br><br>
+          <details open>
+            <summary>Sent XML:</summary>
+            <pre>${escapeHtml(result.sent_xml)}</pre>
+          </details>
+          <details>
+            <summary>Edit Reply:</summary>
+            <pre>${escapeHtml(result.edit_reply)}</pre>
+          </details>
+          <details>
+            <summary>Commit Reply:</summary>
+            <pre>${escapeHtml(result.commit_reply)}</pre>
+          </details>
+        `;
+      } catch (err) {
+        statusElement.innerText = "Status: Failed to contact server.";
+      }
+    }
+
+    function escapeHtml(unsafe) {
+      if (!unsafe) return "";
+      return unsafe.replace(/&/g, "&amp;")
+                   .replace(/</g, "&lt;")
+                   .replace(/>/g, "&gt;")
+                   .replace(/\"/g, "&quot;")
+                   .replace(/'/g, "&#039;");
+    }
+  </script>
+
+</body>
+</html>
