@@ -1,0 +1,111 @@
+!
+vrf CUSTOMER_A_VLAN_100
+ rd 65000:100
+ address-family ipv4 unicast
+  import route-target
+   65000:100
+  !
+  export route-target
+   65000:100
+  !
+ !
+!
+object-group network ipv4 TEST
+ host 10.11.11.11
+!
+object-group network ipv4 DECAP
+ 10.11.0.0/16
+!
+object-group network ipv4 MPLSoUDP-DECAP
+ 10.11.11.11/32
+!
+
+interface FourHundredGigE0/0/0/0
+ description *** Customer CE ***
+ vrf CUSTOMER_A_VLAN_100
+ ipv4 address 192.168.100.1 255.255.255.252
+ no shut
+
+interface FourHundredGigE0/0/0/1
+ description *** To AWS Core ***
+ ipv4 address 10.0.0.1 255.255.255.252
+ no shut
+!
+!
+interface Loopback0
+ ipv4 address 10.10.10.10 255.255.255.255
+!
+!
+interface nve1
+ overlay-encapsulation mpls-udp
+ source-interface Loopback0
+ logging events link-status
+!
+!
+prefix-set BGP-NEXT-HOP-PREFIX
+  10.11.11.11/32
+end-set
+!
+route-policy AWS_DX_CUSTOMER
+  pass
+end-policy
+!
+route-policy MPLSoUDP-TUNNEL-POLICY
+  if next-hop in BGP-NEXT-HOP-PREFIX then
+    set encapsulation-type mpls-udp
+  else
+    pass
+  endif
+end-policy
+!
+!
+router bgp 65000
+ nsr disable
+ bgp router-id 10.10.10.10
+ bgp log neighbor changes detail
+ address-family ipv4 unicast
+  network 10.10.10.10/32
+ !
+ address-family vpnv4 unicast
+  nexthop route-policy MPLSoUDP-TUNNEL-POLICY
+ !
+ neighbor 10.0.0.2
+  remote-as 64512
+  address-family ipv4 unicast
+   route-policy AWS_DX_CUSTOMER in
+   route-policy AWS_DX_CUSTOMER out
+   soft-reconfiguration inbound always
+  !
+ !
+ neighbor 10.11.11.11
+  remote-as 65200
+  ebgp-multihop 255
+  update-source Loopback0
+  address-family vpnv4 unicast
+   route-policy AWS_DX_CUSTOMER in
+   route-policy AWS_DX_CUSTOMER out
+  !
+ !
+ vrf CUSTOMER_A_VLAN_100
+  rd 65000:100
+  bgp multipath as-path ignore onwards
+  address-family ipv4 unicast
+   label mode per-vrf
+   maximum-paths ebgp 16
+  !
+  neighbor 192.168.100.2
+   remote-as 65100
+   bfd fast-detect
+   address-family ipv4 unicast
+    send-community-ebgp
+    route-policy AWS_DX_CUSTOMER in
+    route-policy AWS_DX_CUSTOMER out
+    soft-reconfiguration inbound always
+   !
+  !
+ !
+!
+
+!
+nve
+!

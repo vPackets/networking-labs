@@ -1,0 +1,129 @@
+ip routing
+
+!
+interface lo0
+ ip address 10.1.1.1/32
+exit
+!
+interface eth1
+ description *** To VC-CAR ***
+ no switchport 
+ no shut
+ ip address 10.0.0.2/30
+exit
+!
+interface eth2
+ description *** To R2 ***
+ no switchport
+ no shut
+ ip address 10.0.0.5/30
+exit
+
+interface eth3
+no switchport
+no shut
+
+ description *** To R3 ***
+ ip address 10.0.0.9/30
+exit
+!
+router bgp 64512
+ router-id 10.1.1.1
+ neighbor 10.0.0.1 remote-as 65000
+ neighbor 10.0.0.6 remote-as 64513
+ neighbor 10.0.0.10 remote-as 64514
+ !
+
+  network 10.1.1.1/32
+!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

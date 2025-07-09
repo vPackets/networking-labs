@@ -1,0 +1,19 @@
+name: test-C8K
+# Lab Description:
+#For Cisco 8000 it is important to have the macvlan mode in passthru mode
+
+topology:
+  nodes:
+    Cisco8201-1:
+      kind: cisco_c8000
+      image: 8201-32fh_214:7.10.1
+
+
+        
+  links:
+  - type: macvlan
+    endpoint:
+      node: Cisco8201-1                  # mandatory
+      interface: FH0_0_0_0               # mandatory
+    host-interface: ens192               # mandatory
+    mode: passthru                    # optional ("bridge" by default)

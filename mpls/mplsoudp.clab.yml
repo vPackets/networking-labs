@@ -1,0 +1,120 @@
+name: mplsoudp
+
+# Version v0.1.CEOS
+# Lab Description:
+# This lab demonstrates an end to end topology between a physical AWS-DX topology and a virtualized AWS Core with virtualized EC2 Compute.
+
+topology:
+  nodes:
+
+    ############################
+    ## Compute Nodes in Cloud ##
+    ############################
+    ec2-vpc01-01:
+      kind: linux
+      image: vpackets/alpine-tools
+
+
+    ec2-vpc02-01:
+      kind: linux
+      image: vpackets/alpine-tools
+
+
+    ec2-vpc03-01:
+      kind: linux
+      image: vpackets/alpine-tools
+
+
+    ##########################
+    ## Compute Nodes in DC  ##
+    ##########################
+    container-net01-01:
+      kind: linux
+      image: vpackets/alpine-tools
+
+
+    container-net02-01:
+      kind: linux
+      image: vpackets/alpine-tools
+
+
+    container-net03-01:
+      kind: linux
+      image: vpackets/alpine-tools
+
+
+
+
+    ######################
+    ## Customer CE #######
+    ######################
+    customer-ce-01:
+      kind: ceos
+      image: ceos:4.30.3M
+
+
+
+    ##########
+    ## PE ##
+    ##########
+
+    Cisco8201-1:
+      kind: cisco_c8000
+      image: 8201-32fh_214:7.10.1
+
+
+
+    #############################
+    ## Cloud Core Routers #######
+    #############################
+    ceos1:
+      kind: ceos
+      image: ceos:4.30.3M
+
+
+    ceos2:
+      kind: ceos
+      image: ceos:4.30.3M
+
+
+    ceos3:
+      kind: ceos
+      image: ceos:4.30.3M
+
+
+    ceos4:
+      kind: ceos
+      image: ceos:4.30.3M
+
+
+
+    ##########
+    ## EDGE ##
+    ##########
+
+    Cisco8201-EDGE:
+      kind: cisco_c8000
+      image: 8201-32fh_214:7.10.1
+
+
+    ################
+    ## VPC Router ##
+    ################
+    vpc-router:
+      kind: ceos
+      image: ceos:4.30.3M
+
+  
+  links:
+    - endpoints: ["container-net01-01:eth1", "customer-ce-01:eth2"]
+    - endpoints: ["customer-ce-01:eth1", "Cisco8201-1:FH0_0_0_0"]
+    - endpoints: ["Cisco8201-1:FH0_0_0_1", "ceos1:eth1"]    
+    - endpoints: ["ceos1:eth2", "ceos2:eth2"]   
+    - endpoints: ["ceos1:eth3", "ceos3:eth3"]
+    - endpoints: ["ceos2:eth1", "ceos4:eth1"]
+    - endpoints: ["ceos3:eth1", "ceos4:eth2"]
+    - endpoints: ["ceos4:eth3", "Cisco8201-EDGE:FH0_0_0_2"]
+    - endpoints: ["Cisco8201-EDGE:FH0_0_0_0", "vpc-router:eth1"]
+    - endpoints: ["vpc-router:eth2", "ec2-vpc01-01:eth1"]
+    - endpoints: ["vpc-router:eth3", "ec2-vpc02-01:eth1"]
+    - endpoints: ["vpc-router:eth4", "ec2-vpc03-01:eth1"]

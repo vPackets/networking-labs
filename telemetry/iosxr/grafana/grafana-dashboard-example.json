@@ -1,0 +1,3769 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 12,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "collapsed": true,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 55,
+        "panels": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "bps"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 1
+            },
+            "id": 60,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "Dropped pps Flow [[tag_flow_notation]]",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "flow_notation"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/flows/flow",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "flow_statistics/dropped/bytes"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    },
+                    {
+                      "params": [
+                        "* 8"
+                      ],
+                      "type": "math"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  }
+                ]
+              }
+            ],
+            "title": "Dropped Attacks(bps)",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 1
+            },
+            "id": 59,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "Dropped pps Flow [[tag_flow_notation]]",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "flow_notation"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-flowspec-oper:flow-spec/vrfs/vrf/afs/af/flows/flow",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "flow_statistics/dropped/packets"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  }
+                ]
+              }
+            ],
+            "title": "Attacks Mitigation (pps)",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 7,
+              "w": 24,
+              "x": 0,
+              "y": 9
+            },
+            "id": 57,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": false
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "$__interval"
+                    ],
+                    "type": "time"
+                  },
+                  {
+                    "params": [
+                      "null"
+                    ],
+                    "type": "fill"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-flowspec-oper:flow-spec/summary",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "flows"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [],
+                      "type": "mean"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  }
+                ]
+              }
+            ],
+            "title": "Number of Active BGP FS Rules",
+            "type": "timeseries"
+          }
+        ],
+        "title": "BGP Flowspec",
+        "type": "row"
+      },
+      {
+        "collapsed": true,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 1
+        },
+        "id": 48,
+        "panels": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 25
+            },
+            "id": 50,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "Packets exported",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/packets_sent"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              },
+              {
+                "alias": "Flows exported",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "B",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/flows_sent"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              },
+              {
+                "alias": "Templates exported",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "C",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/option_templates_sent"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              },
+              {
+                "alias": "Option data exported",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "D",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/option_data_sent"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              },
+              {
+                "alias": "Option templates exported",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "E",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/option_templates_sent"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              }
+            ],
+            "title": "Export Statistics (pps)",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 25
+            },
+            "id": 51,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "Flows dropped",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/flows_dropped"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              },
+              {
+                "alias": "Templates dropped",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "B",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/templates_dropped"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              },
+              {
+                "alias": "Option data dropped",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "C",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/option_data_dropped"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              },
+              {
+                "alias": "Option templates dropped",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "D",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/templates_dropped"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              },
+              {
+                "alias": "Packets dropped",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "E",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/packets_dropped"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              }
+            ],
+            "title": "Export Statistics (dropped packets)",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 24,
+              "x": 0,
+              "y": 33
+            },
+            "id": 53,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "Total export (bps)",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "measurement": "Cisco-IOS-XR-ofa-netflow-oper:net-flow/statistics/statistic/server/flow-exporters/flow-exporter/exporter",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "statistic/collector/last_minute_bytes_sent"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    },
+                    {
+                      "params": [
+                        "* 8"
+                      ],
+                      "type": "math"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "exporter_name",
+                    "operator": "=",
+                    "value": "NF-EXPORT"
+                  }
+                ]
+              }
+            ],
+            "title": "Netflow Traffic",
+            "type": "timeseries"
+          }
+        ],
+        "title": "Netflow",
+        "type": "row"
+      },
+      {
+        "collapsed": true,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 2
+        },
+        "id": 43,
+        "panels": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "Kbits"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 18
+            },
+            "id": 45,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "Class [[tag_class_stats/class_name]]",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "class_stats/class_name"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-qos-ma-oper:qos/interface-table/interface/input/service-policy-names/service-policy-instance/statistics",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "class_stats/general_stats/match_data_rate"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "service_policy_name",
+                    "operator": "=",
+                    "value": "RATE-LIMIT-DDOS"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "interface_name",
+                    "operator": "=",
+                    "value": "FourHundredGigE0/0/0/26"
+                  }
+                ]
+              }
+            ],
+            "title": "QoS counters TRANSIT-1 (match rate)",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "Kbits"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 18
+            },
+            "id": 46,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "Class [[tag_class_stats/class_name]]",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "class_stats/class_name"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-qos-ma-oper:qos/interface-table/interface/input/service-policy-names/service-policy-instance/statistics",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "class_stats/general_stats/total_drop_rate"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "service_policy_name",
+                    "operator": "=",
+                    "value": "RATE-LIMIT-DDOS"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "interface_name",
+                    "operator": "=",
+                    "value": "FourHundredGigE0/0/0/26"
+                  }
+                ]
+              }
+            ],
+            "title": "QoS counters TRANSIT-1 (drop rate)",
+            "type": "timeseries"
+          }
+        ],
+        "title": "QoS",
+        "type": "row"
+      },
+      {
+        "collapsed": true,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 3
+        },
+        "id": 41,
+        "panels": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 9,
+              "w": 24,
+              "x": 0,
+              "y": 4
+            },
+            "id": 39,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "No route drops",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "measurement": "Cisco-IOS-XR-fib-common-oper:fib-statistics/nodes/node/drops",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "no_route_packets"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/RP0/CPU0"
+                  }
+                ]
+              },
+              {
+                "alias": "RPF drops",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-fib-common-oper:fib-statistics/nodes/node/drops",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "B",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "rpf_check_failure_packets"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/RP0/CPU0"
+                  }
+                ]
+              },
+              {
+                "alias": "Null0 drops",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-fib-common-oper:fib-statistics/nodes/node/drops",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "C",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "null_packets"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [
+                        "1s"
+                      ],
+                      "type": "derivative"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/RP0/CPU0"
+                  }
+                ]
+              }
+            ],
+            "title": "CEF Drops (pps)",
+            "type": "timeseries"
+          }
+        ],
+        "title": "URPF and RTBH",
+        "type": "row"
+      },
+      {
+        "collapsed": false,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 4
+        },
+        "id": 34,
+        "panels": [],
+        "title": "FIB Distribution",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "fdhjqjbpjez28a"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              }
+            },
+            "mappings": [],
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 0,
+          "y": 5
+        },
+        "id": 36,
+        "options": {
+          "displayLabels": [
+            "percent"
+          ],
+          "legend": {
+            "displayMode": "list",
+            "placement": "right",
+            "showLegend": false,
+            "values": []
+          },
+          "pieType": "pie",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "groupBy": [
+              {
+                "params": [
+                  "prefix_masklen_distribution/unicast_prefix/mask_length"
+                ],
+                "type": "tag"
+              }
+            ],
+            "measurement": "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "query": "SELECT last(\"prefix_masklen_distribution/unicast_prefix/number_of_prefixes\") FROM \"Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary\" WHERE (\"source\" = '8812-1' AND \"node_name\" = '0/RP0/CPU0' AND \"protocol_name\" = 'ipv4' AND \"vrf_name\" = 'default') AND $timeFilter GROUP BY \"prefix_masklen_distribution/unicast_prefix/mask_length\"",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "prefix_masklen_distribution/unicast_prefix/number_of_prefixes"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "source",
+                "operator": "=",
+                "value": "8812-1"
+              },
+              {
+                "condition": "AND",
+                "key": "node_name",
+                "operator": "=",
+                "value": "0/RP0/CPU0"
+              },
+              {
+                "condition": "AND",
+                "key": "protocol_name",
+                "operator": "=",
+                "value": "ipv4"
+              },
+              {
+                "condition": "AND",
+                "key": "vrf_name",
+                "operator": "=",
+                "value": "default"
+              }
+            ]
+          }
+        ],
+        "title": "IPv4 prefixes distribution",
+        "type": "piechart"
+      },
+      {
+        "datasource": {
+          "type": "influxdb",
+          "uid": "fdhjqjbpjez28a"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              }
+            },
+            "mappings": [],
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 10,
+          "w": 12,
+          "x": 12,
+          "y": 5
+        },
+        "id": 37,
+        "options": {
+          "displayLabels": [
+            "percent"
+          ],
+          "legend": {
+            "displayMode": "list",
+            "placement": "right",
+            "showLegend": false,
+            "values": []
+          },
+          "pieType": "pie",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "groupBy": [
+              {
+                "params": [
+                  "prefix_masklen_distribution/unicast_prefix/mask_length"
+                ],
+                "type": "tag"
+              }
+            ],
+            "measurement": "Cisco-IOS-XR-fib-common-oper:fib/nodes/node/protocols/protocol/fib-summaries/fib-summary",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "prefix_masklen_distribution/unicast_prefix/number_of_prefixes"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "source",
+                "operator": "=",
+                "value": "8812-1"
+              },
+              {
+                "condition": "AND",
+                "key": "node_name",
+                "operator": "=",
+                "value": "0/RP0/CPU0"
+              },
+              {
+                "condition": "AND",
+                "key": "protocol_name",
+                "operator": "=",
+                "value": "ipv6"
+              },
+              {
+                "condition": "AND",
+                "key": "vrf_name",
+                "operator": "=",
+                "value": "default"
+              }
+            ]
+          }
+        ],
+        "title": "IPv6 prefixes distribution",
+        "type": "piechart"
+      },
+      {
+        "collapsed": true,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 15
+        },
+        "id": 24,
+        "panels": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [],
+                "max": 100,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "percent"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 29
+            },
+            "id": 26,
+            "options": {
+              "orientation": "auto",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": false,
+              "showThresholdMarkers": true
+            },
+            "pluginVersion": "9.4.3",
+            "targets": [
+              {
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "$__interval"
+                    ],
+                    "type": "time"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "total_cpu_one_minute"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [],
+                      "type": "last"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/RP0/CPU0"
+                  }
+                ]
+              }
+            ],
+            "title": "System CPU Utilization",
+            "type": "gauge"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 22,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "bytes"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 29
+            },
+            "id": 27,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "pluginVersion": "9.4.3",
+            "targets": [
+              {
+                "alias": "Total Memory",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "$__interval"
+                    ],
+                    "type": "time"
+                  },
+                  {
+                    "params": [
+                      "null"
+                    ],
+                    "type": "fill"
+                  }
+                ],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/summary",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "B",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "system_ram_memory"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [],
+                      "type": "mean"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/RP0/CPU0"
+                  }
+                ]
+              },
+              {
+                "alias": "Free Memory",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "$__interval"
+                    ],
+                    "type": "time"
+                  },
+                  {
+                    "params": [
+                      "null"
+                    ],
+                    "type": "fill"
+                  }
+                ],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/node/summary",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "free_physical_memory"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [],
+                      "type": "mean"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/RP0/CPU0"
+                  }
+                ]
+              }
+            ],
+            "title": "System Memory Utilization",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [],
+                "max": 100,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "percent"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 37
+            },
+            "id": 32,
+            "options": {
+              "orientation": "auto",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": false,
+              "showThresholdMarkers": true
+            },
+            "pluginVersion": "9.4.3",
+            "targets": [
+              {
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "$__interval"
+                    ],
+                    "type": "time"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/cpu-utilization",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "total_cpu_one_minute"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [],
+                      "type": "last"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/RP0/CPU0"
+                  }
+                ]
+              }
+            ],
+            "title": "BGP process CPU Utilization",
+            "type": "gauge"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [],
+                "max": 8000000,
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "#EAB839",
+                      "value": 6000000
+                    },
+                    {
+                      "color": "dark-red",
+                      "value": 7500000
+                    }
+                  ]
+                },
+                "unit": "deckbytes"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 37
+            },
+            "id": 31,
+            "options": {
+              "orientation": "auto",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": false,
+              "showThresholdMarkers": true
+            },
+            "pluginVersion": "9.4.3",
+            "targets": [
+              {
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "$__interval"
+                    ],
+                    "type": "time"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-procmem-oper:processes-memory/nodes/node/process-ids/process-id",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "physical_mem"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [],
+                      "type": "last"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/RP0/CPU0"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "process_id",
+                    "operator": "=",
+                    "value": "10996"
+                  }
+                ]
+              }
+            ],
+            "title": "BGP process Memory Utilization",
+            "type": "gauge"
+          }
+        ],
+        "title": "System CPU & Memory",
+        "type": "row"
+      },
+      {
+        "collapsed": true,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 16
+        },
+        "id": 16,
+        "panels": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 30
+            },
+            "id": 20,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "$tag_af_name",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "af_name"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "key": "Q-f8762663-4102-41ab-9a37-637dad372938-0",
+                "measurement": "Cisco-IOS-XR-ipv4-bgp-oper:bgp/instances/instance/instance-active/default-vrf/afs/af/af-process-info",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "global/local_paths_num"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "instance_name",
+                    "operator": "=",
+                    "value": "default"
+                  }
+                ]
+              }
+            ],
+            "title": "Number of BGP Paths",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 30
+            },
+            "id": 22,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "[[tag_neighbor_address]]",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "query": "SELECT derivative(\"message_statistics/update/rx/count\", 1s) FROM \"Cisco-IOS-XR-ipv4-bgp-oper:bgp/instances/instance/instance-active/default-vrf/neighbors/neighbor\" WHERE (\"source\" = '8201-32FH') AND $timeFilter GROUP BY \"neighbor_address\"",
+                "rawQuery": true,
+                "refId": "A",
+                "resultFormat": "time_series"
+              }
+            ],
+            "title": "BGP updates per second",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 0,
+              "y": 38
+            },
+            "id": 29,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "[[tag_neighbor_address]]",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "neighbor_address"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/num-routes",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "num_routes"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  }
+                ]
+              }
+            ],
+            "title": "IPv4 accepted prefixes per peer",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 8,
+              "w": 12,
+              "x": 12,
+              "y": 38
+            },
+            "id": 30,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "[[tag_neighbor_address]]",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "neighbor_address"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/open-config-neighbor/adj-rib-in-post/num-routes",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "num_routes"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  }
+                ]
+              }
+            ],
+            "title": "IPv6 accepted prefixes per peer",
+            "type": "timeseries"
+          }
+        ],
+        "title": "BGP Statistics",
+        "type": "row"
+      },
+      {
+        "collapsed": true,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 17
+        },
+        "id": 6,
+        "panels": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 9,
+              "w": 24,
+              "x": 0,
+              "y": 31
+            },
+            "id": 10,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "[[tag_npu_hwr/bank/bank_name]] - NPU[[tag_npu_hwr/npu_id]]",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "npu_hwr/bank/bank_name"
+                    ],
+                    "type": "tag"
+                  },
+                  {
+                    "params": [
+                      "npu_hwr/npu_id"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "npu_hwr/bank/counter/inuse_entries"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8812-1"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "resource",
+                    "operator": "=",
+                    "value": "lpm-tcam"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/1/CPU0"
+                  }
+                ]
+              },
+              {
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "npu_hwr/bank/bank_name"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "hide": true,
+                "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "B",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "npu_hwr/bank/counter/inuse_entries"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8812-1"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "resource",
+                    "operator": "=",
+                    "value": "lpm-tcam"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "npu_hwr/bank/bank_name",
+                    "operator": "=",
+                    "value": "v6_lpm"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/1/CPU0"
+                  }
+                ]
+              },
+              {
+                "alias": "8201-32FH [[tag_npu_hwr/bank/bank_name]] - NPU[[tag_npu_hwr/npu_id]]",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "npu_hwr/bank/bank_name"
+                    ],
+                    "type": "tag"
+                  },
+                  {
+                    "params": [
+                      "npu_hwr/npu_id"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH' AND \"resource\" = 'lpm-tcam' AND \"node_name\" = '0/RP0/CPU0') AND $timeFilter GROUP BY \"npu_hwr/bank/bank_name\", \"npu_hwr/npu_id\"",
+                "rawQuery": true,
+                "refId": "C",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "npu_hwr/bank/counter/inuse_entries"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8812-1"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "resource",
+                    "operator": "=",
+                    "value": "lpm-tcam"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/1/CPU0"
+                  }
+                ]
+              },
+              {
+                "alias": "8201-32FH [[tag_npu_hwr/bank/bank_name]] - NPU[[tag_npu_hwr/npu_id]]",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "npu_hwr/bank/bank_name"
+                    ],
+                    "type": "tag"
+                  }
+                ],
+                "hide": true,
+                "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH' AND \"resource\" = 'lpm-tcam' AND \"npu_hwr/bank/bank_name\" = 'v6_lpm' AND \"node_name\" = '0/RP0/CPU0') AND $timeFilter GROUP BY \"npu_hwr/bank/bank_name\"",
+                "rawQuery": true,
+                "refId": "D",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "npu_hwr/bank/counter/inuse_entries"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8812-1"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "resource",
+                    "operator": "=",
+                    "value": "lpm-tcam"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "npu_hwr/bank/bank_name",
+                    "operator": "=",
+                    "value": "v6_lpm"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/1/CPU0"
+                  }
+                ]
+              }
+            ],
+            "title": "Cisco 8000 LPM TCAM hardware usage",
+            "type": "timeseries"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [],
+                "max": 100,
+                "min": 0,
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "percent"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 9,
+              "w": 8,
+              "x": 0,
+              "y": 40
+            },
+            "id": 8,
+            "options": {
+              "orientation": "auto",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": false,
+              "showThresholdMarkers": true,
+              "text": {}
+            },
+            "pluginVersion": "9.4.3",
+            "targets": [
+              {
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH' AND \"node_name\" = '0/RP0/CPU0' AND \"resource\" = 'lpm-tcam' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_name\" = 'lpm_tcam') AND $timeFilter",
+                "rawQuery": true,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "npu_hwr/bank/counter/inuse_entries"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8812-1"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/1/CPU0"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "resource",
+                    "operator": "=",
+                    "value": "lpm-tcam"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "npu_hwr/npu_id",
+                    "operator": "=",
+                    "value": "0"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "npu_hwr/bank/bank_name",
+                    "operator": "=",
+                    "value": "lpm_tcam"
+                  }
+                ]
+              }
+            ],
+            "title": "8000 LPM TCAM resources utilization",
+            "type": "gauge"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [],
+                "max": 3240230,
+                "min": 0,
+                "thresholds": {
+                  "mode": "percentage",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "entries"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 9,
+              "w": 8,
+              "x": 8,
+              "y": 40
+            },
+            "id": 12,
+            "options": {
+              "orientation": "auto",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": false,
+              "showThresholdMarkers": true,
+              "text": {}
+            },
+            "pluginVersion": "9.4.3",
+            "targets": [
+              {
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "$interval"
+                    ],
+                    "type": "time"
+                  },
+                  {
+                    "params": [
+                      "null"
+                    ],
+                    "type": "fill"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "query": "SELECT last(\"npu_hwr/bank/counter/inuse_entries\") FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH' AND \"node_name\" = '0/RP0/CPU0' AND \"npu_hwr/bank/bank_name\" = 'v4_lpm') AND $timeFilter GROUP BY time($interval) fill(null)",
+                "rawQuery": true,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "npu_hwr/bank/counter/inuse_entries"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [],
+                      "type": "last"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8812-1"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/1/CPU0"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "npu_hwr/bank/bank_name",
+                    "operator": "=",
+                    "value": "v4_lpm"
+                  }
+                ]
+              }
+            ],
+            "title": "8000 v4LPM TCAM resources utilization",
+            "type": "gauge"
+          },
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "thresholds"
+                },
+                "mappings": [],
+                "max": 1854994,
+                "min": 0,
+                "thresholds": {
+                  "mode": "percentage",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                },
+                "unit": "entries"
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 9,
+              "w": 8,
+              "x": 16,
+              "y": 40
+            },
+            "id": 14,
+            "options": {
+              "orientation": "auto",
+              "reduceOptions": {
+                "calcs": [
+                  "lastNotNull"
+                ],
+                "fields": "",
+                "values": false
+              },
+              "showThresholdLabels": false,
+              "showThresholdMarkers": true,
+              "text": {}
+            },
+            "pluginVersion": "9.4.3",
+            "targets": [
+              {
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [
+                  {
+                    "params": [
+                      "$__interval"
+                    ],
+                    "type": "time"
+                  },
+                  {
+                    "params": [
+                      "null"
+                    ],
+                    "type": "fill"
+                  }
+                ],
+                "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "query": "SELECT last(\"npu_hwr/bank/counter/inuse_entries\") FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH' AND \"npu_hwr/bank/bank_name\" = 'v6_lpm' AND \"node_name\" = '0/RP0/CPU0') AND $timeFilter GROUP BY time($__interval) fill(null)",
+                "rawQuery": true,
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "npu_hwr/bank/counter/inuse_entries"
+                      ],
+                      "type": "field"
+                    },
+                    {
+                      "params": [],
+                      "type": "last"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8812-1"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "npu_hwr/bank/bank_name",
+                    "operator": "=",
+                    "value": "v6_lpm"
+                  },
+                  {
+                    "condition": "AND",
+                    "key": "node_name",
+                    "operator": "=",
+                    "value": "0/1/CPU0"
+                  }
+                ]
+              }
+            ],
+            "title": "8000 v6LPM TCAM resources utilization",
+            "type": "gauge"
+          }
+        ],
+        "title": "LPM Resources",
+        "type": "row"
+      },
+      {
+        "collapsed": true,
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 18
+        },
+        "id": 4,
+        "panels": [
+          {
+            "datasource": {
+              "type": "influxdb",
+              "uid": "fdhjqjbpjez28a"
+            },
+            "fieldConfig": {
+              "defaults": {
+                "color": {
+                  "mode": "palette-classic"
+                },
+                "custom": {
+                  "axisCenteredZero": false,
+                  "axisColorMode": "text",
+                  "axisLabel": "",
+                  "axisPlacement": "auto",
+                  "barAlignment": 0,
+                  "drawStyle": "line",
+                  "fillOpacity": 0,
+                  "gradientMode": "none",
+                  "hideFrom": {
+                    "legend": false,
+                    "tooltip": false,
+                    "viz": false
+                  },
+                  "lineInterpolation": "linear",
+                  "lineWidth": 1,
+                  "pointSize": 5,
+                  "scaleDistribution": {
+                    "type": "linear"
+                  },
+                  "showPoints": "auto",
+                  "spanNulls": false,
+                  "stacking": {
+                    "group": "A",
+                    "mode": "none"
+                  },
+                  "thresholdsStyle": {
+                    "mode": "off"
+                  }
+                },
+                "mappings": [],
+                "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green"
+                    },
+                    {
+                      "color": "red",
+                      "value": 80
+                    }
+                  ]
+                }
+              },
+              "overrides": []
+            },
+            "gridPos": {
+              "h": 10,
+              "w": 24,
+              "x": 0,
+              "y": 32
+            },
+            "id": 2,
+            "options": {
+              "legend": {
+                "calcs": [],
+                "displayMode": "list",
+                "placement": "bottom",
+                "showLegend": true
+              },
+              "tooltip": {
+                "mode": "single",
+                "sort": "none"
+              }
+            },
+            "targets": [
+              {
+                "alias": "IPv4 ROA networks",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "measurement": "Cisco-IOS-XR-ipv4-bgp-oper:bgp/instances/instance/instance-active/rpki-summary",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "A",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "ipv4roa_nets"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  }
+                ]
+              },
+              {
+                "alias": "IPv4 ROA paths",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ipv4-bgp-oper:bgp/instances/instance/instance-active/rpki-summary",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "B",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "ipv4roa_paths"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  }
+                ]
+              },
+              {
+                "alias": "IPv6 ROA networks",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ipv4-bgp-oper:bgp/instances/instance/instance-active/rpki-summary",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "C",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "ipv6roa_nets"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  }
+                ]
+              },
+              {
+                "alias": "IPv6 ROA paths",
+                "datasource": {
+                  "type": "influxdb",
+                  "uid": "fdhjqjbpjez28a"
+                },
+                "groupBy": [],
+                "hide": false,
+                "measurement": "Cisco-IOS-XR-ipv4-bgp-oper:bgp/instances/instance/instance-active/rpki-summary",
+                "orderByTime": "ASC",
+                "policy": "default",
+                "refId": "D",
+                "resultFormat": "time_series",
+                "select": [
+                  [
+                    {
+                      "params": [
+                        "ipv6roa_paths"
+                      ],
+                      "type": "field"
+                    }
+                  ]
+                ],
+                "tags": [
+                  {
+                    "key": "source",
+                    "operator": "=",
+                    "value": "8201-32FH"
+                  }
+                ]
+              }
+            ],
+            "title": "RPKI Telemetry",
+            "type": "timeseries"
+          }
+        ],
+        "title": "RPKI",
+        "type": "row"
+      }
+    ],
+    "refresh": false,
+    "revision": 1,
+    "schemaVersion": 38,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "2023-11-30T23:00:00.000Z",
+      "to": "2023-12-22T22:59:59.000Z"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "8000 Peering Telemetry Dashboard",
+    "uid": "X78qudNSz",
+    "version": 49,
+    "weekStart": ""
+  }
