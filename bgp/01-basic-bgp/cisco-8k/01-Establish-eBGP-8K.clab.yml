@@ -3,8 +3,9 @@ name: eBGP-C8K
 # This lab demonstrate a simple BGP topology between 2 routers
 
 mgmt:
-  network: ccie_mgmt
+  network: clab-management-network
   ipv4-subnet: 172.20.20.0/24
+  ipv4-gw: 172.20.20.254
 
 topology:
   nodes:
@@ -24,12 +25,12 @@ topology:
 
     Cisco8201-1:
       kind: cisco_c8000
-      image: 8201-32fh_214:7.10.1
+      image: vpackets/cisco-8201-32fh:24.4.1 
       mgmt-ipv4: 172.20.20.1
 
     Cisco8201-2: 
       kind: cisco_c8000
-      image: 8201-32fh_214:7.10.1
+      image: vpackets/cisco-8201-32fh:24.4.1
       mgmt-ipv4: 172.20.20.2
 
   links:
