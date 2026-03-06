@@ -1,0 +1,105 @@
+{
+  "name": "sonic",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-e82584eedcae",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "2001:172:20:20::/64",
+        "ipv6-gw": "2001:172:20:20::1",
+        "mtu": "1500",
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "r1": {
+      "index": "0",
+      "shortname": "r1",
+      "longname": "clab-sonic-r1",
+      "fqdn": "r1.sonic.io",
+      "group": "",
+      "labdir": "/home/brmcdoug/vxr8000-containerlab/c8000-SONiC/clab-sonic/r1",
+      "kind": "linux",
+      "image": "c8000-clab-sonic:19",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-e82584eedcae",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/brmcdoug/vxr8000-containerlab/c8000-SONiC/clab-sonic/r1",
+        "clab-node-name": "r1",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/brmcdoug/vxr8000-containerlab/c8000-SONiC/example.yml",
+        "containerlab": "sonic"
+      }
+    },
+    "r2": {
+      "index": "1",
+      "shortname": "r2",
+      "longname": "clab-sonic-r2",
+      "fqdn": "r2.sonic.io",
+      "group": "",
+      "labdir": "/home/brmcdoug/vxr8000-containerlab/c8000-SONiC/clab-sonic/r2",
+      "kind": "linux",
+      "image": "c8000-clab-sonic:19",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-e82584eedcae",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/brmcdoug/vxr8000-containerlab/c8000-SONiC/clab-sonic/r2",
+        "clab-node-name": "r2",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/brmcdoug/vxr8000-containerlab/c8000-SONiC/example.yml",
+        "containerlab": "sonic"
+      }
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "r1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:08:fe:6f",
+        "peer": "z"
+      },
+      "z": {
+        "node": "r2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:06:02:dc",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "r1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:77:40:59",
+        "peer": "z"
+      },
+      "z": {
+        "node": "r2",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:64:c3:ed",
+        "peer": "a"
+      }
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "name": "c8201-sonic-3-node",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "fixedips",
+        "bridge": "br-e4c8beecee49",
+        "ipv4-subnet": "172.100.100.0/24",
+        "ipv4-gw": "172.100.100.1",
+        "ipv6-subnet": "2001:172:100:100::/80",
+        "ipv6-gw": "2001:172:100:100::1",
+        "mtu": "1500",
+        "external-access": true
+      }
+    }
+  },
+  "nodes": {
+    "br1": {
+      "index": "0",
+      "shortname": "br1",
+      "longname": "clab-c8201-sonic-3-node-br1",
+      "fqdn": "br1.c8201-sonic-3-node.io",
+      "group": "",
+      "labdir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/br1",
+      "kind": "bridge",
+      "image": "",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-e4c8beecee49",
+        "clab-node-group": "",
+        "clab-node-kind": "bridge",
+        "clab-node-lab-dir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/br1",
+        "clab-node-name": "br1",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/brmcdoug/containerlab/sonic/3-node-build27.yaml",
+        "containerlab": "c8201-sonic-3-node"
+      }
+    },
+    "br2": {
+      "index": "1",
+      "shortname": "br2",
+      "longname": "clab-c8201-sonic-3-node-br2",
+      "fqdn": "br2.c8201-sonic-3-node.io",
+      "group": "",
+      "labdir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/br2",
+      "kind": "bridge",
+      "image": "",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-e4c8beecee49",
+        "clab-node-group": "",
+        "clab-node-kind": "bridge",
+        "clab-node-lab-dir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/br2",
+        "clab-node-name": "br2",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/brmcdoug/containerlab/sonic/3-node-build27.yaml",
+        "containerlab": "c8201-sonic-3-node"
+      }
+    },
+    "br3": {
+      "index": "2",
+      "shortname": "br3",
+      "longname": "clab-c8201-sonic-3-node-br3",
+      "fqdn": "br3.c8201-sonic-3-node.io",
+      "group": "",
+      "labdir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/br3",
+      "kind": "bridge",
+      "image": "",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "",
+      "mgmt-ipv4-prefix-length": 0,
+      "mgmt-ipv6-address": "",
+      "mgmt-ipv6-prefix-length": 0,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-e4c8beecee49",
+        "clab-node-group": "",
+        "clab-node-kind": "bridge",
+        "clab-node-lab-dir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/br3",
+        "clab-node-name": "br3",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/brmcdoug/containerlab/sonic/3-node-build27.yaml",
+        "containerlab": "c8201-sonic-3-node"
+      }
+    },
+    "r1": {
+      "index": "3",
+      "shortname": "r1",
+      "longname": "clab-c8201-sonic-3-node-r1",
+      "fqdn": "r1.c8201-sonic-3-node.io",
+      "group": "",
+      "labdir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/r1",
+      "kind": "linux",
+      "image": "c8000-clab-sonic:27",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.100.100.21",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:100:100::1021",
+      "mgmt-ipv6-prefix-length": 80,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-e4c8beecee49",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/r1",
+        "clab-node-name": "r1",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/brmcdoug/containerlab/sonic/3-node-build27.yaml",
+        "containerlab": "c8201-sonic-3-node"
+      }
+    },
+    "r2": {
+      "index": "4",
+      "shortname": "r2",
+      "longname": "clab-c8201-sonic-3-node-r2",
+      "fqdn": "r2.c8201-sonic-3-node.io",
+      "group": "",
+      "labdir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/r2",
+      "kind": "linux",
+      "image": "c8000-clab-sonic:27",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.100.100.22",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:100:100::1022",
+      "mgmt-ipv6-prefix-length": 80,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-e4c8beecee49",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/r2",
+        "clab-node-name": "r2",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/brmcdoug/containerlab/sonic/3-node-build27.yaml",
+        "containerlab": "c8201-sonic-3-node"
+      }
+    },
+    "r3": {
+      "index": "5",
+      "shortname": "r3",
+      "longname": "clab-c8201-sonic-3-node-r3",
+      "fqdn": "r3.c8201-sonic-3-node.io",
+      "group": "",
+      "labdir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/r3",
+      "kind": "linux",
+      "image": "c8000-clab-sonic:27",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.100.100.23",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "2001:172:100:100::1023",
+      "mgmt-ipv6-prefix-length": 80,
+      "mac-address": "",
+      "labels": {
+        "clab-mgmt-net-bridge": "br-e4c8beecee49",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/brmcdoug/containerlab/sonic/clab-c8201-sonic-3-node/r3",
+        "clab-node-name": "r3",
+        "clab-node-type": "",
+        "clab-topo-file": "/home/brmcdoug/containerlab/sonic/3-node-build27.yaml",
+        "containerlab": "c8201-sonic-3-node"
+      }
+    }
+  },
+  "links": [
+    {
+      "a": {
+        "node": "r1",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:1f:5d:50",
+        "peer": "z"
+      },
+      "z": {
+        "node": "br1",
+        "interface": "r1eth1",
+        "mac": "aa:c1:ab:29:64:5c",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "r2",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:7f:bf:5c",
+        "peer": "z"
+      },
+      "z": {
+        "node": "br1",
+        "interface": "r2eth1",
+        "mac": "aa:c1:ab:9d:a8:b7",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "r1",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:cc:65:05",
+        "peer": "z"
+      },
+      "z": {
+        "node": "br2",
+        "interface": "r1eth2",
+        "mac": "aa:c1:ab:64:57:be",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "r3",
+        "interface": "eth1",
+        "mac": "aa:c1:ab:52:2d:81",
+        "peer": "z"
+      },
+      "z": {
+        "node": "br2",
+        "interface": "r3eth1",
+        "mac": "aa:c1:ab:16:76:95",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "r2",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:1a:3a:a8",
+        "peer": "z"
+      },
+      "z": {
+        "node": "br3",
+        "interface": "r2eth2",
+        "mac": "aa:c1:ab:39:b4:d3",
+        "peer": "a"
+      }
+    },
+    {
+      "a": {
+        "node": "r3",
+        "interface": "eth2",
+        "mac": "aa:c1:ab:b6:c9:6b",
+        "peer": "z"
+      },
+      "z": {
+        "node": "br3",
+        "interface": "r3eth2",
+        "mac": "aa:c1:ab:31:2c:b2",
+        "peer": "a"
+      }
+    }
+  ]
+}
