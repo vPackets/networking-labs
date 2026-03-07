@@ -1,0 +1,15 @@
+name: test-xrd
+
+mgmt:
+  network: ccie_mgmt
+  ipv4-subnet: 172.20.20.0/24
+
+topology:
+  kinds:
+    cisco_xrd:
+      image: vpackets/cisco-xrd-control-plane:24.4.1
+
+  nodes:
+    R1-TEST: 
+      kind: cisco_xrd
+      mgmt-ipv4: 172.20.20.1
