@@ -1,0 +1,73 @@
+name: ccie-full-scale-te
+
+mgmt:
+  network: ccie_mgmt
+  ipv4-subnet: 172.20.20.0/24
+
+topology:
+  kinds:
+    cisco_xrd:
+      image: vpackets/cisco-xrd-control-plane:24.4.1
+    linux:
+      image: vpackets/net-tools:latest
+
+  nodes:
+    RR1: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.21, startup-config: configs/RR1.cfg }
+    RR2: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.22, startup-config: configs/RR2.cfg }
+    P1: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.1, startup-config: configs/P1.cfg }
+    P2: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.2, startup-config: configs/P2.cfg }
+    P3: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.3, startup-config: configs/P3.cfg }
+    P4: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.4, startup-config: configs/P4.cfg }
+    P5: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.5, startup-config: configs/P5.cfg }
+    P6: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.6, startup-config: configs/P6.cfg }
+    PE1: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.11, startup-config: configs/PE1.cfg }
+    PE2: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.12, startup-config: configs/PE2.cfg }
+    PE3: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.13, startup-config: configs/PE3.cfg }
+    PE4: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.14, startup-config: configs/PE4.cfg }
+    
+    CE1: 
+      kind: linux
+      mgmt-ipv4: 172.20.20.100
+      exec:
+        - ip addr add 192.0.2.100/24 dev eth1
+        - ip route add 10.0.0.0/8 via 192.0.2.11
+    CE2: 
+      kind: linux
+      mgmt-ipv4: 172.20.20.101
+      exec:
+        - ip addr add 198.51.100.100/24 dev eth1
+        - ip route add 10.0.0.0/8 via 198.51.100.12
+    CE3: 
+      kind: linux
+      mgmt-ipv4: 172.20.20.102
+      exec:
+        - ip addr add 203.0.113.100/24 dev eth1
+        - ip route add 10.0.0.0/8 via 203.0.113.13
+    CE4: 
+      kind: linux
+      mgmt-ipv4: 172.20.20.103
+      exec:
+        - ip addr add 198.18.1.100/24 dev eth1
+        - ip route add 10.0.0.0/8 via 198.18.1.14
+
+  links:
+    - endpoints: ["RR1:Gi0-0-0-0", "P1:Gi0-0-0-0"]
+    - endpoints: ["RR2:Gi0-0-0-0", "P6:Gi0-0-0-0"]
+    - endpoints: ["PE1:Gi0-0-0-0", "P1:Gi0-0-0-1"]
+    - endpoints: ["PE1:Gi0-0-0-1", "P3:Gi0-0-0-0"]
+    - endpoints: ["PE2:Gi0-0-0-0", "P1:Gi0-0-0-2"]
+    - endpoints: ["PE2:Gi0-0-0-1", "P2:Gi0-0-0-0"]
+    - endpoints: ["PE3:Gi0-0-0-0", "P6:Gi0-0-0-1"]
+    - endpoints: ["PE3:Gi0-0-0-1", "P4:Gi0-0-0-0"]
+    - endpoints: ["PE4:Gi0-0-0-0", "P6:Gi0-0-0-2"]
+    - endpoints: ["PE4:Gi0-0-0-1", "P5:Gi0-0-0-0"]
+    - endpoints: ["P3:Gi0-0-0-1", "P4:Gi0-0-0-1"]
+    - endpoints: ["P2:Gi0-0-0-1", "P5:Gi0-0-0-1"]
+    - endpoints: ["P1:Gi0-0-0-3", "P2:Gi0-0-0-2"]
+    - endpoints: ["P3:Gi0-0-0-2", "P2:Gi0-0-0-3"]
+    - endpoints: ["P4:Gi0-0-0-2", "P5:Gi0-0-0-2"]
+    - endpoints: ["P6:Gi0-0-0-3", "P5:Gi0-0-0-3"]
+    - endpoints: ["CE1:eth1", "PE1:Gi0-0-0-2"]
+    - endpoints: ["CE2:eth1", "PE2:Gi0-0-0-2"]
+    - endpoints: ["CE3:eth1", "PE3:Gi0-0-0-2"]
+    - endpoints: ["CE4:eth1", "PE4:Gi0-0-0-2"]
