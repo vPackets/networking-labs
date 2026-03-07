@@ -11,6 +11,12 @@ topology:
       image: vpackets/cisco-xrd-control-plane:24.4.1
 
   nodes:
-    R1-TEST: 
+    xrd01: 
       kind: cisco_xrd
-      mgmt-ipv4: 172.20.20.1
+      mgmt-ipv4: 172.20.20.10
+    xrd02: 
+      kind: cisco_xrd
+      mgmt-ipv4: 172.20.20.11
+
+  links:
+    - endpoints: ["xrd01:Gi0-0-0-1", "xrd02:Gi0-0-0-0"]
