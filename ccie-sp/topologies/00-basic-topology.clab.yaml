@@ -1,0 +1,72 @@
+name: ccie-fundamentals-te
+
+mgmt:
+  network: ccie_mgmt
+  ipv4-subnet: 172.20.20.0/24
+
+topology:
+  kinds:
+    cisco_xrd:
+      image: vpackets/cisco-xrd-control-plane:24.4.1
+    linux:
+      image: vpackets/net-tools:latest
+
+  nodes:
+    PE1:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.11,
+        startup-config: configs/PE1.cfg,
+      }
+    PE2:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.12,
+        startup-config: configs/PE2.cfg,
+      }
+    R3-P:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.3,
+        startup-config: configs/R3-P.cfg,
+      }
+    R4-P:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.4,
+        startup-config: configs/R4-P.cfg,
+      }
+    R5-P:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.5,
+        startup-config: configs/R5-P.cfg,
+      }
+    R6-P:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.6,
+        startup-config: configs/R6-P.cfg,
+      }
+    CE1:
+      kind: linux
+      mgmt-ipv4: 172.20.20.100
+      exec:
+        - ip addr add 192.0.2.100/24 dev eth1
+        - ip route add 10.0.0.0/8 via 192.0.2.11
+    CE2:
+      kind: linux
+      mgmt-ipv4: 172.20.20.101
+      exec:
+        - ip addr add 203.0.113.100/24 dev eth1
+        - ip route add 10.0.0.0/8 via 203.0.113.12
+
+  links:
+    - endpoints: ["PE1:Gi0-0-0-0", "R3-P:Gi0-0-0-0"]
+    - endpoints: ["R3-P:Gi0-0-0-1", "PE2:Gi0-0-0-0"]
+    - endpoints: ["PE1:Gi0-0-0-1", "R4-P:Gi0-0-0-0"]
+    - endpoints: ["R4-P:Gi0-0-0-1", "R5-P:Gi0-0-0-0"]
+    - endpoints: ["R5-P:Gi0-0-0-1", "R6-P:Gi0-0-0-0"]
+    - endpoints: ["R6-P:Gi0-0-0-1", "PE2:Gi0-0-0-1"]
+    - endpoints: ["CE1:eth1", "PE1:Gi0-0-0-2"]
+    - endpoints: ["CE2:eth1", "PE2:Gi0-0-0-2"]

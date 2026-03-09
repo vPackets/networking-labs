@@ -185,7 +185,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="L_RR1_B" connectable="0" parent="e_RR1_P1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=64;labelBackgroundColor=#2A2A2A;fontColor=#FFFFFF;fontSize=9;" value="Gi0/0/0/2&#xa;.1" vertex="1">
+        <mxCell id="L_RR1_B" connectable="0" parent="e_RR1_P1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=64;labelBackgroundColor=#2A2A2A;fontColor=#FFFFFF;fontSize=9;" value="Gi0/0/0/0&#xa;.1" vertex="1">
           <mxGeometry relative="1" x="0.65" y="-14" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
