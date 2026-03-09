@@ -66,17 +66,30 @@ topology:
 
     # --- Customer Edge ---
     CE1:
-      kind: linux
-      mgmt-ipv4: 172.20.20.100
-      exec:
-        - ip addr add 192.0.2.100/24 dev eth1
-        - ip route add 10.0.0.0/8 via 192.0.2.11
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.100,
+        startup-config: ../configs/inter-as/CE1.cfg,
+      }
     CE2:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.101,
+        startup-config: ../configs/inter-as/CE2.cfg,
+      }
+
+    host-CE1:
       kind: linux
-      mgmt-ipv4: 172.20.20.101
+      mgmt-ipv4: 172.20.20.200
       exec:
-        - ip addr add 198.51.100.100/24 dev eth1
-        - ip route add 10.0.0.0/8 via 198.51.100.12
+        - ip addr add 192.0.2.100/24 dev en1
+        - ip route add 10.0.0.0/8 via 192.0.2.1
+    host-CE2:
+      kind: linux
+      mgmt-ipv4: 172.20.20.201
+      exec:
+        - ip addr add 198.51.100.100/24 dev en1
+        - ip route add 10.0.0.0/8 via 198.51.100.1
 
   links:
     # AS 100 Links
@@ -93,5 +106,7 @@ topology:
     - endpoints: ["RR2:Gi0-0-0-0", "P2:Gi0-0-0-2"]
 
     # CE Links
-    - endpoints: ["CE1:eth1", "PE1:Gi0-0-0-2"]
-    - endpoints: ["PE2:Gi0-0-0-2", "CE2:eth1"]
+    - endpoints: ["CE1:Gi0-0-0-0", "PE1:Gi0-0-0-2"]
+    - endpoints: ["PE2:Gi0-0-0-2", "CE2:Gi0-0-0-0"]
+    - endpoints: ["host-CE1:en1", "CE1:Gi0-0-0-1"]
+    - endpoints: ["host-CE2:en1", "CE2:Gi0-0-0-1"]

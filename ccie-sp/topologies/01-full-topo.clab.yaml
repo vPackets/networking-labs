@@ -12,43 +12,128 @@ topology:
       image: vpackets/net-tools:latest
 
   nodes:
-    RR1: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.21, startup-config: ../configs/full-topo/RR1.cfg }
-    RR2: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.22, startup-config: ../configs/full-topo/RR2.cfg }
-    P1: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.1, startup-config: ../configs/full-topo/P1.cfg }
-    P2: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.2, startup-config: ../configs/full-topo/P2.cfg }
-    P3: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.3, startup-config: ../configs/full-topo/P3.cfg }
-    P4: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.4, startup-config: ../configs/full-topo/P4.cfg }
-    P5: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.5, startup-config: ../configs/full-topo/P5.cfg }
-    P6: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.6, startup-config: ../configs/full-topo/P6.cfg }
-    PE1: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.11, startup-config: ../configs/full-topo/PE1.cfg }
-    PE2: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.12, startup-config: ../configs/full-topo/PE2.cfg }
-    PE3: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.13, startup-config: ../configs/full-topo/PE3.cfg }
-    PE4: { kind: cisco_xrd, mgmt-ipv4: 172.20.20.14, startup-config: ../configs/full-topo/PE4.cfg }
-    
-    CE1: 
+    RR1:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.21,
+        startup-config: ../configs/full-topo/RR1.cfg,
+      }
+    RR2:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.22,
+        startup-config: ../configs/full-topo/RR2.cfg,
+      }
+    P1:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.1,
+        startup-config: ../configs/full-topo/P1.cfg,
+      }
+    P2:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.2,
+        startup-config: ../configs/full-topo/P2.cfg,
+      }
+    P3:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.3,
+        startup-config: ../configs/full-topo/P3.cfg,
+      }
+    P4:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.4,
+        startup-config: ../configs/full-topo/P4.cfg,
+      }
+    P5:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.5,
+        startup-config: ../configs/full-topo/P5.cfg,
+      }
+    P6:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.6,
+        startup-config: ../configs/full-topo/P6.cfg,
+      }
+    PE1:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.11,
+        startup-config: ../configs/full-topo/PE1.cfg,
+      }
+    PE2:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.12,
+        startup-config: ../configs/full-topo/PE2.cfg,
+      }
+    PE3:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.13,
+        startup-config: ../configs/full-topo/PE3.cfg,
+      }
+    PE4:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.14,
+        startup-config: ../configs/full-topo/PE4.cfg,
+      }
+
+    CE1:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.100,
+        startup-config: ../configs/full-topo/CE1.cfg,
+      }
+    CE2:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.101,
+        startup-config: ../configs/full-topo/CE2.cfg,
+      }
+    CE3:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.102,
+        startup-config: ../configs/full-topo/CE3.cfg,
+      }
+    CE4:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.103,
+        startup-config: ../configs/full-topo/CE4.cfg,
+      }
+
+    host-CE1:
       kind: linux
-      mgmt-ipv4: 172.20.20.100
+      mgmt-ipv4: 172.20.20.200
       exec:
-        - ip addr add 192.0.2.100/24 dev eth1
-        - ip route add 10.0.0.0/8 via 192.0.2.11
-    CE2: 
+        - ip addr add 192.0.2.100/24 dev en1
+        - ip route add 10.0.0.0/8 via 192.0.2.1
+    host-CE2:
       kind: linux
-      mgmt-ipv4: 172.20.20.101
+      mgmt-ipv4: 172.20.20.201
       exec:
-        - ip addr add 198.51.100.100/24 dev eth1
-        - ip route add 10.0.0.0/8 via 198.51.100.12
-    CE3: 
+        - ip addr add 198.51.100.100/24 dev en1
+        - ip route add 10.0.0.0/8 via 198.51.100.1
+    host-CE3:
       kind: linux
-      mgmt-ipv4: 172.20.20.102
+      mgmt-ipv4: 172.20.20.202
       exec:
-        - ip addr add 203.0.113.100/24 dev eth1
-        - ip route add 10.0.0.0/8 via 203.0.113.13
-    CE4: 
+        - ip addr add 203.0.113.100/24 dev en1
+        - ip route add 10.0.0.0/8 via 203.0.113.1
+    host-CE4:
       kind: linux
-      mgmt-ipv4: 172.20.20.103
+      mgmt-ipv4: 172.20.20.203
       exec:
-        - ip addr add 198.18.1.100/24 dev eth1
-        - ip route add 10.0.0.0/8 via 198.18.1.14
+        - ip addr add 198.18.1.100/24 dev en1
+        - ip route add 10.0.0.0/8 via 198.18.1.1
 
   links:
     - endpoints: ["RR1:Gi0-0-0-0", "P1:Gi0-0-0-0"]
@@ -67,7 +152,11 @@ topology:
     - endpoints: ["P3:Gi0-0-0-2", "P2:Gi0-0-0-3"]
     - endpoints: ["P4:Gi0-0-0-2", "P5:Gi0-0-0-2"]
     - endpoints: ["P6:Gi0-0-0-3", "P5:Gi0-0-0-3"]
-    - endpoints: ["CE1:eth1", "PE1:Gi0-0-0-2"]
-    - endpoints: ["CE2:eth1", "PE2:Gi0-0-0-2"]
-    - endpoints: ["CE3:eth1", "PE3:Gi0-0-0-2"]
-    - endpoints: ["CE4:eth1", "PE4:Gi0-0-0-2"]
+    - endpoints: ["CE1:Gi0-0-0-0", "PE1:Gi0-0-0-2"]
+    - endpoints: ["CE2:Gi0-0-0-0", "PE2:Gi0-0-0-2"]
+    - endpoints: ["CE3:Gi0-0-0-0", "PE3:Gi0-0-0-2"]
+    - endpoints: ["CE4:Gi0-0-0-0", "PE4:Gi0-0-0-2"]
+    - endpoints: ["host-CE1:en1", "CE1:Gi0-0-0-1"]
+    - endpoints: ["host-CE2:en1", "CE2:Gi0-0-0-1"]
+    - endpoints: ["host-CE3:en1", "CE3:Gi0-0-0-1"]
+    - endpoints: ["host-CE4:en1", "CE4:Gi0-0-0-1"]
