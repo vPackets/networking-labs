@@ -16,37 +16,37 @@ topology:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.11,
-        startup-config: configs/PE1.cfg,
+        startup-config: ../configs/basic-topo/PE1.cfg,
       }
     PE2:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.12,
-        startup-config: configs/PE2.cfg,
+        startup-config: ../configs/basic-topo/PE2.cfg,
       }
     R3-P:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.3,
-        startup-config: configs/R3-P.cfg,
+        startup-config: ../configs/basic-topo/R3-P.cfg,
       }
     R4-P:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.4,
-        startup-config: configs/R4-P.cfg,
+        startup-config: ../configs/basic-topo/R4-P.cfg,
       }
     R5-P:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.5,
-        startup-config: configs/R5-P.cfg,
+        startup-config: ../configs/basic-topo/R5-P.cfg,
       }
     R6-P:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.6,
-        startup-config: configs/R6-P.cfg,
+        startup-config: ../configs/basic-topo/R6-P.cfg,
       }
     CE1:
       kind: linux

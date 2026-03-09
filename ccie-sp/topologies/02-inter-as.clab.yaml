@@ -17,25 +17,25 @@ topology:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.21,
-        startup-config: configs/RR1.cfg,
+        startup-config: ../configs/inter-as/RR1.cfg,
       }
     PE1:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.11,
-        startup-config: configs/PE1.cfg,
+        startup-config: ../configs/inter-as/PE1.cfg,
       }
     P1:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.1,
-        startup-config: configs/P1.cfg,
+        startup-config: ../configs/inter-as/P1.cfg,
       }
     ASBR1:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.31,
-        startup-config: configs/ASBR1.cfg,
+        startup-config: ../configs/inter-as/ASBR1.cfg,
       }
 
     # --- AS 200 ---
@@ -43,25 +43,25 @@ topology:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.22,
-        startup-config: configs/RR2.cfg,
+        startup-config: ../configs/inter-as/RR2.cfg,
       }
     PE2:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.12,
-        startup-config: configs/PE2.cfg,
+        startup-config: ../configs/inter-as/PE2.cfg,
       }
     P2:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.2,
-        startup-config: configs/P2.cfg,
+        startup-config: ../configs/inter-as/P2.cfg,
       }
     ASBR2:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.32,
-        startup-config: configs/ASBR2.cfg,
+        startup-config: ../configs/inter-as/ASBR2.cfg,
       }
 
     # --- Customer Edge ---
