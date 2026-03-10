@@ -8,10 +8,27 @@ topology:
   kinds:
     cisco_xrd:
       image: vpackets/cisco-xrd-control-plane:24.4.1
+    cisco_csr1000v:
+      image: vpackets/cisco-csr1000v:17.03.08
     linux:
       image: vpackets/net-tools:latest
 
   nodes:
+    # --- Route Reflectors ---
+    RR1:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.101,
+        startup-config: ../configs/basic-topo/RR1.cfg,
+      }
+    RR2:
+      {
+        kind: cisco_xrd,
+        mgmt-ipv4: 172.20.20.102,
+        startup-config: ../configs/basic-topo/RR2.cfg,
+      }
+
+    # --- Provider Edge ---
     PE1:
       {
         kind: cisco_xrd,
@@ -24,64 +41,76 @@ topology:
         mgmt-ipv4: 172.20.20.12,
         startup-config: ../configs/basic-topo/PE2.cfg,
       }
-    R3-P:
+
+    # --- Core P-Routers ---
+    P3:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.3,
-        startup-config: ../configs/basic-topo/R3-P.cfg,
+        startup-config: ../configs/basic-topo/P3.cfg,
       }
-    R4-P:
+    P4:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.4,
-        startup-config: ../configs/basic-topo/R4-P.cfg,
+        startup-config: ../configs/basic-topo/P4.cfg,
       }
-    R5-P:
+    P5:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.5,
-        startup-config: ../configs/basic-topo/R5-P.cfg,
+        startup-config: ../configs/basic-topo/P5.cfg,
       }
-    R6-P:
+    P6:
       {
         kind: cisco_xrd,
         mgmt-ipv4: 172.20.20.6,
-        startup-config: ../configs/basic-topo/R6-P.cfg,
+        startup-config: ../configs/basic-topo/P6.cfg,
       }
+
+    # --- Customer Edge (CSR1000v) ---
     CE1:
       {
-        kind: cisco_xrd,
-        mgmt-ipv4: 172.20.20.100,
+        kind: cisco_csr1000v,
+        mgmt-ipv4: 172.20.20.201,
         startup-config: ../configs/basic-topo/CE1.cfg,
       }
     CE2:
       {
-        kind: cisco_xrd,
-        mgmt-ipv4: 172.20.20.101,
+        kind: cisco_csr1000v,
+        mgmt-ipv4: 172.20.20.202,
         startup-config: ../configs/basic-topo/CE2.cfg,
       }
 
+    # --- Linux Hosts ---
     host-CE1:
       kind: linux
-      mgmt-ipv4: 172.20.20.200
+      mgmt-ipv4: 172.20.20.211
       exec:
-        - ip addr add 192.0.2.100/24 dev en1
-        - ip route add 10.0.0.0/8 via 192.0.2.1
+        - ip addr add 192.168.1.100/24 dev eth1
+        - ip route add 10.0.0.0/8 via 192.168.1.1
     host-CE2:
       kind: linux
-      mgmt-ipv4: 172.20.20.201
+      mgmt-ipv4: 172.20.20.212
       exec:
-        - ip addr add 203.0.113.100/24 dev en1
-        - ip route add 10.0.0.0/8 via 203.0.113.1
+        - ip addr add 192.168.2.100/24 dev eth1
+        - ip route add 10.0.0.0/8 via 192.168.2.1
 
   links:
-    - endpoints: ["PE1:Gi0-0-0-0", "R3-P:Gi0-0-0-0"]
-    - endpoints: ["R3-P:Gi0-0-0-1", "PE2:Gi0-0-0-0"]
-    - endpoints: ["PE1:Gi0-0-0-1", "R4-P:Gi0-0-0-0"]
-    - endpoints: ["R4-P:Gi0-0-0-1", "R5-P:Gi0-0-0-0"]
-    - endpoints: ["R5-P:Gi0-0-0-1", "R6-P:Gi0-0-0-0"]
-    - endpoints: ["R6-P:Gi0-0-0-1", "PE2:Gi0-0-0-1"]
-    - endpoints: ["CE1:Gi0-0-0-0", "PE1:Gi0-0-0-2"]
-    - endpoints: ["CE2:Gi0-0-0-0", "PE2:Gi0-0-0-2"]
-    - endpoints: ["host-CE1:en1", "CE1:Gi0-0-0-1"]
-    - endpoints: ["host-CE2:en1", "CE2:Gi0-0-0-1"]
+    # --- Backbone Links ---
+    - endpoints: ["PE1:Gi0-0-0-0", "P3:Gi0-0-0-0"]
+    - endpoints: ["P3:Gi0-0-0-1", "PE2:Gi0-0-0-0"]
+    - endpoints: ["PE1:Gi0-0-0-1", "P4:Gi0-0-0-0"]
+    - endpoints: ["P4:Gi0-0-0-1", "P5:Gi0-0-0-0"]
+    - endpoints: ["P5:Gi0-0-0-1", "P6:Gi0-0-0-0"]
+    - endpoints: ["P6:Gi0-0-0-1", "PE2:Gi0-0-0-1"]
+
+    # --- RR Links ---
+    - endpoints: ["RR1:Gi0-0-0-0", "P4:Gi0-0-0-2"]
+    - endpoints: ["RR2:Gi0-0-0-0", "P6:Gi0-0-0-2"]
+
+    # --- Customer Edge Links (eth1 maps to Gi1, eth2 maps to Gi2) ---
+    - endpoints: ["CE1:eth1", "PE1:Gi0-0-0-2"]
+    - endpoints: ["CE2:eth1", "PE2:Gi0-0-0-2"]
+    - endpoints: ["host-CE1:eth1", "CE1:eth2"]
+    - endpoints: ["host-CE2:eth1", "CE2:eth2"]
