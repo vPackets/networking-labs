@@ -83,11 +83,14 @@ def parse_configs(nodes, base_dir):
                             iline = iline.strip()
                             if iline.startswith('ipv4 address ') or iline.startswith('ip address '):
                                 parts = iline.split()
-                                if len(parts) >= 4 and parts[2] != 'dhcp':
-                                    ip = parts[2]
-                                    mask = parts[3]
-                        if ip and mask:
-                            interfaces[node][intf_name] = {'ip': ip, 'mask': mask}
+                                if len(parts) >= 3 and parts[2] != 'dhcp':
+                                    if '/' in parts[2]:
+                                        ip, prefix = parts[2].split('/')
+                                        interfaces[node][intf_name] = {'ip': ip, 'prefix': int(prefix), 'mask': None}
+                                    elif len(parts) >= 4:
+                                        ip = parts[2]
+                                        mask = parts[3]
+                                        interfaces[node][intf_name] = {'ip': ip, 'mask': mask}
                 except FileNotFoundError:
                     # Ignore missing files gracefully
                     pass
@@ -95,7 +98,8 @@ def parse_configs(nodes, base_dir):
 
 def map_interface_name(clab_intf, kind):
     if kind == 'cisco_xrd':
-        return clab_intf.replace('Gi', 'GigabitEthernet')
+        # Convert Gi0-0-0-0 to GigabitEthernet0/0/0/0
+        return clab_intf.replace('Gi', 'GigabitEthernet').replace('-', '/')
     elif kind == 'cisco_csr1000v':
         m = re.match(r'eth(\d+)', clab_intf)
         if m:
