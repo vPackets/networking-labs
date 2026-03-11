@@ -1,7 +1,7 @@
-name: ccie-fundamentals-te
+name: basic-sp-topology
 
 mgmt:
-  network: ccie_mgmt
+  network: sp_topology_management
   ipv4-subnet: 172.20.20.0/24
 
 topology:
@@ -73,13 +73,13 @@ topology:
       {
         kind: cisco_csr1000v,
         mgmt-ipv4: 172.20.20.201,
-        #startup-config: ../configs/basic-topo/CE1.cfg,
+        startup-config: ../configs/basic-topo/CE1.cfg,
       }
     CE2:
       {
         kind: cisco_csr1000v,
         mgmt-ipv4: 172.20.20.202,
-        #startup-config: ../configs/basic-topo/CE2.cfg,
+        startup-config: ../configs/basic-topo/CE2.cfg,
       }
 
     # --- Linux Hosts ---
