@@ -73,13 +73,13 @@ topology:
       {
         kind: cisco_csr1000v,
         mgmt-ipv4: 172.20.20.201,
-        startup-config: ../configs/basic-topo/CE1.cfg,
+        #startup-config: ../configs/basic-topo/CE1.cfg,
       }
     CE2:
       {
         kind: cisco_csr1000v,
         mgmt-ipv4: 172.20.20.202,
-        startup-config: ../configs/basic-topo/CE2.cfg,
+        #startup-config: ../configs/basic-topo/CE2.cfg,
       }
 
     # --- Linux Hosts ---
@@ -88,13 +88,13 @@ topology:
       mgmt-ipv4: 172.20.20.211
       exec:
         - ip addr add 192.168.1.100/24 dev eth1
-        - ip route add 10.0.0.0/8 via 192.168.1.1
+        - ip route add 192.168.0.0/16 via 192.168.1.1
     host-CE2:
       kind: linux
       mgmt-ipv4: 172.20.20.212
       exec:
         - ip addr add 192.168.2.100/24 dev eth1
-        - ip route add 10.0.0.0/8 via 192.168.2.1
+        - ip route add 192.168.0.0/16 via 192.168.2.1
 
   links:
     # --- Backbone Links ---
