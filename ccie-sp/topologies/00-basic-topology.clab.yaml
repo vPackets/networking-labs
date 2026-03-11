@@ -110,7 +110,9 @@ topology:
     - endpoints: ["RR2:Gi0-0-0-0", "P6:Gi0-0-0-2"]
 
     # --- Customer Edge Links (eth1 maps to Gi1, eth2 maps to Gi2) ---
-    - endpoints: ["CE1:eth1", "PE1:Gi0-0-0-2"]
-    - endpoints: ["CE2:eth1", "PE2:Gi0-0-0-2"]
-    - endpoints: ["host-CE1:eth1", "CE1:eth2"]
-    - endpoints: ["host-CE2:eth1", "CE2:eth2"]
+    # Note: https://containerlab.dev/manual/kinds/vr-csr/
+    - endpoints: ["host-CE1:eth1", "CE1:eth1"] #CSR1000v CE1 - Gi2
+    - endpoints: ["host-CE2:eth1", "CE2:eth1"] #CSR1000v CE1 - Gi2
+    - endpoints: ["CE1:eth2", "PE1:Gi0-0-0-2"] #CSR1000v CE1 - Gi3
+    - endpoints: ["CE2:eth2", "PE2:Gi0-0-0-2"] #CSR1000v CE2 - Gi3
+
