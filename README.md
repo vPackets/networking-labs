@@ -10,6 +10,7 @@ Welcome to **Networking Labs**, a comprehensive repository designed for networki
     - [BGP Labs](#bgp-labs)
     - [Service Provider Labs](#service-provider-labs)
   - [Getting Started](#getting-started)
+  - [Credentials](#credentials)
   - [Changelog](#changelog)
   - [To Do (Commited)](#to-do-commited)
   - [To Do (Draft and lab examples)](#to-do-draft-and-lab-examples)
@@ -43,7 +44,48 @@ To dive into these labs:
 
    ```bash
    git clone https://github.com/vPackets/networking-labs.git
+   ```
 
+## Credentials
+
+Below is a table outlining the credentials for the networking and Linux images used in these labs.
+
+| Image Name / Type | Username | Password |
+| --- | --- | --- |
+| Linux Host (Generic) | admin | cisco123 |
+| fnsys/dockhand | | |
+| ghcr.io/kaelemc/wireshark-vnc-docker | | |
+| ghcr.io/open-traffic-generator/ixia-c-one | | |
+| ghcr.io/siemens/ghostwire | | |
+| ghcr.io/siemens/packetflix | | |
+| quay.io/frrouting/frr | | |
+| vpackets/alpine-tools | | |
+| vpackets/alpine-tools-containerlab-isp-01 | | |
+| vpackets/alpine-tools-containerlab-isp-02 | | |
+| vpackets/arista-ceos | | |
+| vpackets/cisco-8000-sonic | | |
+| vpackets/cisco-8201-32fh | | |
+| vpackets/cisco-8212-48fh | | |
+| vpackets/cisco-8711-32fh | | |
+| vpackets/cisco-8711-32fh-m | | |
+| vpackets/cisco-8712-mod-mpa-16h | | |
+| vpackets/cisco-c8kv | | |
+| vpackets/cisco-csr1000v | | |
+| vpackets/cisco-n9kv | | |
+| vpackets/cisco-trex | | |
+| vpackets/cisco-xrd-control-plane (XRD) | cisco | cisco123 |
+| vpackets/cisco_cat8kv | | |
+| vpackets/cisco_cat9kv | | |
+| vpackets/cisco_xrv9k | | |
+| vpackets/cumulus | | |
+| vpackets/juniper-crpd | | |
+| vpackets/juniper-vmx | | |
+| vpackets/juniper_vjunosevolved | | |
+| vpackets/net-tools | | |
+| vpackets/sonic-cisco8000 | | |
+| vpackets/sonic-vs | | |
+| vpackets/ubuntu-22.04-frr | | |
+| vpackets/vr-vjunosrouter | | |
 
 ## Changelog 
 
